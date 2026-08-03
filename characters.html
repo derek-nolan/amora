@@ -11,11 +11,25 @@
   .char-card .aka { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--vellum-dim); margin-bottom: 10px; }
   .char-card .summary { font-size: .92rem; color: var(--vellum-dim); margin-bottom: 14px; }
   table.appear-table { width: 100%; border-collapse: collapse; font-size: .86rem; }
-  table.appear-table td, table.appear-table th { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px dotted var(--hairline); vertical-align: top; }
-  table.appear-table th { font-family: 'JetBrains Mono', monospace; font-size: .66rem; text-transform: uppercase; color: var(--vellum-dim); letter-spacing: .06em; }
-  table.appear-table td.camp { font-family: 'JetBrains Mono', monospace; font-size: .78rem; white-space: nowrap; }
-  table.appear-table td.camp a { color: var(--bronze); }
-  table.appear-table tr.tl-b td.camp a { color: var(--steel); }
+  table.appear-table td, table.appear-table th { text-align: left; padding: 8px 8px 8px 0; border-bottom: 1px dotted var(--hairline); vertical-align: top; }
+  table.appear-table th.stamp-head { visibility: hidden; }
+  table.appear-table td.camp { white-space: nowrap; width: 1%; }
+  table.appear-table td.camp a {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-decoration: none;
+    border: 1px solid var(--bronze);
+    color: var(--bronze);
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  table.appear-table td.camp a:hover { background: var(--bronze); color: var(--ink); }
+  table.appear-table tr.tl-b td.camp a { border-color: var(--steel); color: var(--steel); }
+  table.appear-table tr.tl-b td.camp a:hover { background: var(--steel); color: var(--ink); }
   .char-group h2 { text-transform: uppercase; letter-spacing: .08em; font-size: .95rem; color: var(--vellum-dim); border-bottom: 1px solid var(--hairline); padding-bottom: 8px; margin-top: 44px; }
   .char-row { display: grid; grid-template-columns: 1fr 2fr auto; gap: 14px; padding: 10px 0; border-bottom: 1px dotted var(--hairline); align-items: baseline; font-size: .92rem; }
   .char-row .name { color: var(--vellum); font-weight: 600; }
@@ -91,7 +105,7 @@
     certainty, and the bond between them tips out of balance. He foresees the imbalance
     building toward catastrophe well before the end, and Taren ignores every warning.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-i.html">I</a></td><td>Revives the lapsed Heartwardens as High Commander; the founding ritual with Taren creates their psychic bond and unknowingly seeds the Dark Filament.</td></tr>
       <tr><td class="camp"><a href="campaign-ii.html">II</a></td><td>Consort and Co-Regent to Taren's Veiled Emperor — in practice, an instrument of his will. Foresees the coming collapse and is ignored. Ends the Dominion by severing the Veil Core himself, killing them both.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Unmade by a third-layer force in the opening rupture — erased, not killed, before his story can begin. Timeline B's entire divergence starts here.</td></tr>
@@ -133,7 +147,7 @@
     ignores it — until the Menge Auroras signal a resurgence of Light that the Veil reacts
     to violently, and within months Zethyr ends it the only way left to him.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-i.html">I</a></td><td>Captain of the revived Heartwardens; the founding ritual with Zethyr creates their psychic bond.</td></tr>
       <tr><td class="camp"><a href="campaign-ii.html">II</a></td><td>Redefines Balance as control, becomes the Veiled Emperor at the head of the Dominion. Killed alongside Zethyr when the Veil Core is severed.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Unmade alongside Zethyr in the opening rupture — erased before either of their stories can begin.</td></tr>
@@ -163,7 +177,7 @@
     authority is absorbed almost immediately into Caen's sovereign command structure, with
     no one senior enough left to object.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-i.html">I</a></td><td>Grand Marshal of the Paladin Council; supervises the first Seal work.</td></tr>
       <tr><td class="camp"><a href="campaign-ii.html">II</a></td><td>Represents the old Council against the Dominion; executed as the Veilwardens replace the Heartwardens.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>High Paladin of Silver Bastion; founds the Order of Anchors after the rupture that unmakes Taren and Zethyr.</td></tr>
@@ -192,7 +206,7 @@
     and sealing the Vault of Tarenus — pausing the cycle rather than destroying it, and
     opening what history calls the Age of Equilibrium.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-iii.html">III</a></td><td>Forms the Echo Chain with Cael; severs it rather than let him rebuild an empire; writes the Final Chronicle and seals the Vault of Tarenus.</td></tr>
     </table>
   </div>
@@ -211,7 +225,7 @@
     person. Edrin's Severance ends it before it can go further; Cael vanishes at the
     Northern Gate the instant the Echo Chain breaks, his fate afterward unrecorded.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-iii.html">III</a></td><td>Paladin-echo of Taren bonded to Edrin; begins claiming to be Taren reborn; vanishes at the Northern Gate when the Echo Chain is severed.</td></tr>
     </table>
   </div>
@@ -231,7 +245,7 @@
     campaign's end, but the failure is softer than the Dominion's ever was, and later
     scholars credit Feran's counterweight for exactly that difference.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-iv.html">IV</a></td><td>Coren's human counterweight and guardian; helps keep the Confluence's power genuinely humane rather than letting it calcify unchecked.</td></tr>
     </table>
   </div>
@@ -252,7 +266,7 @@
     were. The Confluence he assembles outlives his own reign, becoming raw material later
     reformers and scholars draw on for generations.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-iv.html">IV</a></td><td>Rises as the Emperor Reforged; assembles the Confluence with Feran as his human counterweight; half-succeeds at ruling kindly.</td></tr>
     </table>
   </div>
@@ -273,7 +287,7 @@
     and later partners with Rhett Vale, becoming, in later record, a progenitor figure for
     the modern Wardens founded in Campaign IX.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-v.html">V</a></td><td>Descends into the Null Quarter with Taren; forges the Harmonised Longsword; helps sever the ley lines and end the Choir. Later partners with Rhett Vale.</td></tr>
     </table>
   </div>
@@ -292,7 +306,7 @@
     stasis beginning the moment it's done. What becomes of the reconstruction itself once
     the Choir falls isn't recorded.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-v.html">V</a></td><td>A manufactured Taren-shape assembled by the Choir; bonds with Jax Korran; forges the Harmonised Longsword that ends the Choir's reign.</td></tr>
     </table>
   </div>
@@ -315,7 +329,7 @@
     Equilibria, a stabilising philosophy later ages return to whenever institutions start
     drifting back toward command-based magic instead of consent-based magic.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-vi.html">VI</a></td><td>Rediscovers the Heart Shard; founds the doctrine that becomes the Collegium Equilibria.</td></tr>
     </table>
   </div>
@@ -336,7 +350,7 @@
     it openly from outside them. By his campaign's end, the Warden state has hardened into
     a rigid system that Sirian will later codify even further.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-vii.html">VII</a></td><td>Founds the Executor office; consolidates theocratic power at the Gate, setting up the Wardens' Theocracy.</td></tr>
     </table>
   </div>
@@ -356,7 +370,7 @@
     Codex outlives the theocracy that produced it by a wide margin, quoted by courts seeking
     legitimacy and tyrants seeking cover in equal measure long after Sirian is gone.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-viii.html">VIII</a></td><td>Writes the Gate Codex, believing clarity alone can restrain the theocracy's worst excesses.</td></tr>
     </table>
   </div>
@@ -377,7 +391,7 @@
     technocrats and reformers, and the machine age accelerates hard in their wake — laying
     the direct foundations for the cyberpunk eras that follow.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-ix.html">IX</a></td><td>Leads the expedition into the Ring of Amora; co-founds the modern Wardens afterward.</td></tr>
     </table>
   </div>
@@ -397,22 +411,8 @@
     anything, the fourth recorded Severance in the record and the first framed explicitly
     as a legal and constitutional act rather than a personal sacrifice.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-x.html">X</a></td><td>Leads the effort to dismantle destiny engines; performs the Severing, ending dynastic inevitability for good.</td></tr>
-    </table>
-  </div>
-
-  <div class="char-card">
-    <h3>Lior &amp; Iria</h3>
-    <div class="aka">Serik's Co-Rebels</div>
-    <p class="summary">Serik's closest civic allies through the Severing — co-rebels and
-    moral equals rather than followers, serving as both his personal leverage and his
-    reason for restraint whenever restraint is the harder choice. Their presence keeps
-    Serik's campaign from tipping into pure demolition; every destiny engine dismantled and
-    every constitution rewritten passes through their judgement as much as his.</p>
-    <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
-      <tr><td class="camp"><a href="campaign-x.html">X</a></td><td>Serik's co-rebels through the dismantling of the destiny engines and the Severing.</td></tr>
     </table>
   </div>
 
@@ -436,7 +436,7 @@
     fully human. He ends the campaign remembered as Clause Zero, the Breath Between Laws —
     not a myth stepping out of the world, but a mortal who chose to keep living in it.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xi.html">XI</a></td><td>Flees The Gate's collapse; forges Clause XI at Bastion Saren; destroys the null-relic; learns his Herald lineage; merges Clause Zero with the Twelve as the Breath Between Laws.</td></tr>
     </table>
   </div>
@@ -458,7 +458,7 @@
     rewriting reality so Cassian becomes Riven's husband even if he'd never remember it —
     is the clearest window into what actually holds the two of them together.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xi.html">XI</a></td><td>Riven's partner and conscience throughout; recovers from injury during the Republic's Shadow; remains Riven's anchor through the Bridge of Mercy's conclusion.</td></tr>
     </table>
   </div>
@@ -478,7 +478,7 @@
     is tested once Verrin's more pragmatic methods enter the picture, but she never fully
     breaks from either her order or her growing trust in Riven's group.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xi.html">XI</a></td><td>Co-authors Clause XI; guards it against abuse; co-anchors the Breath-Bridge ritual restoring mercy to the Breathing Law.</td></tr>
     </table>
   </div>
@@ -499,7 +499,7 @@
     the custodian of the Clause Zero record itself, the person history will actually check
     when it wants to know what really happened.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xi.html">XI</a></td><td>Documents Clause Zero throughout; marked with an echo-scar after the null-relic's destruction; becomes archivist of the Breath and custodian of the Clause Zero record.</td></tr>
     </table>
   </div>
@@ -520,7 +520,7 @@
     build-out protecting his new institutions; Jalen/Joren keeps him tied to an ordinary
     human life beyond councils and oaths; Cassius opens trade routes to Harn.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xii.html">XII</a></td><td>Founds Inheritance-Reclaimed and the Harmony Network; his harmonic code and uncertain intentions divide the Republic for a generation after.</td></tr>
     </table>
   </div>
@@ -534,7 +534,7 @@
     Constantly asking the one question builders of grand systems tend to avoid: who would
     be harmed by this lasting forever?</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xii.html">XII</a></td><td>Co-architects the Republic of Inheritance alongside Kael, tempering it with historical caution.</td></tr>
     </table>
   </div>
@@ -556,7 +556,7 @@
     them settled together at a forge north of the Menge Expanse, teaching that discipline
     isn't obedience and silence can be its own kind of freedom.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xiii.html">XIII</a></td><td>Becomes the Chain's Stabiliser Node; his empathy severs the Council's control while sparing the Chain itself; settles with Calen at a northern forge.</td></tr>
     </table>
   </div>
@@ -574,7 +574,7 @@
     service — discipline chosen, not imposed. He and Rian settle together north of the
     Menge Expanse in the campaign's quiet epilogue.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xiii.html">XIII</a></td><td>Protects Rian through the Resonance Interrogation; leads the operation that frees the Chain; founds a doctrine of voluntary service.</td></tr>
     </table>
   </div>
@@ -596,7 +596,7 @@
     perfecting dissolve into weather, and vanishes into the northern forests — remembered
     afterward as the Last Emperor.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xiv.html">XIV</a></td><td>Founds the Dominion on "stillness is mercy"; forges the Twin Chains; vanishes into the Northern Wilds when the Veil reclaims his empire.</td></tr>
     </table>
   </div>
@@ -615,7 +615,7 @@
     rising in the Dominion's place never again worship stillness the way Rhett's empire
     did. Remembered as the Witness Who Let It Move.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xiv.html">XIV</a></td><td>Rhett's Witness and Consort; his private "revelations" seed the Dominion's later rigidity; founds the Sanctum of Renewal after Rhett's fall.</td></tr>
     </table>
   </div>
@@ -635,7 +635,7 @@
     the harbor rail. Ends the campaign as "Voice Unbound," the model every later Concord
     consort role gets measured against.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xv.html">XV</a></td><td>Elevated as Civic Consort and the Voice; survives political pressure from the Kaust Directorate; becomes the model for Concord's consent architecture.</td></tr>
     </table>
   </div>
@@ -649,7 +649,7 @@
     to lifetime penitent service as Warden-Prime, a quiet ending for a figure who spent the
     whole campaign making visibility itself into the mechanism of trust.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xv.html">XV</a></td><td>Becomes Concord Regent alongside Dareth; steps down to lifetime penitent service as Warden-Prime.</td></tr>
     </table>
   </div>
@@ -667,7 +667,7 @@
     by practice rather than decree, publicly acknowledged as myth yet bounded firmly by
     appeal and public ledger.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xvi.html">XVI</a></td><td>Awakens Coren; becomes the corridor's Consort; extends Concord's consent architecture from Highever across the whole corridor and coast.</td></tr>
     </table>
   </div>
@@ -685,7 +685,7 @@
     own choice, to punctuation only — a raised finger marking a period, an open palm setting
     the pace — while Kaeso carries the corridor's actual rhythm.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xvi.html">XVI</a></td><td>Rules the corridor by habit rather than decree; baits and folds the Tracer Coalition; narrows his own role to punctuation as Kaeso becomes the corridor's true rhythm.</td></tr>
     </table>
   </div>
@@ -709,7 +709,7 @@
     vineyards, tending quiet — though the Gray Woman's mark on his wrist still burns
     whenever the law is broken back in Evermere.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xvii.html">XVII</a></td><td>Infiltrates and dismantles the Pale Ring; secretly executes the Widow; withdraws to the vineyards, enforcing Evermere's order from the shadows alongside Sorell.</td></tr>
     </table>
   </div>
@@ -728,7 +728,7 @@
     carries forward into Campaign XVIII as a mentor within the Collegium, a conflicted
     facilitator still working through what Evermere cost him.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xvii.html">XVII</a></td><td>Council officer and Lucen's lover; rules Evermere pragmatically after the Pale Ring's fall.</td></tr>
       <tr><td class="camp"><a href="campaign-xviii.html">XVIII</a></td><td>Carried forward as a mentor within the Collegium; a conflicted facilitator to Auren and Kael.</td></tr>
     </table>
@@ -750,7 +750,7 @@
     behind. Remembered afterward as one of the Red Glass Guardians, saints of balance
     through surrender.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xviii.html">XVIII</a></td><td>Forges the Mirror of Law with Kael; voluntarily seals herself within the Dream of Red Glass to free Evermere.</td></tr>
     </table>
   </div>
@@ -768,7 +768,7 @@
     sealed there afterward, a dormant, dreaming presence at the Collegium that calibrates
     public order without ever compelling it again.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xviii.html">XVIII</a></td><td>Co-architects the Mirror of Law and consolidates a Dominion with Auren; leads their sealing within the Dream of Red Glass.</td></tr>
     </table>
   </div>
@@ -787,7 +787,7 @@
     Fragment at the exact peak of the ritual, calling Severance. The Heart Crown splits; the
     network dissolves without a single army or flame.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xix.html">XIX</a></td><td>Bonds with Ravel as the Anchor; secretly protects Senn and the Luminara remnant; triggers the Severance that ends the Crown's network.</td></tr>
     </table>
   </div>
@@ -806,7 +806,7 @@
     Severance splits the Crown in two, leaving only two silhouettes burned into the
     Sanctuary's marble — one standing, one reaching.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xix.html">XIX</a></td><td>Bears the Heart Crown; adopts the Edict of Purity; links Highever, Aderyn's Gate, and Tarenus into a single network before the Severance ends it.</td></tr>
     </table>
   </div>
@@ -826,7 +826,7 @@
     continuous consent, rather than either one alone, for the world to move in rhythm
     again.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xx.html">XX</a></td><td>Co-reawakens the Vault's Heart-shard with Varo; resists its living Dominion logic; forces a dual-key stabilisation requiring mutual consent.</td></tr>
     </table>
   </div>
@@ -846,7 +846,7 @@
     affectionate equilibrium: order by mutual will, the dual key requiring both of them
     forever after.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xx.html">XX</a></td><td>Public face of the civil-engine governance pilots; accepts the shard's living Dominion logic, forcing Kade's Sanctuary intervention.</td></tr>
     </table>
   </div>
@@ -866,7 +866,7 @@
     only choice." The Heart-Veil unwinds rather than shatters; Seren steadies him through
     the aftershock.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xxi.html">XXI</a></td><td>Leads the Red Choir Gambit against the Unbirth project; speaks the final Severance, ending the Ley-Heir mechanism for good.</td></tr>
     </table>
   </div>
@@ -884,41 +884,131 @@
     Seren is the one who steadies him through the aftershock as the Heart-Veil's threads
     lift like spider-silk and the old heartbeat stops for good.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr><td class="camp"><a href="campaign-xxi.html">XXI</a></td><td>Pins the fighting core during the Red Choir Gambit; steadies Talen through the Severance's aftershock.</td></tr>
     </table>
   </div>
 
   <div class="char-card">
-    <h3>The Six Travellers</h3>
-    <div class="aka">Arden Vale &amp; Rian Thale · Zeth Caden &amp; Talren Vale · Solan &amp; Marrek</div>
-    <p class="summary">Time-displaced from the very end of Timeline A into the very
-    beginning of Timeline B by Campaign XXV's temporal collapse — the hinge point
-    connecting both timelines. Arden and Zeth/Talren's stories begin in Timeline A proper
-    before all six cross over together.</p>
+    <h3>Arden Vale <span class="pc-tag">PC</span></h3>
+    <div class="aka">One of the Six Travellers</div>
+    <p class="summary">His arc begins at Caelwick, where an accidental behavioural imprint
+    with Caelen Marrith survives a thousand years of dormancy before reinstantiating them
+    both in 4CE. What follows breaks him — Caelen's death at the Spirefall, an abduction
+    that forces him to confront how much of his devotion had been genuinely his own —
+    before Rian teaches him, patiently, what consent and partnership without hierarchy
+    actually feel like.</p>
+    <p class="summary"><strong>The arc.</strong> By the time Zeth and Talren meet at the
+    Academy of Resonant Studies, Arden is already the era's first Safe Anchor, and it's his
+    mentorship that lets their instant, uncontrolled resonance become something stable
+    rather than combustible. Time-displaced into Timeline B by Campaign XXV's temporal
+    collapse alongside the other five, he continues as a stabiliser and witness through the
+    Order of Anchors' earliest campaigns.</p>
+    <p class="summary"><strong>Personality.</strong> Quietly intense, hyper-observant, and
+    now almost over-corrective about consent since his own history with Caelen; mentors by
+    asking questions, goes flat and uncompromising the moment a line is crossed.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
-      <tr><td class="camp"><a href="campaign-xxii.html">XXII</a>–<a href="campaign-xxiii.html">XXIII</a></td><td>Arden Vale (PC) and Caelen Marrith form the accidental shard-pattern imprint that reinstantiates a millennium later; Caelen dies at the Spirefall.</td></tr>
-      <tr><td class="camp"><a href="campaign-xxiv.html">XXIV</a></td><td>Zeth Caden (PC) and Talren Vale become the era's first Living Dyad, mentored by Arden.</td></tr>
-      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>All six — Arden, Rian, Zeth, Talren, Solan (PC), Marrek — form the six-point resonance formation that ends the Caelen echo and triggers the Fracture.</td></tr>
-      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrive in the Age of Founding; witness Lio and Kellan's bonding and the Order of Anchors' founding.</td></tr>
-      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continue as stabilisers and witnesses through the Hollowrest, Frostborn, and Veil-echo campaigns.</td></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-xxii.html">XXII</a>–<a href="campaign-xxiii.html">XXIII</a></td><td>Forms the accidental shard-pattern imprint with Caelen Marrith that reinstantiates a millennium later; Caelen dies at the Spirefall.</td></tr>
+      <tr><td class="camp"><a href="campaign-xxiv.html">XXIV</a></td><td>Mentors Zeth and Talren as the era's first Safe Anchor.</td></tr>
+      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>Part of the six-point resonance formation that ends the Caelen echo and triggers the Fracture.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrives in the Age of Founding; witnesses Lio and Kellan's bonding and the Order of Anchors' founding.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continues as stabiliser and witness through the Hollowrest, Frostborn, and Veil-echo campaigns.</td></tr>
     </table>
-    <p class="summary"><strong>How they got here.</strong> Arden's arc begins at Caelwick,
-    where an accidental behavioural imprint with Caelen Marrith survives a thousand years of
-    dormancy before reinstantiating them both in 4CE. What follows breaks him — Caelen's
-    death at the Spirefall, an abduction that forces him to confront how much of his
-    devotion had been genuinely his own — before Rian teaches him, patiently, what consent
-    and partnership without hierarchy actually feel like. By the time Zeth and Talren meet
-    at the Academy of Resonant Studies, Arden is already the era's first Safe Anchor, and
-    it's his mentorship that lets their instant, uncontrolled resonance become something
-    stable rather than combustible — right up through the courtyard explosion and the
-    proposal Zeth makes mid-fold. Solan and Marrek's bond forms almost involuntarily under
-    a different kind of pressure entirely: a temporal fracture hunting Marrek's thread
-    across every era it can reach, with Solan's untrained but instinctive stabilising
-    presence the only thing that keeps the group's six-point formation from collapsing when
-    Caelen's echo finally corners them.</p>
-    <p class="summary"><strong>Personality.</strong> <strong>Arden</strong> — quietly intense, hyper-observant, and now almost over-corrective about consent since his own history with Caelen; mentors by asking questions, goes flat and uncompromising the moment a line is crossed. <strong>Rian</strong> — warm and deliberately ordinary in a world full of living spells; makes the tea, notices the exits, and is Arden's anchor by choice rather than duty. <strong>Zeth</strong> — loud-feeling and reactive, reaches for people first and thinks second, allergic to any hidden structure after what Dominion logic did to him. <strong>Talren</strong> — controlled and quietly fearful of his own capacity to hurt people he loves; his arc is learning to share control rather than simply hold it. <strong>Solan</strong> — soft-hearted and anxious but with a spine of steel around his own choices; deeply wary of anything that smells like destiny. <strong>Marrek</strong> — steady and laconic, shows care through action rather than speech, and stays suspicious of any institution that wants to make him useful again.</p>
+  </div>
+
+  <div class="char-card">
+    <h3>Rian Thale</h3>
+    <div class="aka">One of the Six Travellers</div>
+    <p class="summary">A civic cartographer with no history in the Caelwick imprint and
+    nothing to gain from shaping Arden — exactly what makes him able to teach Arden what
+    boundaries feel like, what autonomy costs and gives back, and what intimacy can be
+    without a hierarchy underneath it, after Caelen's death leaves him unanchored.</p>
+    <p class="summary"><strong>Personality.</strong> Warm and deliberately ordinary in a
+    world full of living spells; makes the tea, notices the exits, and is Arden's anchor by
+    choice rather than duty.</p>
+    <table class="appear-table">
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-xxiii.html">XXIII</a></td><td>Teaches Arden autonomy and consent after Caelen's death; becomes his partner.</td></tr>
+      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>Holds the group's emotional line during the six-point resonance formation.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrives in the Age of Founding as one of the six travellers.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continues as stabiliser and witness through Timeline B's earliest campaigns.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>Zeth Caden <span class="pc-tag">PC</span></h3>
+    <div class="aka">One of the Six Travellers</div>
+    <p class="summary">Meets Talren at the Academy of Resonant Studies with an instant,
+    uncontrolled resonance draw, becoming — with Arden's mentorship — half of the era's
+    first Living Dyad. Their courtyard explosion and Zeth's mid-fold proposal to Talren mark
+    the moment resonance magic proves it can be built from affection and practice alone,
+    with no artefact required.</p>
+    <p class="summary"><strong>Personality.</strong> Loud-feeling and reactive, reaches for
+    people first and thinks second, allergic to any hidden structure after what Dominion
+    logic did to him.</p>
+    <table class="appear-table">
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-xxiv.html">XXIV</a></td><td>Becomes half of the era's first Living Dyad with Talren, mentored by Arden.</td></tr>
+      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>Front-left anchor-light in the six-point resonance formation.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrives in the Age of Founding as one of the six travellers.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continues as stabiliser and witness through Timeline B's earliest campaigns.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>Talren Vale</h3>
+    <div class="aka">One of the Six Travellers</div>
+    <p class="summary">A senior trainee acting as stabiliser-in-training when Zeth arrives
+    at the Academy of Resonant Studies — their bond forms the first intentional fused-anchor
+    dyad of the era, gold and amber threading together permanently once Zeth proposes
+    mid-fold and Talren pulses his answer straight back through the bond itself.</p>
+    <p class="summary"><strong>Personality.</strong> Controlled and quietly fearful of his
+    own capacity to hurt people he loves; his arc is learning to share control rather than
+    simply hold it.</p>
+    <table class="appear-table">
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-xxiv.html">XXIV</a></td><td>Becomes half of the era's first Living Dyad with Zeth, mentored by Arden.</td></tr>
+      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>Rear-left blade in the six-point resonance formation.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrives in the Age of Founding as one of the six travellers.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continues as stabiliser and witness through Timeline B's earliest campaigns.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>Solan <span class="pc-tag">PC</span></h3>
+    <div class="aka">One of the Six Travellers</div>
+    <p class="summary">Forms a tether with Marrek strong enough to warp temporal geometry —
+    an emergent anchor whose instincts are strong but untrained, unusually resistant to the
+    fracture's targeting, and instinctively the centre of the six-point resonance formation
+    that finally ends the Caelen echo.</p>
+    <p class="summary"><strong>Personality.</strong> Soft-hearted and anxious but with a
+    spine of steel around his own choices; deeply wary of anything that smells like
+    destiny.</p>
+    <table class="appear-table">
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>Centre of the six-point resonance formation; his tether with Marrek and instinctive stabilising presence anchor the group against the temporal fracture.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrives in the Age of Founding as one of the six travellers.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continues as stabiliser and witness through Timeline B's earliest campaigns.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>Marrek</h3>
+    <div class="aka">One of the Six Travellers</div>
+    <p class="summary">The specific thread a temporal fracture hunts across every era it
+    can reach — his bond with Solan forms almost involuntarily under that pressure, and it's
+    that same bond that ultimately breaks the fracture's hold when Solan steps physically
+    between him and the Caelen echo.</p>
+    <p class="summary"><strong>Personality.</strong> Steady and laconic, shows care through
+    action rather than speech, and stays suspicious of any institution that wants to make
+    him useful again.</p>
+    <table class="appear-table">
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>Right flank of the six-point resonance formation; the fracture's specific target throughout.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrives in the Age of Founding as one of the six travellers.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continues as stabiliser and witness through Timeline B's earliest campaigns.</td></tr>
+    </table>
   </div>
 
   <div class="char-card">
@@ -948,7 +1038,7 @@
     sign of trust rather than deference — a chosen, stable power exchange, not surrender.
     Won't tolerate coercion regardless of the form it takes.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Bonds with Kellan during the founding rupture; becomes the Heart Seal's first Anchor.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a></td><td>Leads the Hollowrest expedition; recognised by the proto-Anchor as a successor to the Binders.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b3.html">B3</a></td><td>Supports Caen through the Frostborn revelation, emerging more grounded rather than destabilised.</td></tr>
@@ -984,7 +1074,7 @@
     corrupted but not broken in B4 leaves him more resistant to influence, not less trusting
     of Lio.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Stabilises Lio during the founding rupture; becomes the Heart Seal's first Thread.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a></td><td>Co-leads the Hollowrest expedition alongside Lio.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b3.html">B3</a></td><td>His Frostborn heritage is revealed; the source material's naming shifts to Caen from here.</td></tr>
@@ -1018,7 +1108,7 @@
     density make him a high-viability vessel — a risk the Order takes seriously precisely
     because of how well he survived it once.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b6.html">B6</a></td><td>Leads a Luminara resistance cell in Greymount; survives an escalating conditioning arc and an attempted Ley-Heir overwrite; founds The Lantern in Evermere.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b7.html">B7</a>–<a href="campaign-b9.html">B9</a></td><td>Runs Evermere's quiet-authority civic operation alongside Joryn, Maera, Cassian, and Rafe.</td></tr>
     </table>
@@ -1045,7 +1135,7 @@
     Dain, and an ongoing, chosen relationship with Darian that survives real pressure
     rather than staying a stolen hour.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b7.html">B7</a></td><td>Arrives at The Lantern under an alias; joins the youth squad; the Heart Seal loosens his conditioning residue at Durrel Ridge; trains at the Umbral Collegium.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b8.html">B8</a></td><td>Trusted youth-squad lead; uses his trained Shadow Sorcery for a dramatic one-time group transit during the Corvett confrontation.</td></tr>
     </table>
@@ -1070,7 +1160,7 @@
     and swears the Renewed Oath of the Ridge — sanctuary, witness, consent, and "Light with
     teeth."</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b9.html">B9</a></td><td>Undergoes Warden induction; reclaims Tarenus's Vault after Arden's tyranny is broken; swears the Renewed Oath of the Ridge and liberates Bastion's civic anchor.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b12.html">B12</a></td><td>Ridge leadership; his reserve toward Jack Durrel finally breaks once Jack shares what the Vault revealed to him.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b13.html">B13</a></td><td>Leads the Ridge's response once Caelen is recovered; helps cleanse Tarenus's Vault of lingering Thorn House residue.</td></tr>
@@ -1099,7 +1189,7 @@
     reveals what he feels has genuinely outgrown strategy — though his instinct, even then,
     is to answer it with more control rather than less.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b10.html">B10</a></td><td>Transformed from vulnerable bastard heir into the keystone conduit of Rhalen Valecour's uncrowned rule over Brevair; marries Rhalen by campaign's end.</td></tr>
     </table>
   </div>
@@ -1122,7 +1212,7 @@
     once Bastion falls and is renamed the Veiled Citadel — conquest and proof rather than
     co-ruler or redeemed victim.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b11.html">B11</a></td><td>His devotion to Cameron becomes the road of Bastion's fall; kills Pell and Alwen Stroud at Cameron's direction; fixed as his ward-knight when the Veiled Citadel is declared.</td></tr>
     </table>
   </div>
@@ -1143,7 +1233,7 @@
     Bastion the Veiled Citadel in the reconsecration that follows, and completes a formal
     line-bind under Shah joining ruler, knight, and Citadel into a single structure.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b11.html">B11</a></td><td>Rises from covert manipulator to outright ruler of the Veiled Citadel, using Gavren as living conduit to turn Bastion's foundational ward.</td></tr>
     </table>
   </div>
@@ -1157,7 +1247,7 @@
     generations later. This line carries Durrel Ridge's institutional weight through the
     second half of Timeline B's current record.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b7.html">B7</a></td><td>Seren, Caelan, and Steward Alren Durrel introduce the Ridge as a standing ally.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b9.html">B9</a></td><td>Taren Durrel <span class="pc-tag">PC</span> reclaims Tarenus's Vault and swears the Renewed Oath of the Ridge.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b12.html">B12</a></td><td>Jack Durrel <span class="pc-tag">PC</span> is named Warden of Meaning; a cadet-branch Durrel child is brought to the Ridge.</td></tr>
@@ -1185,7 +1275,7 @@
     bonds, vows, and witness. He tells Taren the truth of what he saw, closing the distance
     between them for good.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b12.html">B12</a></td><td>Reopens his inherited house at the Ridge; named Warden of Meaning after the Vault confirms Jorah's reality and Marcus's death.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b13.html">B13</a></td><td>Leads the Ridge's response to Caelen's abduction; helps cleanse Tarenus's Vault of Thorn House residue.</td></tr>
     </table>
@@ -1206,7 +1296,7 @@
     Jack's life might have used him. With Marcus's death confirmed in the true line, Jorah
     can exist in Jack's life without ever being overshadowed by what might have been.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b12.html">B12</a></td><td>Earns his place in Jack's household and private life; confirmed real and structurally important by Tarenus's Vault.</td></tr>
     </table>
   </div>
@@ -1230,7 +1320,7 @@
     that what happened to him was the coercion and the magical rewriting, never the dynamic
     itself.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b13.html">B13</a></td><td>Isolated and remade by Rul Hask, then Thorn House; restored by Corvin's intervention; leads the strike that destroys Thorn House; reclaims chosen desire on his own terms.</td></tr>
     </table>
   </div>
@@ -1249,7 +1339,7 @@
     what happened to him. By the campaign's close, the two of them are close to saying they
     love each other.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b13.html">B13</a></td><td>Resists Sareth's manipulation; breaks the illusion holding Caelen and restores him; becomes his partner.</td></tr>
     </table>
   </div>
@@ -1274,7 +1364,7 @@
     explicitly described as a home built by Taren, Jack, and Dena together — not a fortress
     that happens to have people living in it.</p>
     <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><th class="stamp-head">Appears</th><th>Role</th></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b12.html">B12</a></td><td>Helps Jack reopen and repopulate his inherited house; becomes a key emotional anchor for the household forming around him.</td></tr>
       <tr class="tl-b"><td class="camp"><a href="campaign-b13.html">B13</a></td><td>Caelen's safest domestic figure and the Ridge's emotional truth-keeper; he goes to her kitchen first after his restoration.</td></tr>
     </table>
@@ -1290,6 +1380,7 @@
     <div class="char-row"><span class="name">Merien Thalos</span><span class="role">Collegium archaeologist who aids the sealing of the Vault of Tarenus after Edrin's Severance. Later co-founds the New Heartwardens, carrying Edrin's caution about power directly into the order's new charter.</span><span class="link"><a href="campaign-iii.html">III</a></span></div>
     <div class="char-row"><span class="name">Iris</span><span class="role">An engineer whose mind is a map of gates — she reads Choir architecture the way others read language. Supplies the backdoor key that lets Jax and Taren's Harmonised Longsword actually sever the ley lines, making her as responsible for ending the Choir as either of them.</span><span class="link"><a href="campaign-v.html">V</a></span></div>
     <div class="char-row"><span class="name">Alaric &amp; Lorian</span><span class="role">Paladin of Light and Scholar of Silence, married. Their household is where the Gate Codex's human cost actually shows — a marriage tested by living inside laws Sirian wrote to be fair but which get weaponised regardless.</span><span class="link"><a href="campaign-viii.html">VIII</a></span></div>
+    <div class="char-row"><span class="name">Lior &amp; Iria</span><span class="role">Serik's closest civic allies through the Severing — co-rebels and moral equals rather than followers, serving as both his personal leverage and his reason for restraint whenever restraint is the harder choice.</span><span class="link"><a href="campaign-x.html">X</a></span></div>
     <div class="char-row"><span class="name">Verrin Mael</span><span class="role">Hidden Ledger archivist and smuggler; reveals how to destroy the null-relic using the Lyricum's resonance engine</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
     <div class="char-row"><span class="name">Keth Damaris</span><span class="role">Provost of Evermere's Lyricum; flees with a null-relic fragment, later allied once his intent is understood</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
     <div class="char-row"><span class="name">Maela Vael &amp; Renna Varr</span><span class="role">Editor-scholar and smuggler-captain who aid the Vance Archive infiltration and Breath-Bridge ritual</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
