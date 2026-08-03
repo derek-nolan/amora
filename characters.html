@@ -6,9 +6,18 @@
 <title>Characters · Amora — The Continuity Ledger</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-  .char-group { margin: 34px 0; }
-  .char-group h2 { text-transform: uppercase; letter-spacing: .08em; font-size: .95rem; color: var(--vellum-dim); border-bottom: 1px solid var(--hairline); padding-bottom: 8px; }
-  .char-row { display: grid; grid-template-columns: 1fr 2fr auto; gap: 14px; padding: 9px 0; border-bottom: 1px dotted var(--hairline); align-items: baseline; font-size: .92rem; }
+  .char-card { border: 1px solid var(--hairline); background: var(--ink-raised); padding: 24px 26px; border-radius: 3px; margin: 20px 0; }
+  .char-card h3 { margin: 0 0 2px; font-size: 1.25rem; }
+  .char-card .aka { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--vellum-dim); margin-bottom: 10px; }
+  .char-card .summary { font-size: .92rem; color: var(--vellum-dim); margin-bottom: 14px; }
+  table.appear-table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  table.appear-table td, table.appear-table th { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px dotted var(--hairline); vertical-align: top; }
+  table.appear-table th { font-family: 'JetBrains Mono', monospace; font-size: .66rem; text-transform: uppercase; color: var(--vellum-dim); letter-spacing: .06em; }
+  table.appear-table td.camp { font-family: 'JetBrains Mono', monospace; font-size: .78rem; white-space: nowrap; }
+  table.appear-table td.camp a { color: var(--bronze); }
+  table.appear-table tr.tl-b td.camp a { color: var(--steel); }
+  .char-group h2 { text-transform: uppercase; letter-spacing: .08em; font-size: .95rem; color: var(--vellum-dim); border-bottom: 1px solid var(--hairline); padding-bottom: 8px; margin-top: 44px; }
+  .char-row { display: grid; grid-template-columns: 1fr 2fr auto; gap: 14px; padding: 10px 0; border-bottom: 1px dotted var(--hairline); align-items: baseline; font-size: .92rem; }
   .char-row .name { color: var(--vellum); font-weight: 600; }
   .char-row .role { color: var(--vellum-dim); }
   .char-row .link { font-family: 'JetBrains Mono', monospace; font-size: .72rem; white-space: nowrap; }
@@ -33,59 +42,146 @@
 
 <div class="shell">
   <section class="hero" style="padding-top:48px;">
-    <div class="eyebrow">Both timelines, campaign order</div>
+    <div class="eyebrow">Both timelines, full appearance history</div>
     <h1>Characters</h1>
-    <p class="lede">Principal figures across every campaign, in the order they appear. Full
-    cast details, bonds, and fates live on each campaign's own page — this is the index that
-    gets you there. See the <a href="canon-ledger.html">Canon Ledger</a> for name variants
-    like Durrel/Durell and Kellan/Caen.</p>
+    <p class="lede">Recurring figures get a full profile below, tracking exactly how
+    their role changes campaign to campaign — including where the same person's fate
+    genuinely diverges between the two timelines. Everyone else is listed further down
+    with a link straight to their campaign. See the <a href="canon-ledger.html">Canon
+    Ledger</a> for name variants like Durrel/Durell and Kellan/Caen.</p>
   </section>
+
+  <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px;">Recurring Figures</h2>
+
+  <div class="char-card">
+    <h3>Seraphine Vale</h3>
+    <div class="aka">Grand Marshal of the Paladin Council · High Paladin of Silver Bastion</div>
+    <p class="summary">The clearest case of a single person's fate splitting completely
+    between timelines. Both branches start from the same founding-era Seraphine — Timeline
+    B diverges at 0 ARV, the exact moment of Campaign I/B1, so up to that instant she's
+    literally the same woman in both histories.</p>
+    <table class="appear-table">
+      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-i.html">I</a></td><td>Grand Marshal of the Paladin Council; supervises the first Seal work.</td></tr>
+      <tr><td class="camp"><a href="campaign-ii.html">II</a></td><td>Represents the old Council against the Dominion; executed as the Veilwardens replace the Heartwardens.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>High Paladin of Silver Bastion; founds the Order of Anchors after the rupture that unmakes Taren and Zethyr.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a></td><td>Oversees the Hollowrest Custodial Mandate.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b3.html">B3</a>–<a href="campaign-b4.html">B4</a></td><td>Guides the Order's political and doctrinal response to the Frostborn and Veil-echo discoveries.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b5.html">B5</a></td><td>Retains nominal authority over the Paladin order as real strategic control passes to Caen.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>Zethyr Durrel &amp; Taren Durrel</h3>
+    <div class="aka">also Taren Veyne · the founding Durrel bond</div>
+    <p class="summary">The origin point every later "Durrel pattern" recurrence — commanding
+    figure paired with devoted anchor — traces back to. Their story ends completely
+    differently depending on the timeline: Timeline A lets it play out in full; Timeline B
+    erases them before it can begin at all.</p>
+    <table class="appear-table">
+      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-i.html">I</a></td><td>Found the Heartwardens together; their first ritual creates the psychic bond and unknowingly seeds the Dark Filament.</td></tr>
+      <tr><td class="camp"><a href="campaign-ii.html">II</a></td><td>Taren becomes Veiled Emperor; Zethyr ends the Dominion by severing the Veil Core, killing them both.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Unmade by a third-layer force in the opening rupture — erased, not killed, before their story can begin. Timeline B's entire divergence starts here.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>The Six Travellers</h3>
+    <div class="aka">Arden Vale &amp; Rian Thale · Zeth Caden &amp; Talren Vale · Solan &amp; Marrek</div>
+    <p class="summary">Time-displaced from the very end of Timeline A into the very
+    beginning of Timeline B by Campaign XXV's temporal collapse — the hinge point
+    connecting both timelines. Arden and Zeth/Talren's stories begin in Timeline A proper
+    before all six cross over together.</p>
+    <table class="appear-table">
+      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr><td class="camp"><a href="campaign-xxii.html">XXII</a>–<a href="campaign-xxiii.html">XXIII</a></td><td>Arden Vale and Caelen Marrith form the accidental shard-pattern imprint that reinstantiates a millennium later; Caelen dies at the Spirefall.</td></tr>
+      <tr><td class="camp"><a href="campaign-xxiv.html">XXIV</a></td><td>Zeth Caden and Talren Vale become the era's first Living Dyad, mentored by Arden.</td></tr>
+      <tr><td class="camp"><a href="campaign-xxv.html">XXV</a></td><td>All six — Arden, Rian, Zeth, Talren, Solan, Marrek — form the six-point resonance formation that ends the Caelen echo and triggers the Fracture.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Arrive in the Age of Founding; witness Lio and Kellan's bonding and the Order of Anchors' founding.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a>–<a href="campaign-b4.html">B4</a></td><td>Continue as stabilisers and witnesses through the Hollowrest, Frostborn, and Veil-echo campaigns.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>Lio Serrin (later Vareth) &amp; Kellan Vance (later Caen)</h3>
+    <div class="aka">Timeline B's first Anchor and Thread</div>
+    <p class="summary">The founding dyad of Timeline B's entire magic system — every later
+    Anchor/Thread pairing is measured against them. Both undergo major identity shifts
+    across their campaigns, tracked in full on the <a href="canon-ledger.html">Canon
+    Ledger</a>.</p>
+    <table class="appear-table">
+      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b1.html">B1</a></td><td>Bond during the founding rupture; become the Heart Seal's first Anchor and Thread.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b2.html">B2</a></td><td>Lead the Hollowrest expedition; recognised by the proto-Anchor as successors to the Binders.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b3.html">B3</a></td><td>Kellan's Frostborn heritage is revealed; the source material's naming shifts to Caen from here.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b4.html">B4</a></td><td>Perform the first Deep-Drop Inversion Purge against a Veil-class echo.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b5.html">B5</a></td><td>Lio is renamed Vareth; he and Caen become the "Living Reliquary," an unintentional Ley-Heir-equivalent structure.</td></tr>
+    </table>
+  </div>
+
+  <div class="char-card">
+    <h3>The Timeline B Durrel Line</h3>
+    <div class="aka">Taren Durrel (Ridge) → Jack Durrel → Caelen Durrel</div>
+    <p class="summary">A later, separate branch of the Durrel family — not descendants of
+    Zethyr and Taren, who were erased before they could have children. This line carries
+    Durrel Ridge's institutional weight through the second half of Timeline B's current
+    record.</p>
+    <table class="appear-table">
+      <tr><th>Campaign</th><th>Role</th></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b7.html">B7</a></td><td>Seren, Caelan, and Steward Alren Durrel introduce the Ridge as a standing ally.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b9.html">B9</a></td><td>Taren Durrel reclaims Tarenus's Vault and swears the Renewed Oath of the Ridge.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b12.html">B12</a></td><td>Jack Durrel is named Warden of Meaning; a cadet-branch Durrel child is brought to the Ridge.</td></tr>
+      <tr class="tl-b"><td class="camp"><a href="campaign-b13.html">B13</a></td><td>That child, now Caelen Durrel, is targeted and reclaimed from Thorn House.</td></tr>
+    </table>
+  </div>
+
+  <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px; margin-top:44px;">Everyone else, by campaign</h2>
 
   <div class="char-group timeline-a">
     <h2>Timeline A</h2>
-    <div class="char-row"><span class="name">Zethyr Durrel</span><span class="role">Lightbound paladin; Heartwarden founder; severs the Veil Core to end the Dominion</span><span class="link"><a href="campaign-i.html">Campaign I-II</a></span></div>
-    <div class="char-row"><span class="name">Taren Durrel</span><span class="role">Veil champion turned Veiled Emperor; also recorded as Taren Veyne</span><span class="link"><a href="campaign-i.html">Campaign I-II</a></span></div>
-    <div class="char-row"><span class="name">Seraphine Vale</span><span class="role">Grand Marshal of the Paladin Council; recurring institutional figure across many ages</span><span class="link"><a href="campaign-i.html">Campaign I</a></span></div>
-    <div class="char-row"><span class="name">Arienna Voss</span><span class="role">Magister of the Collegium Arcanum, Flamebinder; also recorded as Arienna Lume</span><span class="link"><a href="campaign-i.html">Campaign I-II</a></span></div>
-    <div class="char-row"><span class="name">Edrin Durrel</span><span class="role">Scholar-echo who severs the Echo Chain; chooses Severance over restored empire</span><span class="link"><a href="campaign-iii.html">Campaign III</a></span></div>
-    <div class="char-row"><span class="name">Cael Veyne</span><span class="role">Paladin-echo of Taren who begins to claim he is Taren reborn</span><span class="link"><a href="campaign-iii.html">Campaign III</a></span></div>
-    <div class="char-row"><span class="name">Coren Veyne &amp; Feran Durrel</span><span class="role">Confluence-era ruler and Heartbearer; benevolent dominion that half-succeeds</span><span class="link"><a href="campaign-iv.html">Campaign IV</a></span></div>
-    <div class="char-row"><span class="name">Taren (Choir Reconstruction) &amp; Jax Korran</span><span class="role">A manufactured Taren-shape and his smuggler partner; end the Choir with Severance</span><span class="link"><a href="campaign-v.html">Campaign V</a></span></div>
-    <div class="char-row"><span class="name">Kael Durren</span><span class="role">The Restorer; recovers a Heart Shard and founds the Collegium Equilibria's doctrine</span><span class="link"><a href="campaign-vi.html">Campaign VI</a></span></div>
-    <div class="char-row"><span class="name">Elian Thorne &amp; Dorn Kael</span><span class="role">Found the Executor office at the Gate, hardening into the Wardens' Theocracy</span><span class="link"><a href="campaign-vii.html">Campaign VII</a></span></div>
-    <div class="char-row"><span class="name">Sirian, Alaric &amp; Lorian</span><span class="role">Codify the Gate Codex; the age's cautionary tale about "neutral" law</span><span class="link"><a href="campaign-viii.html">Campaign VIII</a></span></div>
-    <div class="char-row"><span class="name">Rhett Vale, Jax Korran &amp; Iris</span><span class="role">Explore the Ring of Amora, accelerating the machine age</span><span class="link"><a href="campaign-ix.html">Campaign IX</a></span></div>
-    <div class="char-row"><span class="name">Serik Thorne</span><span class="role">Inquisitor turned reformer; destroys the final Veil shard, ending dynastic inevitability</span><span class="link"><a href="campaign-x.html">Campaign X</a></span></div>
-    <div class="char-row"><span class="name">Riven Mareth &amp; Ilyen Vael</span><span class="role">Re-ignite the Ley-Heirs and articulate Clause XI, "The Breathing Law"</span><span class="link"><a href="campaign-xi.html">Campaign XI</a></span></div>
-    <div class="char-row"><span class="name">Kael Durreth &amp; Evren Thalos</span><span class="role">Build the Republic of Inheritance and the Harmony Network</span><span class="link"><a href="campaign-xii.html">Campaign XII</a></span></div>
-    <div class="char-row"><span class="name">Rian Leth &amp; Calen Vorr</span><span class="role">Sever the awakened Chain rather than let the Republic weaponise it</span><span class="link"><a href="campaign-xiii.html">Campaign XIII</a></span></div>
-    <div class="char-row"><span class="name">Rhett of the Vale &amp; Niall Argent</span><span class="role">Found the Dominion on stillness as mercy; Niall founds the Sanctum of Renewal after the fall</span><span class="link"><a href="campaign-xiv.html">Campaign XIV</a></span></div>
-    <div class="char-row"><span class="name">Valen &amp; Dareth</span><span class="role">Concord Regent and civic Voice; make law visible through the Five Optics</span><span class="link"><a href="campaign-xv.html">Campaign XV</a></span></div>
-    <div class="char-row"><span class="name">Kaeso Vyr &amp; Coren (echo)</span><span class="role">Extend Concord law from city to corridor and coast</span><span class="link"><a href="campaign-xvi.html">Campaign XVI</a></span></div>
-    <div class="char-row"><span class="name">Lucen Marrin &amp; Sorell Marcone</span><span class="role">Dismantle the Widow's Pale Ring; law by knife and by mercy</span><span class="link"><a href="campaign-xvii.html">Campaign XVII</a></span></div>
-    <div class="char-row"><span class="name">Auren Lysar &amp; Kael Verris</span><span class="role">Forge the Mirror of Law, then seal themselves within the Dream of Red Glass</span><span class="link"><a href="campaign-xviii.html">Campaign XVIII</a></span></div>
-    <div class="char-row"><span class="name">Ravel Morn &amp; Thalen Ro</span><span class="role">Taren/Zethyr echoes who invoke Severance at the peak of the Purity network</span><span class="link"><a href="campaign-xix.html">Campaign XIX</a></span></div>
-    <div class="char-row"><span class="name">Kade Varin &amp; Varo Merenth</span><span class="role">Vault of Tarenus custodians; stabilise the Heart-shard as a consensual dual key</span><span class="link"><a href="campaign-xx.html">Campaign XX</a></span></div>
-    <div class="char-row"><span class="name">Talen Marric &amp; Seren Valor</span><span class="role">Speak the final Severance: "No chains, no heirs, only choice"</span><span class="link"><a href="campaign-xxi.html">Campaign XXI</a></span></div>
-    <div class="char-row"><span class="name">Arden Vale &amp; Caelen Marrith</span><span class="role">Their shard-pattern imprint survives 1,000 years into 4CE</span><span class="link"><a href="campaign-xxii.html">Campaign XXII-XXIII</a></span></div>
-    <div class="char-row"><span class="name">Zeth Caden &amp; Talren Vale</span><span class="role">The first fully stable Living Dyad; proof that patterns can change</span><span class="link"><a href="campaign-xxiv.html">Campaign XXIV-XXV</a></span></div>
-    <div class="char-row"><span class="name">Solan &amp; Marrek</span><span class="role">Anchor-origin pair at the centre of the six-point formation that ends Timeline A</span><span class="link"><a href="campaign-xxv.html">Campaign XXV</a></span></div>
+    <div class="char-row"><span class="name">Arienna Voss</span><span class="role">Magister of the Collegium Arcanum, Flamebinder; also recorded as Arienna Lume; mind-stilled and sealed into Veil infrastructure</span><span class="link"><a href="campaign-i.html">I–II</a></span></div>
+    <div class="char-row"><span class="name">Aldric Fen</span><span class="role">Heartwarden chaplain; executed by Taren</span><span class="link"><a href="campaign-i.html">I–II</a></span></div>
+    <div class="char-row"><span class="name">Edrin Durrel &amp; Cael Veyne</span><span class="role">Scholar-echo who severs the Echo Chain rather than let Cael rebuild an empire</span><span class="link"><a href="campaign-iii.html">III</a></span></div>
+    <div class="char-row"><span class="name">Merien Thalos</span><span class="role">Collegium archaeologist; co-founds the New Heartwardens</span><span class="link"><a href="campaign-iii.html">III</a></span></div>
+    <div class="char-row"><span class="name">Coren Veyne &amp; Feran Durrel</span><span class="role">Confluence-era ruler and Heartbearer; benevolent dominion that half-succeeds</span><span class="link"><a href="campaign-iv.html">IV</a></span></div>
+    <div class="char-row"><span class="name">Taren (Choir Reconstruction) &amp; Jax Korran</span><span class="role">A manufactured Taren-shape and his smuggler partner; end the Choir with Severance</span><span class="link"><a href="campaign-v.html">V</a></span></div>
+    <div class="char-row"><span class="name">Kael Durren</span><span class="role">The Restorer; founds the Collegium Equilibria's doctrine</span><span class="link"><a href="campaign-vi.html">VI</a></span></div>
+    <div class="char-row"><span class="name">Elian Thorne &amp; Dorn Kael</span><span class="role">Found the Executor office at the Gate, hardening into the Wardens' Theocracy</span><span class="link"><a href="campaign-vii.html">VII</a></span></div>
+    <div class="char-row"><span class="name">Sirian, Alaric &amp; Lorian</span><span class="role">Codify the Gate Codex; the age's cautionary tale about "neutral" law</span><span class="link"><a href="campaign-viii.html">VIII</a></span></div>
+    <div class="char-row"><span class="name">Rhett Vale &amp; Iris</span><span class="role">Explore the Ring of Amora, accelerating the machine age</span><span class="link"><a href="campaign-ix.html">IX</a></span></div>
+    <div class="char-row"><span class="name">Serik Thorne, Lior &amp; Iria</span><span class="role">Destroy the final Veil shard, ending dynastic inevitability</span><span class="link"><a href="campaign-x.html">X</a></span></div>
+    <div class="char-row"><span class="name">Riven Mareth &amp; Ilyen Vael</span><span class="role">Re-ignite the Ley-Heirs and articulate Clause XI, "The Breathing Law"</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
+    <div class="char-row"><span class="name">Kael Durreth, Evren Thalos &amp; Cassius</span><span class="role">Build the Republic of Inheritance and the Harmony Network</span><span class="link"><a href="campaign-xii.html">XII</a></span></div>
+    <div class="char-row"><span class="name">Rian Leth &amp; Calen Vorr</span><span class="role">Sever the awakened Chain rather than let the Republic weaponise it</span><span class="link"><a href="campaign-xiii.html">XIII</a></span></div>
+    <div class="char-row"><span class="name">Speaker Lira Durrel</span><span class="role">Council chair and obedience absolutist; antagonist to Rian and Calen</span><span class="link"><a href="campaign-xiii.html">XIII</a></span></div>
+    <div class="char-row"><span class="name">Rhett of the Vale &amp; Niall Argent</span><span class="role">Found the Dominion on stillness as mercy; Niall founds the Sanctum of Renewal after</span><span class="link"><a href="campaign-xiv.html">XIV</a></span></div>
+    <div class="char-row"><span class="name">Valen &amp; Dareth</span><span class="role">Concord Regent and civic Voice; make law visible through the Five Optics</span><span class="link"><a href="campaign-xv.html">XV</a></span></div>
+    <div class="char-row"><span class="name">Kaeso Vyr &amp; Coren (echo)</span><span class="role">Extend Concord law from city to corridor and coast</span><span class="link"><a href="campaign-xvi.html">XVI</a></span></div>
+    <div class="char-row"><span class="name">Lucen Marrin &amp; Sorell Marcone</span><span class="role">Dismantle the Widow's Pale Ring; law by knife and by mercy</span><span class="link"><a href="campaign-xvii.html">XVII</a></span></div>
+    <div class="char-row"><span class="name">Auren Lysar &amp; Kael Verris</span><span class="role">Forge the Mirror of Law, then seal themselves within the Dream of Red Glass</span><span class="link"><a href="campaign-xviii.html">XVIII</a></span></div>
+    <div class="char-row"><span class="name">Ravel Morn &amp; Thalen Ro</span><span class="role">Taren/Zethyr echoes who invoke Severance at the peak of the Purity network</span><span class="link"><a href="campaign-xix.html">XIX</a></span></div>
+    <div class="char-row"><span class="name">Kade Varin &amp; Varo Merenth</span><span class="role">Vault of Tarenus custodians; stabilise the Heart-shard as a consensual dual key</span><span class="link"><a href="campaign-xx.html">XX</a></span></div>
+    <div class="char-row"><span class="name">Talen Marric &amp; Seren Valor</span><span class="role">Speak the final Severance: "No chains, no heirs, only choice"</span><span class="link"><a href="campaign-xxi.html">XXI</a></span></div>
+    <div class="char-row"><span class="name">Rian Thale</span><span class="role">Stabiliser who helps Arden Vale rebuild autonomy after Caelen's death; later mentor alongside Arden</span><span class="link"><a href="campaign-xxiii.html">XXIII</a></span></div>
   </div>
 
   <div class="char-group timeline-b">
     <h2>Timeline B</h2>
-    <div class="char-row"><span class="name">Lio Serrin (later Vareth)</span><span class="role">First Anchor of Timeline B; renamed Vareth during B5</span><span class="link"><a href="campaign-b1.html">B1-B5</a></span></div>
-    <div class="char-row"><span class="name">Kellan Vance (later Caen)</span><span class="role">First Stabiliser Thread; renamed Caen from B3 onward, revealed as Frostborn</span><span class="link"><a href="campaign-b1.html">B1-B5</a></span></div>
-    <div class="char-row"><span class="name">The Six Travellers</span><span class="role">Arden Vale, Rian Thale, Zeth Caden, Talren Vale, Solan, Marrek — arrive from the end of Timeline A</span><span class="link"><a href="campaign-b1.html">B1-B4</a></span></div>
-    <div class="char-row"><span class="name">Seraphine Vale</span><span class="role">High Paladin of Silver Bastion; founds the Order of Anchors</span><span class="link"><a href="campaign-b1.html">B1-B4</a></span></div>
-    <div class="char-row"><span class="name">Dain Corvett</span><span class="role">Twilight Cleric who survives Shah conditioning and founds The Lantern in Evermere</span><span class="link"><a href="campaign-b6.html">B6-B9</a></span></div>
-    <div class="char-row"><span class="name">Mark "Mark Val" (Marcus Valmere)</span><span class="role">Shadow Sorcerer exiled for loving Darian Corvett; leads the Lantern's youth squad</span><span class="link"><a href="campaign-b7.html">B7-B8</a></span></div>
-    <div class="char-row"><span class="name">Taren Durrel</span><span class="role">Warden of Durrel Ridge; reclaims Tarenus's Vault and swears the Renewed Oath of the Ridge</span><span class="link"><a href="campaign-b9.html">B9, B12-B14</a></span></div>
-    <div class="char-row"><span class="name">Delryn Vale / Valecour</span><span class="role">Shadow Sorcerer remade into the keystone conduit of Rhalen's rule over Brevair</span><span class="link"><a href="campaign-b10.html">B10</a></span></div>
+    <div class="char-row"><span class="name">Eryndrel</span><span class="role">Steward construct of Hollowrest's proto-Anchor</span><span class="link"><a href="campaign-b2.html">B2</a></span></div>
+    <div class="char-row"><span class="name">Dain Corvett &amp; Joryn</span><span class="role">Survive Shah conditioning and found The Lantern in Evermere</span><span class="link"><a href="campaign-b6.html">B6</a></span></div>
+    <div class="char-row"><span class="name">Lucan</span><span class="role">Shah-aligned former lover of Dain; exposed and removed</span><span class="link"><a href="campaign-b6.html">B6</a></span></div>
+    <div class="char-row"><span class="name">Maera Holt</span><span class="role">Manager of The Lantern</span><span class="link"><a href="campaign-b6.html">B6</a></span></div>
+    <div class="char-row"><span class="name">Mark "Mark Val" (Marcus Valmere)</span><span class="role">Shadow Sorcerer exiled for loving Darian Corvett; leads the Lantern's youth squad</span><span class="link"><a href="campaign-b7.html">B7–B8</a></span></div>
+    <div class="char-row"><span class="name">Elowen Marr</span><span class="role">Relief Registry steward who testifies against the Corvett audit network</span><span class="link"><a href="campaign-b8.html">B8</a></span></div>
+    <div class="char-row"><span class="name">Mara &amp; Cassien</span><span class="role">Captain of the Wardens and Arcane Warden, appointed after Taren Durrel's Ridge campaign</span><span class="link"><a href="campaign-b9.html">B9</a></span></div>
+    <div class="char-row"><span class="name">Delryn Vale / Valecour &amp; Rhalen Valecour</span><span class="role">Shadow Sorcerer remade into the keystone conduit of Rhalen's uncrowned rule over Brevair</span><span class="link"><a href="campaign-b10.html">B10</a></span></div>
     <div class="char-row"><span class="name">Gavren &amp; Cameron</span><span class="role">Bastion paladin and the Veil operative who conquers him and the fortress alike</span><span class="link"><a href="campaign-b11.html">B11</a></span></div>
-    <div class="char-row"><span class="name">Jack Durrel</span><span class="role">Named Warden of Meaning; the Durrel line's power to name truth inside bonds</span><span class="link"><a href="campaign-b12.html">B12-B14</a></span></div>
-    <div class="char-row"><span class="name">Caelen Durrel &amp; Corvin Hale</span><span class="role">Cadet-branch Durrel remade by Thorn House, restored with memory intact</span><span class="link"><a href="campaign-b13.html">B13-B14</a></span></div>
+    <div class="char-row"><span class="name">Jorah, Marek &amp; Dena</span><span class="role">Jack Durrel's household and core circle at the Ridge</span><span class="link"><a href="campaign-b12.html">B12</a></span></div>
+    <div class="char-row"><span class="name">Corvin Hale</span><span class="role">Breaks Thorn House's illusion over Caelen Durrel; becomes his partner</span><span class="link"><a href="campaign-b13.html">B13</a></span></div>
+    <div class="char-row"><span class="name">Rul Hask &amp; Sareth</span><span class="role">Caelen's manipulator, later remade himself; Thorn House's leader</span><span class="link"><a href="campaign-b13.html">B13</a></span></div>
     <div class="char-row"><span class="name">Michael "Mike" Rookvale &amp; Evan</span><span class="role">Reclaim former Silver Bastion from the Veiled Citadel</span><span class="link"><a href="campaign-b14.html">B14</a></span></div>
+    <div class="char-row"><span class="name">Lucien Varric</span><span class="role">Intelligence broker; final status unresolved — see the Canon Ledger</span><span class="link"><a href="campaign-b14.html">B14</a></span></div>
   </div>
 
 </div>
