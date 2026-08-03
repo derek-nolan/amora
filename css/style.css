@@ -229,6 +229,19 @@ article h3 { font-size: 1.15rem; margin-top: 26px; }
 .cast-list li { border-bottom: 1px dotted var(--hairline); padding-bottom: 10px; }
 .cast-list .who { color: var(--vellum); font-weight: 600; }
 .cast-list .role { color: var(--vellum-dim); font-size: 0.92rem; }
+.pc-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--crimson);
+  border: 1px solid var(--crimson);
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
 
 .canon-note {
   border: 1px dashed var(--hairline);
