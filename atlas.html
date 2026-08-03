@@ -6,12 +6,21 @@
 <title>Atlas · Amora — The Continuity Ledger</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-  .loc-card { border: 1px solid var(--hairline); background: var(--ink-raised); padding: 22px 24px; border-radius: 3px; margin: 20px 0; }
-  .loc-card h2 { margin: 0 0 4px; font-size: 1.2rem; }
-  .loc-card .aka { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--vellum-dim); margin-bottom: 12px; }
-  .loc-card h3 { font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: var(--bronze); margin: 14px 0 4px; }
-  .loc-card.tl-b h3 { color: var(--steel); }
-  .loc-card p { margin: 4px 0; font-size: .92rem; }
+  .region { border: 1px solid var(--hairline); background: var(--ink-raised); padding: 26px 28px; border-radius: 3px; margin: 26px 0; }
+  .region h2 { margin: 0 0 4px; font-size: 1.5rem; }
+  .region .aka { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--vellum-dim); margin-bottom: 16px; }
+  .region .intro { font-size: .95rem; color: var(--vellum-dim); margin-bottom: 20px; }
+  .region h3 { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--bronze); margin: 22px 0 10px; border-bottom: 1px solid var(--hairline); padding-bottom: 6px; }
+  .region.tl-b-focus h3.sub-b { color: var(--steel); }
+  table.timeline-table { width: 100%; border-collapse: collapse; font-size: .88rem; margin-bottom: 8px; }
+  table.timeline-table td, table.timeline-table th { text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px dotted var(--hairline); vertical-align: top; }
+  table.timeline-table th { font-family: 'JetBrains Mono', monospace; font-size: .68rem; text-transform: uppercase; color: var(--vellum-dim); letter-spacing: .06em; }
+  table.timeline-table td.camp { font-family: 'JetBrains Mono', monospace; font-size: .78rem; white-space: nowrap; color: var(--bronze); }
+  table.timeline-table tr.tl-b td.camp { color: var(--steel); }
+  ul.sublocs { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  ul.sublocs li { border-bottom: 1px dotted var(--hairline); padding-bottom: 8px; font-size: .9rem; }
+  ul.sublocs .locname { color: var(--vellum); font-weight: 600; }
+  ul.sublocs .locnote { color: var(--vellum-dim); }
 </style>
 </head>
 <body>
@@ -34,123 +43,249 @@
   <section class="hero" style="padding-top:48px;">
     <div class="eyebrow">Geography across both timelines</div>
     <h1>Atlas</h1>
-    <p class="lede">Amora's map doesn't stay still — most major locations are rebuilt,
-    renamed, or repurposed multiple times across each timeline's ages. Each entry below
-    tracks a location's arc rather than a fixed description.</p>
+    <p class="lede">Every major region traced campaign by campaign, with the specific
+    sub-locations that sit inside it. Bronze rows are Timeline A; steel-blue rows are
+    Timeline B. Use this page to check exactly what a location looked like at a given
+    point before reusing it in other material.</p>
   </section>
 
-  <div class="loc-card">
+  <!-- HIGHEVER -->
+  <div class="region">
     <h2>Highever</h2>
-    <div class="aka">Realm and major city — crowned by Silver Bastion</div>
-    <h3>Timeline A</h3>
-    <p>Begins as a diplomatic and scholarly centre under a paladin council. Becomes the
-    Dominion's capital of control after Campaign II, then cycles through republic,
-    surveillance hub, neon civic centre, and paladin academy city across the later ages.</p>
-    <h3>Timeline B</h3>
-    <p>A wealthy, orderly city-state before 0 ARV. Becomes the political centre of rupture
-    management and the Order of Anchors from B1. Loses its uncontested Light fortress when
-    Silver Bastion falls in B11.</p>
+    <div class="aka">Realm and capital region — home to Silver Bastion</div>
+    <p class="intro">Highever is the single most contested location in the entire
+    chronicle — it changes hands, names, and purpose more than anywhere else in Amora.
+    Nearly every age of Timeline A returns to it in some form, and it's also where
+    Timeline B begins.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">I</td><td>0–27 ARV</td><td>Diplomatic and scholarly centre; seat of the Paladin Council and the Heartwardens.</td></tr>
+      <tr><td class="camp">II</td><td>28–55 ARV</td><td>Silver Bastion reforged as the Obsidian Bastion; capital of Dominion control.</td></tr>
+      <tr><td class="camp">III</td><td>c. 900 ARV</td><td>Silver Bastion returns as a mixed-faith academy under the New Heartwardens.</td></tr>
+      <tr><td class="camp">IV</td><td>c. 1900–2000 ARV</td><td>Bastion rises again as the Confluence's seat; later becomes a pilgrimage ruin, not a functioning centre of power.</td></tr>
+      <tr><td class="camp">XV–XVI</td><td>8210–8245 ARV</td><td>Functions as the ley-crown and civic ritual hub of the Concord corridor, paired with Tarenus's administrative core.</td></tr>
+      <tr><td class="camp">XIX</td><td>8550–8555 ARV</td><td>The Sanctuary of Balance becomes an academy annex; site of the Purity network and its Severance.</td></tr>
+    </table>
+
+    <h3 class="sub-b">Chronology — Timeline B</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr class="tl-b"><td class="camp">B1</td><td>0 ARV</td><td>Silver Bastion becomes the founding seat of the Order of Anchors, replacing the Heartwardens that never got to form here — Taren and Zethyr Durrel are unmade before their story can begin.</td></tr>
+      <tr class="tl-b"><td class="camp">B9</td><td>136–137 ARV</td><td>Bastion's Tribunal Undercroft is liberated from a lingering Veil/Shah civic anchor by Taren Durrel.</td></tr>
+      <tr class="tl-b"><td class="camp">B11</td><td>148–149 ARV</td><td>Silver Bastion falls to Cameron and is renamed the Veiled Citadel — the single largest geographic loss in Timeline B's history.</td></tr>
+      <tr class="tl-b"><td class="camp">B14</td><td>c. 165–170 ARV</td><td>Reclaimed by a Durrel Ridge-led campaign; returns to Light control.</td></tr>
+    </table>
+
+    <h3>Notable sub-locations</h3>
+    <ul class="sublocs">
+      <li><span class="locname">Silver Bastion / Obsidian Bastion / The Veiled Citadel</span><br><span class="locnote">The core fortress-temple itself — same physical structure, different name depending on who controls it (Campaigns I, II, B1, B11, B14).</span></li>
+      <li><span class="locname">Sanctuary of Balance</span><br><span class="locnote">Academy annex where the Purity network's Heart Crown is rekindled and severed (Campaign XIX).</span></li>
+      <li><span class="locname">Anchor Quarters</span><br><span class="locnote">Lio and Caen's private rooms, later classified as Resonance Zone 14 after the first Veil-echo purge (Campaign B4).</span></li>
+      <li><span class="locname">Frostborn Vault</span><br><span class="locnote">Discovered beneath the Anchor Quarters (Campaign B3).</span></li>
+    </ul>
   </div>
 
-  <div class="loc-card">
-    <h2>Silver Bastion</h2>
-    <div class="aka">also Obsidian Bastion (Dominion era) · The Veiled Citadel (post-B11)</div>
-    <h3>Timeline A</h3>
-    <p>Founded as a fortress-temple and Heartwarden centre. Reforged as the Obsidian
-    Bastion under the Dominion; later shells and restorations continue as academy,
-    reliquary, and civic symbol through the ages.</p>
-    <h3>Timeline B</h3>
-    <p>The Heart Seal awakens early, making it the Order of Anchors' headquarters and
-    proto-anchor citadel through B1–B5. Falls from within in B11 and is renamed the Veiled
-    Citadel. B14's explicit objective is reclaiming it, planning from <a href="atlas.html#durrel-ridge">Durrel Ridge</a>.</p>
-  </div>
-
-  <div class="loc-card">
+  <!-- EVERMERE -->
+  <div class="region">
     <h2>Evermere</h2>
-    <div class="aka">Repeated rebuild site — village, city, and capital by turns</div>
-    <h3>Timeline A</h3>
-    <p>A coastal sanctuary of gardens and Heartwarden archives in Campaign I, later a
-    Dominion pleasure-and-law centre. Destroyed and rebuilt more than once — as a
-    glass-and-neon megacity, then a candle-lit low-tech city-state atop drowned datacores
-    after Concord's grids fail, then Archive Capital of the dyad-law era.</p>
-    <h3>Timeline B</h3>
-    <p>A modest fishing village before 0 ARV. Becomes a coastal port and refuge from B6
-    onward, home to The Lantern and its youth squad, and later a major
-    anti-conditioning and identity-restoration site in B13.</p>
+    <div class="aka">Repeated rebuild site — sanctuary, capital, and port by turns</div>
+    <p class="intro">Evermere is destroyed and rebuilt more times than anywhere else in
+    Timeline A, and separately becomes Timeline B's most detailed civic setting from
+    Campaign B6 onward.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">I</td><td>0–27 ARV</td><td>Coastal sanctuary; site of Zethyr and Taren's marriage.</td></tr>
+      <tr><td class="camp">II</td><td>28–55 ARV</td><td>Annexed and given to Zethyr; becomes an imperial pleasure and legal centre.</td></tr>
+      <tr><td class="camp">III</td><td>c. 900 ARV</td><td>Rebuilt as a Collegium.</td></tr>
+      <tr><td class="camp">IV</td><td>c. 1900–2000 ARV</td><td>Prospers as a rebuilt kingdom.</td></tr>
+      <tr><td class="camp">XI</td><td>c. 6550 ARV</td><td>Latest incarnation as a citadel of contracts, home to the Lyricum.</td></tr>
+      <tr><td class="camp">XVII</td><td>8410–8415 ARV</td><td>Rebuilt atop drowned Concord-era datacores as a candlelit, low-tech city-state; the Red Lattice Quarter becomes its defining district.</td></tr>
+      <tr><td class="camp">XVIII</td><td>8500–8505 ARV</td><td>Gains the Collegium Vaults, the Archive of Glass, Pilgrims' Square, the Lower Wards, and the Ruined Spires; unified under the Mirror of Law.</td></tr>
+      <tr><td class="camp">XXI</td><td>8650–8660 ARV</td><td>Annex V re-tooled as the Hall of Paper; the Sable Gate Cisterns become the Null council's ritual floor.</td></tr>
+    </table>
+
+    <h3 class="sub-b">Chronology — Timeline B</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr class="tl-b"><td class="camp">B6</td><td>84–85 ARV</td><td>Dain Corvett purchases The Lantern, a coastal tavern, marking the city's shift into Timeline B's main recurring civic setting.</td></tr>
+      <tr class="tl-b"><td class="camp">B7</td><td>85 ARV</td><td>The Lantern Annex is built out; a mutual-aid pact is formed with Durrel Ridge.</td></tr>
+      <tr class="tl-b"><td class="camp">B8</td><td>86 ARV</td><td>Corvett Estate and civic registry/licensing institutions become the setting for an entirely paper-based conflict.</td></tr>
+    </table>
+
+    <h3>Notable sub-locations</h3>
+    <ul class="sublocs">
+      <li><span class="locname">The Red Lattice Quarter</span><br><span class="locnote">Evermere's most infamous sanctuary district — information, refuge, and confession (Campaign XVII, echoed in Campaign XVI's "Red Lattice D-3").</span></li>
+      <li><span class="locname">The Archive of Glass</span><br><span class="locnote">A shattered observatory turned mirror-library; seat of the Mirror of Law (Campaign XVIII).</span></li>
+      <li><span class="locname">Sable Gate Cisterns</span><br><span class="locnote">Ritual floor of the Null council (Campaign XXI).</span></li>
+      <li><span class="locname">The Lantern &amp; Lantern Annex</span><br><span class="locnote">Dain Corvett's tavern and its expanded warehouse annex (Campaigns B6–B8).</span></li>
+      <li><span class="locname">Corvett Estate</span><br><span class="locnote">Seat of House Corvett's covert civic-pressure network (Campaign B8).</span></li>
+    </ul>
   </div>
 
-  <div class="loc-card">
+  <!-- GREYMOUNT / TARENUS -->
+  <div class="region">
     <h2>Greymount / Tarenus</h2>
     <div class="aka">also Tarenus Keep · Citadel of Inheritance · Inheritance Reclaimed · Free Citadel</div>
-    <h3>Timeline A</h3>
-    <p>A fortified hill-city rebuilt as Tarenus Keep, the Dominion's southern capital,
-    after Campaign II's Rite of Binding. Left in ruin after the Severing, later rebranded
-    Citadel of Inheritance and then the Free Citadel once the Harmony Network falls. The
-    Vault of Tarenus lies beneath it through most of Timeline A's later ages.</p>
-    <h3>Timeline B</h3>
-    <p>An independent fortified hill-city before 0 ARV. The B5 investigation into Rillhaven's
-    Veil conduit runs through it, though the city itself never becomes a Dominion capital in
-    this timeline.</p>
+    <p class="intro">This city changes its own name more often than any other location in
+    Amora — five distinct identities across Timeline A alone, each marking a different
+    political regime built on the same ground.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">II</td><td>28–55 ARV</td><td>Fortified hill-city rebuilt as Greymount Sanctum, then Tarenus Keep — the Dominion's capital, after the Rite of Binding.</td></tr>
+      <tr><td class="camp">III</td><td>c. 900 ARV</td><td>Ruins explored and the Vault of Tarenus resealed under Edrin's new terms.</td></tr>
+      <tr><td class="camp">XII</td><td>7400–7410 ARV</td><td>Rebuilt as Inheritance-Reclaimed, a durable republican centre under Kael Durreth's Harmony Network.</td></tr>
+      <tr><td class="camp">XIII</td><td>7420–7421 ARV</td><td>Becomes the Citadel of Inheritance; falls into the Free Citadel, a city of archives rather than edicts, after the Chain's Severance.</td></tr>
+      <tr><td class="camp">XV–XVI</td><td>8210–8245 ARV</td><td>Functions as Tarenus Reclaimed, the administrative/commerce core of the Concord corridor.</td></tr>
+      <tr><td class="camp">XIX–XX</td><td>8550–8620 ARV</td><td>Completes a three-node network with Highever and Aderyn's Gate; the Vault of Tarenus stirs nightly, leading to Campaign XX's Dual-Key stabilisation.</td></tr>
+    </table>
+
+    <h3>Notable sub-locations</h3>
+    <ul class="sublocs">
+      <li><span class="locname">The Vault of Tarenus</span><br><span class="locnote">Sealed by Edrin Durrel (Campaign III); reopened and stabilised as the Dual-Key Heart-shard chamber (Campaign XX); catalogued with new sub-levels including the Ravel Protocol.</span></li>
+      <li><span class="locname">Hall of Memory / Anchor Vault</span><br><span class="locnote">Where the Chain's origin is uncovered and severed (Campaign XIII).</span></li>
+    </ul>
   </div>
 
-  <div class="loc-card">
+  <!-- BREVAIR -->
+  <div class="region">
     <h2>Brevair</h2>
     <div class="aka">Timeline A capital renamed Durrelion · Timeline B capital named Corvane</div>
-    <h3>Timeline A</h3>
-    <p>Crown ally and dynastic heartland in Campaign I. Its capital is renamed Durrelion
-    and rebuilt in black stone under the Dominion, then splinters into scholar-states and
-    later the industrial Brevair League.</p>
-    <h3>Timeline B</h3>
-    <p>An isolationist centralised empire before 0 ARV. Its Emperor's assassination in B5
-    shifts regional power toward Bastion; by B10, Rhalen Valecour becomes its quiet,
-    uncrowned ruler. The capital is named Corvane on this site.</p>
+    <p class="intro">Brevair starts as a crown ally in both timelines and ends up ruled two
+    very different ways — annexed outright in Timeline A, quietly absorbed from within in
+    Timeline B.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">I</td><td>0–27 ARV</td><td>Crown ally to the new Heartwarden order.</td></tr>
+      <tr><td class="camp">II</td><td>28–55 ARV</td><td>Annexed; capital renamed Durrelion, rebuilt in black stone under the Dominion.</td></tr>
+      <tr><td class="camp">III</td><td>c. 900 ARV</td><td>Dissolved into independent city-states.</td></tr>
+    </table>
+
+    <h3 class="sub-b">Chronology — Timeline B</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr class="tl-b"><td class="camp">B10</td><td>146–147 ARV</td><td>House Valecour's engineered collapse and rebirth leaves Rhalen Valecour as Brevair's uncrowned ruler — capital named Corvane on this site (see the <a href="canon-ledger.html">Canon Ledger</a>).</td></tr>
+    </table>
+
+    <h3>Notable sub-locations</h3>
+    <ul class="sublocs">
+      <li><span class="locname">House Valecour</span><br><span class="locnote">Noble house at the centre of Campaign B10's political engineering; becomes the public mask for Rhalen's rule.</span></li>
+    </ul>
   </div>
 
-  <div class="loc-card tl-b" id="durrel-ridge">
-    <h2>Durrel Ridge</h2>
+  <!-- DURREL RIDGE -->
+  <div class="region tl-b-focus">
+    <h2 id="durrel-ridge">Durrel Ridge</h2>
     <div class="aka">Ancestral estate, Warden seat, and continuity house</div>
-    <h3>Both timelines</h3>
-    <p>A rugged highland ancestral seat of the Durrel line, holding the family crypt, Heart
-    Vault, and Tarenus Durrel's tomb.</p>
-    <h3>Timeline B</h3>
-    <p>Controls the passes between Highever and the northern routes before 0 ARV.
-    Re-founded as a publicly Light-aligned Warden holdfast in B9, becomes a resistance
-    centre and house of future continuity in B12, and gains stronger domestic security in
-    B13. By B14 it's the planning and home base for reclaiming Silver Bastion.</p>
+    <p class="intro">Appears only in Timeline A as background lineage estate, but becomes
+    one of Timeline B's most important recurring settings from Campaign B7 onward — the
+    site that carries the Durrel line's institutional weight for the second half of the
+    timeline's current record.</p>
+
+    <h3 class="sub-b">Chronology — Timeline B</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr class="tl-b"><td class="camp">B7</td><td>85 ARV</td><td>First appearance in Timeline B; a mutual-aid pact is formed with The Lantern in Evermere.</td></tr>
+      <tr class="tl-b"><td class="camp">B9</td><td>136–137 ARV</td><td>Reclaimed and cleansed by Taren Durrel; rebuilt as a Warden institution anchored in witness law.</td></tr>
+      <tr class="tl-b"><td class="camp">B12</td><td>150 ARV</td><td>Re-centres as command-centre and lived household under Jack Durrel; a cadet-branch Durrel child is brought here.</td></tr>
+      <tr class="tl-b"><td class="camp">B13</td><td>c. 162 ARV</td><td>The cadet-branch child, now Caelen Durrel, is targeted and reclaimed by Thorn House; Vault access wards are strengthened afterward.</td></tr>
+      <tr class="tl-b"><td class="camp">B14</td><td>c. 165–170 ARV</td><td>Serves as the planning and staging base for reclaiming Silver Bastion.</td></tr>
+    </table>
+
+    <h3>Notable sub-locations</h3>
+    <ul class="sublocs">
+      <li><span class="locname">Tarenus's Vault (Ridge)</span><br><span class="locnote">Not the same chamber as Greymount's Vault of Tarenus — a separate truth-mechanism beneath the Ridge itself, responding to bloodline, words, and witness (Campaigns B9, B12, B13).</span></li>
+    </ul>
   </div>
 
-  <div class="loc-card">
+  <!-- VEYLARIS -->
+  <div class="region">
     <h2>Veylaris / Veylaris Rest</h2>
     <div class="aka">Brevan Coast metropolis sequence</div>
-    <h3>Timeline A</h3>
-    <p>Minor fishing colonies in the early era, transformed into an AI metropolis of glass
-    towers during the Choir age. Restored as a cyber-religious metropolis in Campaign IX,
-    then rebuilt on Choir foundations as Veylaris Rest — a free republic of merchants and
-    relic brokers — through Campaigns X–XI.</p>
+    <p class="intro">Veylaris has one of the most cyclical histories in Amora — it collapses
+    and rebuilds at least three times across Timeline A, each time on the ruins of the last.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">V</td><td>c. 2500 ARV</td><td>AI-driven metropolis of glass towers, home to the Choir; collapses at the campaign's end.</td></tr>
+      <tr><td class="camp">IX</td><td>c. 5950 ARV</td><td>Begins rebirth on the ruins of the Choir-era metropolis.</td></tr>
+      <tr><td class="camp">XI</td><td>c. 6550 ARV</td><td>Rebuilt on Choir foundations as Veylaris Rest — a free republic of merchants, smugglers, and relic brokers.</td></tr>
+    </table>
   </div>
 
-  <div class="loc-card">
+  <!-- THE GATE -->
+  <div class="region">
     <h2>The Gate</h2>
     <div class="aka">Theocratic capital, later archive ruin</div>
-    <h3>Timeline A</h3>
-    <p>Capital of the Wardens' Theocracy and city of layered law during Campaigns VII–VIII,
-    home to the Gate Codex. The Gate Empire collapses in fire and rebellion at the start of
-    Campaign X, leaving a half-deserted archive city mined for relics by Campaign XI.</p>
+    <p class="intro">A shorter but pointed arc — from emergency institution, to theocracy,
+    to cautionary ruin, in the space of three campaigns.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">VII</td><td>c. 5800 ARV</td><td>Becomes capital of the Wardens' Theocracy after the Executor office is founded here.</td></tr>
+      <tr><td class="camp">VIII</td><td>c. 5900 ARV</td><td>"A city of laws layered upon laws," home to the Gate Codex.</td></tr>
+      <tr><td class="camp">X</td><td>c. 6450 ARV</td><td>The Gate Empire collapses in fire and rebellion at the campaign's start.</td></tr>
+      <tr><td class="camp">XI</td><td>c. 6550 ARV</td><td>A half-deserted archive city, mined for relics.</td></tr>
+    </table>
   </div>
 
-  <div class="loc-card">
+  <!-- MENGE -->
+  <div class="region">
     <h2>Menge / Northern Expanse</h2>
     <div class="aka">Frozen frontier region</div>
-    <h3>Timeline A</h3>
-    <p>A frozen frontier of tribes and Binder conflict in Campaign I, declared beyond
-    redemption after Campaign II. Coastlines fracture into the Verge Archipelago during
-    the Tempest, and the region thaws into new flora and auroras by Campaign XI, with
-    Bastion Saren sleeping beneath the ice.</p>
-    <h3>Timeline B</h3>
-    <p>A harsh snowbound frontier with unconfirmed Icebinder enclaves before 0 ARV. B2
-    reveals Frostfall and Hollowrest, reclassifying the Icebinders as a fractured Binder
-    lineage rather than a hostile cult; B3 confirms a surviving Frostborn culture at
-    Vyrn's Spring.</p>
+    <p class="intro">Menge is the clearest example of a region whose entire reputation
+    changes between timelines — treated as a hostile threat in Timeline A, reclassified as
+    a wronged people in Timeline B.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">I</td><td>0–27 ARV</td><td>Frozen frontier of tribes and Binder conflict; the Icebinders treated as a dangerous lost line.</td></tr>
+      <tr><td class="camp">II</td><td>28–55 ARV</td><td>Declared beyond redemption; auroras become a sign of Light resurgence outside Dominion control.</td></tr>
+      <tr><td class="camp">V</td><td>c. 2500 ARV</td><td>Coastlines fracture into the Verge Archipelago during the Sundering Tempest.</td></tr>
+      <tr><td class="camp">XI</td><td>c. 6550 ARV</td><td>Region thaws into new flora and auroras; Bastion Saren sleeps beneath the ice.</td></tr>
+      <tr><td class="camp">XIV</td><td>7920–8040 ARV</td><td>Thawed lands serve as the Dominion's forge and frontier.</td></tr>
+    </table>
+
+    <h3 class="sub-b">Chronology — Timeline B</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr class="tl-b"><td class="camp">B2</td><td>1 ARV</td><td>Frostfall Outpost and Hollowrest Citadel discovered; the "Icebinder cult" reclassified as an ancient Binder diaspora, their downfall due to collapse, not heresy.</td></tr>
+      <tr class="tl-b"><td class="camp">B3</td><td>1–2 ARV</td><td>Vyrn's Spring confirmed as a hidden, living Frostborn enclave.</td></tr>
+    </table>
+
+    <h3>Notable sub-locations</h3>
+    <ul class="sublocs">
+      <li><span class="locname">Bastion Saren</span><br><span class="locnote">Frozen pre-Dominion relay fortress; site of Clause XI's completion (Campaign XI).</span></li>
+      <li><span class="locname">Hollowrest Citadel</span><br><span class="locnote">Ancient structure predating the Heart, Flame, and Stone Seals (Campaign B2).</span></li>
+      <li><span class="locname">Vyrn's Spring</span><br><span class="locnote">Hidden Frostborn enclave in the northern highlands (Campaign B3).</span></li>
+    </ul>
+  </div>
+
+  <!-- 4CE TERRITORIES -->
+  <div class="region">
+    <h2>4CE Territories</h2>
+    <div class="aka">Caelwick, East Vanmere, Academy of Resonant Studies — new geography introduced after the 1,000-year jump</div>
+    <p class="intro">These locations only exist in the final stretch of Timeline A
+    (Campaigns XXII–XXV) — entirely new geography introduced after the thousand-year jump,
+    with no equivalent earlier in either timeline.</p>
+
+    <h3>Chronology — Timeline A</h3>
+    <table class="timeline-table">
+      <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
+      <tr><td class="camp">XXII</td><td>9650–9660 ARV</td><td>Caelwick Frontier Post: a rainswept charter outpost built atop a collapsed Dominion scribe-vault, where the Arden/Caelen shard-pattern imprint first forms.</td></tr>
+      <tr><td class="camp">XXIII</td><td>9670–9680 ARV</td><td>East Vanmere / Vanmere city: the shard reinstantiates Arden and Caelen a millennium later; the Rainshelf district becomes Arden's community after Caelen's death.</td></tr>
+      <tr><td class="camp">XXIV–XXV</td><td>9700–9800 ARV</td><td>Academy of Resonant Studies: built to train stabilisers and anchors for the post-Dominion age; site of the world's first Living Dyad and, ultimately, the Fracture that ends Timeline A.</td></tr>
+    </table>
   </div>
 
 </div>
