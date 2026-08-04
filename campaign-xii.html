@@ -20,8 +20,17 @@
     <a href="lore.html">Lore</a>
     <a href="magic-codex.html">Magic Codex</a>
     <a href="canon-ledger.html">Canon Ledger</a>
+    <button id="site-search-toggle" title="Search (press /)">Search /</button>
   </nav>
 </header>
+<div id="site-search-overlay">
+  <div id="site-search-box">
+    <input id="site-search-input" type="text" placeholder="Search campaigns, characters, locations..." autocomplete="off">
+    <div id="site-search-results"></div>
+    <div id="site-search-empty">No matches. Try a different name or term.</div>
+    <div id="site-search-hint">↑↓ to navigate · Enter to open · Esc to close</div>
+  </div>
+</div>
 <div class="wave-divider"></div>
 
 <div class="shell">
@@ -119,5 +128,20 @@
 
 <footer>Amora — a solo campaign chronicle · Timeline A · Campaign XII</footer>
 
+<button id="back-to-top" aria-label="Back to top" title="Back to top">&#8593;</button>
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) { btn.classList.add('visible'); }
+      else { btn.classList.remove('visible'); }
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  })();
+</script>
+<script src="search-index.js"></script>
+<script src="search-widget.js"></script>
 </body>
 </html>
