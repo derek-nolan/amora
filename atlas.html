@@ -63,6 +63,20 @@
   }
   .map-btn:hover { border-color: var(--bronze); color: var(--vellum); }
   .map-btn.active { border-color: var(--bronze); color: var(--bronze); background: rgba(185,134,63,0.1); }
+  .map-btn.tl-a.active { border-color: var(--bronze); color: var(--bronze); background: rgba(185,134,63,0.1); }
+  .map-btn.tl-b.active { border-color: var(--steel); color: var(--steel); background: rgba(127,161,179,0.1); }
+  .map-group-label {
+    width: 100%;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .66rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin: 10px 0 2px;
+  }
+  .map-group-label:first-child { margin-top: 0; }
+  .map-group-label.tl-b-label { color: var(--steel); }
+  .map-group-label.tl-a-label { color: var(--bronze); }
 </style>
 </head>
 <body>
@@ -110,16 +124,19 @@
       <span id="map-era-title">Year 0 ARV — The Beginning of a Reforged Age</span>
     </div>
     <div class="map-buttons">
-      <button class="map-btn active" data-src="maps/vanmere-000arv.png" data-title="Year 0 ARV — The Beginning of a Reforged Age">0 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-975arv.png" data-title="c. 975 ARV — After the Tempest Divide">975 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-2500arv.png" data-title="c. 2500 ARV — After the Sundering Tempest">2500 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-6550arv.png" data-title="Post-Campaign XI — Age of Clause">6550 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-7425arv.png" data-title="c. 7425 ARV — The Quiet Republics">7425 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-8041arv.png" data-title="c. 8041 ARV — After the Freed Veil">8041 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-8245arv.png" data-title="c. 8245 ARV — The Corridor Crown, Height of the Third Cyberpunk Age">8245 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-8415arv.png" data-title="c. 8415 ARV — The Age of Disconnection, After the Concord Blackout">8415 ARV</button>
-      <button class="map-btn" data-src="maps/vanmere-9800arv.png" data-title="c. 9800 ARV — The Broken Anchor, Last Stable Map of Timeline A">9800 ARV</button>
+      <span class="map-group-label tl-b-label">Shared baseline / Timeline B divergence</span>
+      <button class="map-btn active tl-b" data-src="maps/vanmere-000arv.png" data-title="Year 0 ARV — The Beginning of a Reforged Age">0 ARV</button>
+      <span class="map-group-label tl-a-label">Timeline A historical maps</span>
+      <button class="map-btn tl-a" data-src="maps/vanmere-975arv.png" data-title="c. 975 ARV — After the Tempest Divide">975 ARV</button>
+      <button class="map-btn tl-a" data-src="maps/vanmere-2500arv.png" data-title="c. 2500 ARV — After the Sundering Tempest">2500 ARV</button>
+      <button class="map-btn tl-a" data-src="maps/vanmere-6550arv.png" data-title="Post-Campaign XI — Age of Clause">6550 ARV</button>
+      <button class="map-btn tl-a" data-src="maps/vanmere-7425arv.png" data-title="c. 7425 ARV — The Quiet Republics">7425 ARV</button>
+      <button class="map-btn tl-a" data-src="maps/vanmere-8041arv.png" data-title="c. 8041 ARV — After the Freed Veil">8041 ARV</button>
+      <button class="map-btn tl-a" data-src="maps/vanmere-8245arv.png" data-title="c. 8245 ARV — The Corridor Crown, Height of the Third Cyberpunk Age">8245 ARV</button>
+      <button class="map-btn tl-a" data-src="maps/vanmere-8415arv.png" data-title="c. 8415 ARV — The Age of Disconnection, After the Concord Blackout">8415 ARV</button>
+      <button class="map-btn tl-a" data-src="maps/vanmere-9800arv.png" data-title="c. 9800 ARV — The Broken Anchor, Last Stable Map of Timeline A">9800 ARV</button>
     </div>
+    <p style="text-align:center;font-size:.72rem;color:var(--vellum-dim);margin-top:10px;">A dedicated current-state Timeline B map may join this viewer in its own steel-blue group in future.</p>
   </section>
 
   <script>
@@ -134,7 +151,7 @@
   </script>
 
   <!-- HIGHEVER -->
-  <div class="region">
+  <div class="region" id="highever">
     <h2>Highever</h2>
     <div class="aka">Realm and capital region</div>
     <p class="intro">Highever is the political territory surrounding its central
@@ -157,6 +174,7 @@
       <tr><th>Campaign</th><th>Date</th><th>State</th></tr>
       <tr class="tl-b"><td class="camp">B1</td><td>0 ARV</td><td>Wealthy, orderly realm; becomes the political centre for rupture management once the Order of Anchors is founded.</td></tr>
       <tr class="tl-b"><td class="camp">B11</td><td>148–149 ARV</td><td>Loses its uncontested Light fortress when Silver Bastion falls — the realm itself remains, but its symbolic centre is now hostile territory.</td></tr>
+      <tr class="tl-b"><td class="camp">B14</td><td>Late c. 162 ARV</td><td>Silver Bastion returns to Light control. Highever regains its symbolic fortress, though the realm must still rebuild its military, sacred, and civic institutions after years of internal occupation. Brevair remains the principal surviving territorial concentration of Veil authority.</td></tr>
     </table>
 
     <h3>Notable sub-locations</h3>
@@ -209,7 +227,7 @@
     <ul class="sublocs">
       <li><span class="locname">Sanctuary of Balance</span><br><span class="locnote">Academy annex where the Purity network's Heart Crown is rekindled and severed (Campaign <a href="campaign-xix.html" class="tl-a">XIX</a>).</span></li>
       <li><span class="locname">Main Chapel</span><br><span class="locnote">Former Light ritual chamber, stripped and reconsecrated rather than destroyed when Cameron takes the fortress — Light altars overwritten with black-cloth, iron-lattice, basin-based Shah observance. Site of the first public Shah rite of the new regime and Gavren's public fixing beneath Cameron (Campaign <a href="campaign-b11.html" class="tl-b">B11</a>).</span></li>
-      <li><span class="locname">Bastion Ward Chamber (Fortress Ward-Anchor)</span><br><span class="locnote">Not the original Heart Ward of Durrel Ridge, but Bastion's closest functional equivalent — a fortress-soul mechanism. Corrupted through a living conduit (Gavren) rather than destroyed; now answers Shah-aligned warding logic instead of Light discipline. Cleansing this chamber is expected to be a central requirement for any future Light retaking (Campaign <a href="campaign-b11.html" class="tl-b">B11</a>).</span></li>
+      <li><span class="locname">Bastion Ward Chamber (Fortress Ward-Anchor)</span><br><span class="locnote">Not the original Heart Ward of Durrel Ridge, but Bastion's closest functional equivalent — a fortress-soul mechanism. Corrupted through a living conduit (Gavren) rather than destroyed during Campaign <a href="campaign-b11.html" class="tl-b">B11</a>; restored by Jack Durrel during Campaign <a href="campaign-b14.html" class="tl-b">B14</a> once Cameron and Gavren are killed and the false ruler/ward-knight/ward-anchor structure is broken. Its restored Light release ends the Veiled Citadel as an active magical identity for good.</span></li>
       <li><span class="locname">Tribunal Annex Corridors &amp; the Archivum</span><br><span class="locnote">Civic corridors and restricted record stacks distinct from the Tribunal Undercroft itself — used as public-facing power spaces during Taren Durrel's campaign against coercive "hold" architecture, before the finale shifted to cleansing the Undercroft directly (Campaign <a href="campaign-b9.html" class="tl-b">B9</a>).</span></li>
       <li><span class="locname">Anchor Quarters</span><br><span class="locnote">Lio and Caen's private rooms; formally designated "R.Z. 14 — Emotional/Resonance Imprint Zone" after the Veil-echo incursion, and fitted with Triad-Echo Barriers, a Stabiliser-Anchor Containment Mesh, and a full Seal-Weave on the doorframe (Campaign <a href="campaign-b4.html" class="tl-b">B4</a>).</span></li>
       <li><span class="locname">Frostborn Vault</span><br><span class="locnote">Discovered beneath the Anchor Quarters (Campaign <a href="campaign-b3.html" class="tl-b">B3</a>).</span></li>
@@ -223,7 +241,7 @@
   </div>
 
   <!-- EVERMERE -->
-  <div class="region">
+  <div class="region" id="evermere">
     <h2>Evermere</h2>
     <div class="aka">Repeated rebuild site — sanctuary, capital, and port by turns</div>
     <p class="intro">Evermere is destroyed and rebuilt more times than anywhere else in
@@ -274,7 +292,7 @@
   </div>
 
   <!-- GREYMOUNT / TARENUS -->
-  <div class="region">
+  <div class="region" id="greymount-tarenus">
     <h2>Greymount / Tarenus</h2>
     <div class="aka">also Tarenus Keep · Citadel of Inheritance · Inheritance Reclaimed · Free Citadel</div>
     <p class="intro">This city changes its own name more often than any other location in
@@ -312,7 +330,7 @@
   </div>
 
   <!-- BREVAIR -->
-  <div class="region">
+  <div class="region" id="brevair">
     <h2>Brevair</h2>
     <div class="aka">Timeline A capital renamed Durrelion · Timeline B capital named Corvane</div>
     <p class="intro">Brevair's starting relationship with Highever is genuinely different
@@ -363,7 +381,7 @@
       <tr class="tl-b"><td class="camp">B9</td><td>136–137 ARV</td><td>Reclaimed and cleansed by Taren Durrel; rebuilt as a Warden institution anchored in witness law.</td></tr>
       <tr class="tl-b"><td class="camp">B12</td><td>150 ARV</td><td>Re-centres as command-centre and lived household under Jack Durrel; a cadet-branch Durrel child is brought here.</td></tr>
       <tr class="tl-b"><td class="camp">B13</td><td>c. 162 ARV</td><td>The cadet-branch child, now Caelen Durrel, is targeted and reclaimed by Thorn House; Vault access wards are strengthened afterward.</td></tr>
-      <tr class="tl-b"><td class="camp">B14</td><td>c. 165–170 ARV</td><td>Serves as the planning and staging base for reclaiming Silver Bastion.</td></tr>
+      <tr class="tl-b"><td class="camp">B14</td><td>Late c. 162 ARV</td><td>Serves as the planning and staging base for reclaiming Silver Bastion; proves it can project organised military power well beyond its own walls. Mike Rookvale is accepted as a formally recognised field scout and given the Rookvale family's reopened quarters; Caelen and Corvin marry in the sun chapel before the gathered household.</td></tr>
     </table>
 
     <h3>Notable sub-locations</h3>
@@ -374,12 +392,58 @@
       <li><span class="locname">Ridge Gatehouse</span><br><span class="locnote">Operational security node controlling passes and patrol tags; patrol-tag manipulation was the key mechanism behind the <a href="campaign-b7.html" class="tl-b">B7</a> leak. Procedures tightened afterward beyond single-clerk dependence.</span></li>
       <li><span class="locname">Cindergate Ford</span><br><span class="locnote">A river-crossing choke point on the route between the Ridge and Evermere, introduced during escort operations; remains a future hotspot for bandit pressure (Campaign <a href="campaign-b7.html" class="tl-b">B7</a>).</span></li>
       <li><span class="locname">Jack's House at Durrel Ridge</span><br><span class="locnote">Jack Durrel's inherited residence, associated at first with absence and grief; reopened, repopulated, and established as a lived domestic centre for his household. One of the campaign's most important spatial shifts — a dead inheritance-site becoming a living resistance-household (Campaign <a href="campaign-b12.html" class="tl-b">B12</a>).</span></li>
-      <li><span class="locname">Dena's Kitchen</span><br><span class="locnote">The Ridge's household centre and emotional safe-room, where Caelen goes first after his rescue and restoration; the developing protection circle gathers here for food, strategy, and recovery — the domestic opposite of Thorn House's coercive control (Campaign <a href="campaign-b13.html" class="tl-b">B13</a>).</span></li>
+      <li><span class="locname">Dena's Kitchen</span><br><span class="locnote">The Ridge's household centre and emotional safe-room, where Caelen goes first after his rescue and restoration; the developing protection circle gathers here for food, strategy, and recovery — the domestic opposite of Thorn House's coercive control (Campaign <a href="campaign-b13.html" class="tl-b">B13</a>). By B14 it's become Mike Rookvale's favourite place too — Dena catches him taking food and simply invites him to sit and eat, the moment his settlement into the household truly begins (Campaign <a href="campaign-b14.html" class="tl-b">B14</a>).</span></li>
+      <li><span class="locname">Rookvale Family Quarters</span><br><span class="locnote">The former rooms of Tomas and Elian Rookvale, Ridge clerics killed defending civilians in Silver Bastion's earlier fall — hearth, sleeping alcove, courtyard window, writing desk, and a small sunburst scratched near the hearthstone. Reopened and given to their son Mike once he's formally named a Ridge field scout (Campaign <a href="campaign-b14.html" class="tl-b">B14</a>).</span></li>
+      <li><span class="locname">Evan Marric's Adjacent Quarters</span><br><span class="locnote">The room next to the Rookvale family quarters, deliberately chosen by Evan Marric to live beside Mike — a spare key exchanged between them (Campaign <a href="campaign-b14.html" class="tl-b">B14</a>).</span></li>
+      <li><span class="locname">Sun Chapel &amp; Wedding Courtyard</span><br><span class="locnote">Where Caelen Durrel and Corvin Hale marry before the gathered household, scouts, paladins, and Bastion survivors — the same wedding where Mike and Evan share their first openly acknowledged kiss (Campaign <a href="campaign-b14.html" class="tl-b">B14</a>).</span></li>
     </ul>
   </div>
 
+  <!-- THE BADLANDS -->
+  <div class="region" id="the-badlands">
+    <h2>The Badlands</h2>
+    <div class="aka">One of Vanmere's four principal regions — a magical wasteland</div>
+    <p class="intro">A wild-magic desert at the interior of Vanmere, distinct from Menge,
+    already ancient by 0 ARV — proof neither the Dominion nor any later calamity created
+    it. Officially avoided and shunned by every institution on the continent, yet
+    consistently, quietly explored anyway.</p>
+
+    <h3>Public account</h3>
+    <p>The story ordinary people tell: centuries ago, a small group of mages conducted a
+    catastrophic experiment that reached too far and burned an entire region into
+    wasteland. This rumour is also why mages became objects of general suspicion
+    throughout Vanmere — the popular memory of the Badlands and the popular memory of
+    mage-suspicion are the same story, told from two angles.</p>
+
+    <h3>Buried history</h3>
+    <p>The true origin, as established in <a href="lore.html">Lore</a>: the Badlands are
+    what remained after the War of Ash and Glass — a conflict between sorcerous
+    bloodlines and warlock covenants — ended in the Shattering, when the sorcerous
+    houses drew on Vanmere's foundational ley structure while the covenants anchored vast
+    pacts into that same network at the same moment. The collision ruptured ley-lines,
+    burned and glassed the terrain, and destroyed the houses and covenants fighting to
+    control it. Popular memory simplified this entire war into the single rumour of "a
+    mages' experiment" — the public account above is that simplification, not a
+    fabrication from nothing.</p>
+
+    <h3>What the region is like</h3>
+    <p>Wild-magic storms, violently shifted stone, shattered towers, buried vaults,
+    pre-cataclysmic ruins, and artefacts described as "too powerful to exist." Expeditions
+    into the Badlands are notorious for how few people return from them — yet nobles and
+    mages continue to secretly sponsor scavengers and relic hunters despite the region's
+    official shunned status, precisely because of what still might be found there.</p>
+
+    <p>Later events damaged the Badlands further without creating them. Taren's Dominion
+    used parts of the region for exile and penal settlements, mined Veilstone there, and
+    diverted ancient ley-rivers to feed imperial infrastructure (Campaign II onward).
+    Centuries later, the Sundering Tempest's aftershocks fractured the region further into
+    glass canyons, now occupied by nomads, scavengers, and relic hunters (~2200 ARV). See
+    the <a href="canon-ledger.html">Canon Ledger</a> for the separate "Badlands of Menge"
+    naming issue — a different, later-blighted part of Menge, not this region.</p>
+  </div>
+
   <!-- OUTPOST NINE -->
-  <div class="region">
+  <div class="region" id="outpost-nine">
     <h2>Outpost Nine</h2>
     <div class="aka">A remote northeastern hard-weather post</div>
     <p class="intro">Not part of the earliest Heartwarden baseline the way Silver Bastion
@@ -393,7 +457,7 @@
   </div>
 
   <!-- VEYLARIS -->
-  <div class="region">
+  <div class="region" id="veylaris">
     <h2>Veylaris / Veylaris Rest</h2>
     <div class="aka">Brevan Coast metropolis sequence</div>
     <p class="intro">Veylaris has one of the most cyclical histories in Amora — it collapses
@@ -409,7 +473,7 @@
   </div>
 
   <!-- THE GATE -->
-  <div class="region">
+  <div class="region" id="the-gate">
     <h2>The Gate</h2>
     <div class="aka">Theocratic capital, later archive ruin</div>
     <p class="intro">A shorter but pointed arc — from emergency institution, to theocracy,
@@ -426,7 +490,7 @@
   </div>
 
   <!-- MENGE -->
-  <div class="region">
+  <div class="region" id="menge">
     <h2>Menge / Northern Expanse</h2>
     <div class="aka">Frozen frontier region</div>
     <p class="intro">Menge is the clearest example of a region whose entire reputation
@@ -459,7 +523,7 @@
   </div>
 
   <!-- 4CE TERRITORIES -->
-  <div class="region">
+  <div class="region" id="4ce-territories">
     <h2>4CE Territories</h2>
     <div class="aka">Caelwick, East Vanmere, Academy of Resonant Studies — new geography introduced after the 1,000-year jump</div>
     <p class="intro">These locations only exist in the final stretch of Timeline A
