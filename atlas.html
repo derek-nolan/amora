@@ -30,6 +30,39 @@
   }
   ul.sublocs .locnote a.tl-a { color: var(--bronze); }
   ul.sublocs .locnote a.tl-b { color: var(--steel); }
+
+  .map-viewer { margin: 20px 0 40px; }
+  .map-frame {
+    border: 1px solid var(--hairline);
+    background: var(--ink-raised);
+    border-radius: 3px;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .map-frame img { width: 100%; height: auto; display: block; }
+  .map-caption {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    color: var(--vellum-dim);
+    font-size: .9rem;
+    padding: 10px 0 16px;
+  }
+  .map-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .map-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .03em;
+    background: none;
+    border: 1px solid var(--hairline);
+    color: var(--vellum-dim);
+    padding: 7px 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .map-btn:hover { border-color: var(--bronze); color: var(--vellum); }
+  .map-btn.active { border-color: var(--bronze); color: var(--bronze); background: rgba(185,134,63,0.1); }
 </style>
 </head>
 <body>
@@ -58,6 +91,37 @@
     Timeline B. Use this page to check exactly what a location looked like at a given
     point before reusing it in other material.</p>
   </section>
+
+  <section class="map-viewer">
+    <div class="map-frame">
+      <img id="map-display" src="maps/vanmere-000arv.png" alt="Map of Vanmere">
+    </div>
+    <div class="map-caption">
+      <span id="map-era-title">Year 0 ARV — The Beginning of a Reforged Age</span>
+    </div>
+    <div class="map-buttons">
+      <button class="map-btn active" data-src="maps/vanmere-000arv.png" data-title="Year 0 ARV — The Beginning of a Reforged Age">0 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-975arv.png" data-title="c. 975 ARV — After the Tempest Divide">975 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-2500arv.png" data-title="c. 2500 ARV — After the Sundering Tempest">2500 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-6550arv.png" data-title="Post-Campaign XI — Age of Clause">6550 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-7425arv.png" data-title="c. 7425 ARV — The Quiet Republics">7425 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-8041arv.png" data-title="c. 8041 ARV — After the Freed Veil">8041 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-8245arv.png" data-title="c. 8245 ARV — The Corridor Crown, Height of the Third Cyberpunk Age">8245 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-8415arv.png" data-title="c. 8415 ARV — The Age of Disconnection, After the Concord Blackout">8415 ARV</button>
+      <button class="map-btn" data-src="maps/vanmere-9800arv.png" data-title="c. 9800 ARV — The Broken Anchor, Last Stable Map of Timeline A">9800 ARV</button>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.map-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.getElementById('map-display').src = btn.dataset.src;
+        document.getElementById('map-era-title').textContent = btn.dataset.title;
+        document.querySelectorAll('.map-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+      });
+    });
+  </script>
 
   <!-- HIGHEVER -->
   <div class="region">
