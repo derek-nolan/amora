@@ -267,3 +267,103 @@ footer {
   background-size: auto 26px;
   opacity: .85;
 }
+
+#back-to-top {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--bronze);
+  background: var(--ink-raised);
+  color: var(--bronze);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .2s, transform .2s, visibility .2s, border-color .15s, color .15s;
+  z-index: 500;
+}
+#back-to-top.visible {
+  opacity: .9;
+  visibility: visible;
+  transform: translateY(0);
+}
+#back-to-top:hover {
+  opacity: 1;
+  border-color: var(--steel);
+  color: var(--steel);
+}
+
+/* ---- Site search ---- */
+#site-search-toggle {
+  background: none;
+  border: 1px solid var(--hairline);
+  color: var(--vellum-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .78rem;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: auto;
+}
+#site-search-toggle:hover { border-color: var(--bronze); color: var(--vellum); }
+#site-search-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,9,7,0.75);
+  z-index: 900;
+  padding: 10vh 20px 20px;
+}
+#site-search-overlay.open { display: block; }
+#site-search-box {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--ink-raised);
+  border: 1px solid var(--bronze);
+  border-radius: 4px;
+  overflow: hidden;
+}
+#site-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--ink);
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--vellum);
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  padding: 16px 18px;
+  outline: none;
+}
+#site-search-results { max-height: 55vh; overflow-y: auto; }
+.search-result {
+  display: block;
+  padding: 12px 18px;
+  border-bottom: 1px dotted var(--hairline);
+  text-decoration: none;
+  cursor: pointer;
+}
+.search-result:hover, .search-result.active { background: rgba(185,134,63,0.08); }
+.search-result .sr-title { color: var(--vellum); font-family: 'Fraunces', serif; font-weight: 600; font-size: .98rem; }
+.search-result .sr-sub { color: var(--vellum-dim); font-family: 'JetBrains Mono', monospace; font-size: .72rem; margin-left: 8px; }
+.search-result .sr-tag {
+  float: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .62rem;
+  text-transform: uppercase;
+  color: var(--bronze);
+  border: 1px solid var(--bronze-dim);
+  border-radius: 2px;
+  padding: 1px 6px;
+}
+#site-search-empty { padding: 18px; color: var(--vellum-dim); font-style: italic; font-size: .9rem; display: none; }
+#site-search-hint { padding: 10px 18px; color: var(--vellum-dim); font-family: 'JetBrains Mono', monospace; font-size: .68rem; border-top: 1px dotted var(--hairline); }
