@@ -269,3 +269,12 @@ footer {
   font-size: 0.8rem;
   padding: 40px 0 20px;
 }
+
+.wave-divider {
+  height: 26px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSIzMCI+CjxwYXRoIGQ9Ik0wLDE1IEMxNSw1IDE1LDUgMzAsMTUgQzQ1LDI1IDQ1LDI1IDYwLDE1IiBzdHJva2U9IiM3ZmExYjMiIHN0cm9rZS13aWR0aD0iMS42IiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0wLDE1IEMxNSwyNSAxNSwyNSAzMCwxNSBDNDUsNSA0NSw1IDYwLDE1IiBzdHJva2U9IiNiOTg2M2YiIHN0cm9rZS13aWR0aD0iMS42IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: auto 26px;
+  opacity: .85;
+}
