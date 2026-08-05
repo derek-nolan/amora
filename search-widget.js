@@ -6,7 +6,7 @@
   var toggle = document.getElementById('site-search-toggle');
   if (!overlay || !input || !results || !toggle) return;
 
-  var TAG_LABELS = { campaign: 'Campaign', character: 'Character', location: 'Location', lore: 'Lore', page: 'Page', faction: 'Faction' };
+  var TAG_LABELS = { campaign: 'Campaign', character: 'Character', location: 'Location', lore: 'Lore', page: 'Page', faction: 'Faction', relic: 'Relic' };
   var activeIndex = -1;
   var currentMatches = [];
 

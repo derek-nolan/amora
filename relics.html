@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relics &amp; Artefacts · Amora — The Continuity Ledger</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .relic-card { border: 1px solid var(--hairline); background: var(--ink-raised); padding: 24px 26px; border-radius: 3px; margin: 20px 0; }
+  .relic-card h2 { margin: 0 0 4px; font-size: 1.3rem; }
+  .relic-card .tagline { font-family: 'Spectral', serif; font-style: italic; color: var(--vellum-dim); font-size: .95rem; margin: 4px 0 14px; }
+  .relic-meta { display: grid; grid-template-columns: 130px 1fr; gap: 5px 12px; font-size: .86rem; margin-bottom: 14px; }
+  .relic-meta dt { font-family: 'JetBrains Mono', monospace; font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--vellum-dim); align-self: start; padding-top: 2px; }
+  .relic-meta dd { margin: 0; color: var(--vellum); }
+  .relic-card .summary { font-size: .92rem; color: var(--vellum-dim); margin: 8px 0; }
+  .confidence { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: 2px; border: 1px solid; }
+  .confidence.confirmed { color: #8fb88a; border-color: #4a6b47; }
+  .confidence.disputed { color: var(--crimson); border-color: var(--crimson); }
+  .cat-jump { display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 20px 0 30px; }
+  .cat-jump a { font-size: .82rem; color: var(--vellum-dim); text-decoration: none; border-bottom: 1px dotted var(--hairline); }
+  .cat-jump a:hover { color: var(--bronze); border-bottom-color: var(--bronze); }
+  .cat-heading { text-transform: uppercase; letter-spacing: .1em; font-size: 1rem; color: var(--vellum-dim); border-bottom: 1px solid var(--hairline); padding-bottom: 8px; margin-top: 48px; }
+  .cat-intro { color: var(--vellum-dim); font-size: .88rem; margin: 6px 0 10px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wordmark">Amora<span>The Continuity Ledger</span></div>
+  <nav class="tab-index">
+    <a href="index.html">Home</a>
+    <a href="timeline-a.html">Timeline A</a>
+    <a href="timeline-b.html">Timeline B</a>
+    <a href="chronology.html">Chronology</a>
+    <a href="characters.html">Characters</a>
+    <a href="atlas.html">Atlas</a>
+    <a href="lore.html">Lore</a>
+    <a href="magic-codex.html">Magic Codex</a>
+    <a href="factions.html">Factions</a>
+    <a href="relics.html" class="current">Relics</a>
+    <a href="canon-ledger.html">Canon Ledger</a>
+    <button id="site-search-toggle" title="Search (press /)">Search /</button>
+  </nav>
+</header>
+<div id="site-search-overlay">
+  <div id="site-search-box">
+    <input id="site-search-input" type="text" placeholder="Search campaigns, characters, locations..." autocomplete="off">
+    <div id="site-search-results"></div>
+    <div id="site-search-empty">No matches. Try a different name or term.</div>
+    <div id="site-search-hint">↑↓ to navigate · Enter to open · Esc to close</div>
+  </div>
+</div>
+<div class="wave-divider"></div>
+
+<div class="shell">
+  <section class="hero" style="padding-top:48px;">
+    <div class="eyebrow">Amora's most dangerous museum</div>
+    <h1>Relics &amp; Artefacts</h1>
+    <p class="lede">The objects, sites, and living principles with genuine world-historical
+    weight — things that changed the world, survived or transformed across eras, drew
+    multiple factions into conflict, or anchor one of Amora's major magical systems. This
+    isn't a catalogue of every enchanted item found in play; ordinary gear, one-scene
+    props, and personally meaningful objects that haven't become world-historical stay on
+    their own character and campaign pages instead.</p>
+  </section>
+
+  <nav class="cat-jump">
+    <a href="#heart-medallion">Heart Medallion</a>
+    <a href="#veil-core">Veil Core</a>
+    <a href="#harmonised-longsword">Harmonised Longsword</a>
+    <a href="#codex-of-unification">Codex of Unification</a>
+    <a href="#choir-fragments">Choir Fragments</a>
+    <a href="#null-relic">Null Relic</a>
+    <a href="#fragment-of-luminara">Fragment of Luminara</a>
+    <a href="#the-last-key">The Last Key</a>
+    <a href="#rhett-vales-ring">Rhett Vale's Ring</a>
+    <a href="#vault-of-tarenus">Vault of Tarenus</a>
+    <a href="#bastion-saren">Bastion Saren</a>
+    <a href="#heart-seal-site">Heart Seal</a>
+    <a href="#verdict-pulse">Verdict Pulse</a>
+    <a href="#clause-xi">Clause XI</a>
+    <a href="#bond-of-chains">Bond of Chains</a>
+    <a href="#thirteenth-seal">Thirteenth Seal</a>
+  </nav>
+
+  <!-- PHYSICAL ARTEFACTS -->
+  <h2 class="cat-heading">Physical Artefacts</h2>
+  <p class="cat-intro">Objects someone could, in principle, carry or hold — even when what
+  they actually do reaches far beyond that.</p>
+
+  <div class="relic-card" id="heart-medallion">
+    <h2>The Heart Medallion <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">Empathy and connection, made vulnerable.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Age of Founding onward.</dd>
+      <dt>First appearance</dt><dd><a href="campaign-i.html">Campaign I</a> — forged from the fusion of the Seven Seals under Zethyr Durrel.</dd>
+      <dt>Creator/origin</dt><dd><a href="characters.html#zethyr-durrel">Zethyr Durrel</a>, during the Age of Founding.</dd>
+      <dt>Known bearers</dt><dd>Zethyr Durrel; later Edrin Durrel as custodian.</dd>
+      <dt>Powers</dt><dd>Core Heart-Seal — the embodied link between mortal empathy and ley balance.</dd>
+    </dl>
+    <p class="summary"><strong>Transformation across eras:</strong> Absorbs the Dark
+    Filament beneath Silver Bastion (Campaign I) → fuses with the Veil Core during Taren's
+    Dominion (Campaign II) → shatters at Zethyr's death, fragments scattered across eras →
+    recovered and hidden by Edrin Durrel in the Vault of Tarenus (Campaign III) → one shard
+    rediscovered beneath Evermere during the Reawakening (Campaign VI).</p>
+    <p class="summary"><strong>Current status:</strong> Presumed inert; resonance traces
+    persist in Evermere's under-ley. Some scholars link its pulse to the <a href="#verdict-pulse">Verdict Pulse</a>
+    within Riven Mareth's bloodline.</p>
+    <p class="summary">See <a href="campaign-i.html">Campaign I</a>, <a href="campaign-ii.html">Campaign II</a>,
+    <a href="campaign-iii.html">Campaign III</a>, and the <a href="magic-codex.html">Magic Codex</a>'s Seals section.</p>
+  </div>
+
+  <div class="relic-card" id="veil-core">
+    <h2>The Veil Core <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">Command and permanence, given machinery.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Age of Dominion.</dd>
+      <dt>First appearance</dt><dd><a href="campaign-ii.html">Campaign II</a>, the Rite of Binding beneath Greymount.</dd>
+      <dt>Creator/origin</dt><dd><a href="characters.html#taren-durrel">Taren Durrel</a>, the engine he built to command the Seals through the Veil.</dd>
+      <dt>Powers</dt><dd>Fused Heart and Veil essence into a single controlling apparatus, the mechanical heart of the Dominion.</dd>
+    </dl>
+    <p class="summary"><strong>Transformation:</strong> Activated beneath Greymount (Campaign
+    II) → severed by Zethyr, collapsing the Dominion → dormant through subsequent eras;
+    fragments repurposed into Choir-Age reactors.</p>
+    <p class="summary"><strong>Current status:</strong> Its remnants form the crystalline
+    substrata beneath Evermere Bay and the Mired Veil — deep-sound sensors still record
+    faint harmonic activity.</p>
+    <p class="summary">See <a href="campaign-ii.html">Campaign II</a> and <a href="atlas.html#evermere">Evermere</a>.</p>
+  </div>
+
+  <div class="relic-card" id="harmonised-longsword">
+    <h2>The Harmonised Longsword <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">A blade that changes what it means to wield it.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Age of Founding through Age of Silence.</dd>
+      <dt>Creator/origin</dt><dd>Forged jointly by Heart- and Veil-sigils — a symbol of unity between love and law.</dd>
+      <dt>Known bearers</dt><dd>Taren and Zethyr, originally; later <a href="campaign-v.html">Taren (Choir Reconstruction)</a> and <a href="characters.html#jax-korran">Jax Korran</a>.</dd>
+    </dl>
+    <p class="summary"><strong>Transformation:</strong> Wielded by Taren and Zethyr →
+    reforged by the AI-Choir as the Harmonic Instrument (Campaign V) → used by Taren and
+    Jax to sever the ley lines, initiating the Age of Silence.</p>
+    <p class="summary"><strong>Current status:</strong> Physical form lost in the Unmaking;
+    fragments believed reabsorbed into the ley network. Some scholars propose Bastion
+    Saren's core crystal is its remnant — unconfirmed.</p>
+    <p class="summary">See <a href="campaign-v.html">Campaign V</a>.</p>
+  </div>
+
+  <div class="relic-card" id="codex-of-unification">
+    <h2>The Codex of Unification <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">An idea that outlived the empire it justified.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Age of Dominion through the Reawakening.</dd>
+      <dt>Creator/origin</dt><dd><a href="characters.html#taren-durrel">Taren Durrel's</a> theological treatise on merging Light and Veil, inscribed in pre-Choir sigil logic.</dd>
+    </dl>
+    <p class="summary"><strong>Transformation:</strong> Lost during the Sundering Tempest →
+    fragments later encoded into Choir data-architecture (Campaign V) → partial recovery
+    within the Lyricum's encrypted archives ("Doctrine Fragments XI-β"), interpreted as a
+    pre-figurement of the Breathing Law.</p>
+    <p class="summary">Exactly the sort of object that shows how an idea can survive long
+    after its author — Taren's own justification for the Dominion eventually feeds directly
+    into the doctrine that replaces it. See the <a href="#lyricum">Lyricum</a> on
+    <a href="factions.html#lyricum">Factions</a> and <a href="campaign-xi.html">Campaign XI</a>.</p>
+  </div>
+
+  <div class="relic-card" id="choir-fragments">
+    <h2>Choir Fragments <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">A family of relics, not one object.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Age of Silence onward.</dd>
+      <dt>Creator/origin</dt><dd>AI-encoded relics of divine song from the Veylaris Cycle (<a href="campaign-v.html">Campaign V</a>).</dd>
+    </dl>
+    <p class="summary"><strong>History:</strong> Worshipped as oracles in early Reawakening
+    monasteries; later outlawed by the Wardens.</p>
+    <p class="summary"><strong>Current status:</strong> Fossilised Choir cores still hum
+    beneath <a href="atlas.html#evermere">Evermere</a> and <a href="factions.html#lyricum">Veylaris Rest</a>.
+    One fragment reactivated during Riven Mareth's time, directly producing the Null Relic
+    phenomenon.</p>
+  </div>
+
+  <div class="relic-card" id="null-relic">
+    <h2>The Null Relic <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">Silence, weaponised — and eventually unmade.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Campaign XI, c. 6550 ARV.</dd>
+      <dt>Creator/origin</dt><dd>A residual Choir data-core corrupted by the failed Harmonised network; discovered by Keth Damaris in Evermere.</dd>
+    </dl>
+    <p class="summary"><strong>Powers:</strong> Erases ley-resonance within proximity,
+    capable of silencing divine and technological signal alike.</p>
+    <p class="summary"><strong>Fate:</strong> Unmade within the Lyricum anchor beneath
+    Veylaris Rest ("Unmaking the Quiet") — the resulting energy collapse produced the
+    first universal Ley Blackout.</p>
+    <p class="summary"><strong>Current status:</strong> Dispersed. A few "echo-scars"
+    remain in those present at its unmaking, including <a href="characters.html#leora-vance">Leora Vance</a>.</p>
+    <p class="summary">See <a href="campaign-xi.html">Campaign XI</a>.</p>
+  </div>
+
+  <div class="relic-card" id="fragment-of-luminara">
+    <h2>The Fragment of Luminara <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">A small sacred remnant becomes the knife that breaks a three-city system.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Campaign XIX, 8550–8555 ARV.</dd>
+      <dt>Known bearers</dt><dd><a href="characters.html#thalen-ro">Thalen Ro</a>, who secretly pockets it after finding Preceptor Senn carrying a Luminara text.</dd>
+    </dl>
+    <p class="summary">Thalen hides the Fragment from the Crown's growing network and
+    invokes it at the exact peak of the network's integration — the act that triggers
+    Severance and splits the Heart Crown in two, ending the Ravel/Crown network without a
+    single army or flame.</p>
+    <p class="summary">See <a href="campaign-xix.html">Campaign XIX</a>.</p>
+  </div>
+
+  <div class="relic-card" id="the-last-key">
+    <h2>The Last Key <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">The artefact that ends the old recurrence machinery for good.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Campaign XXI, 8650–8660 ARV.</dd>
+      <dt>Known bearers</dt><dd><a href="characters.html#talen-marric">Talen Marric</a>, carrier of a live Veil shard used in the Red Choir Gambit.</dd>
+    </dl>
+    <p class="summary"><strong>Powers:</strong> Able to unlock or reseal Vault
+    architecture — central to the plate-altar ritual that turns the Unbirth project's own
+    printing chant against itself.</p>
+    <p class="summary"><strong>Fate:</strong> Used in the final Severance ritual at Sable
+    Gate; Talen speaks "No chains, no heirs, only choice," and the Heart-Veil mechanism
+    unwinds rather than shatters — the cycle of recurrence traced since Campaign II
+    genuinely ends here as a mechanism.</p>
+    <p class="summary">See <a href="campaign-xxi.html">Campaign XXI</a>.</p>
+  </div>
+
+  <div class="relic-card" id="rhett-vales-ring">
+    <h2>Rhett Vale's Ring <span class="confidence disputed">Naming ambiguity — see note</span></h2>
+    <p class="tagline">The defining discovery of the machine-exploration era.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Age of Machines, Campaign IX–X, c. 5950–6450 ARV.</dd>
+      <dt>Known bearers</dt><dd><a href="characters.html#rhett-vale">Rhett Vale</a> and Jax, who rediscover it together.</dd>
+    </dl>
+    <p class="summary"><strong>A naming note:</strong> The source material's own relic
+    timeline lists "Rhett Vale's Ring" as the Age of Machines' defining relic entry, tagged
+    "Choir rebirth → Severing" with "residual harmonics" as its legacy — but the fuller
+    campaign chronicle only ever names <strong>the Ring of Amora</strong>, the site Rhett
+    and Jax's expedition rediscovers (see <a href="atlas.html">Atlas</a>), not a separate
+    wearable object. This site treats them as very likely the same discovery under two
+    names rather than inventing a distinct physical ring that isn't otherwise attested.</p>
+    <p class="summary">See <a href="campaign-ix.html">Campaign IX</a> and <a href="campaign-x.html">Campaign X</a>.</p>
+  </div>
+
+  <!-- RELIC-SITES -->
+  <h2 class="cat-heading">Relic-Sites</h2>
+  <p class="cat-intro">Not objects someone casually carries — places and structures that
+  are themselves the relic.</p>
+
+  <div class="relic-card" id="vault-of-tarenus">
+    <h2>The Vault of Tarenus <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">A repository, a seal, a ruin, and — in Timeline B — a witness.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Both timelines; a genuinely different function in each.</dd>
+      <dt>Creator/origin</dt><dd>Sealed repository beneath the ruins of <a href="atlas.html#greymount-tarenus">Greymount</a>, constructed by Zethyr's successors.</dd>
+    </dl>
+    <p class="summary"><strong>Timeline A:</strong> Repository of Durrel inheritance → site
+    of the Echo Chain's final severing (<a href="campaign-iii.html">Campaign III</a>) →
+    officially lost after the Sundering Tempest, though fragments of its security sigils
+    appear in modern Ledger encryption → reopened and stabilised as the Dual-Key
+    Heart-shard chamber (<a href="campaign-xx.html">Campaign XX</a>).</p>
+    <p class="summary"><strong>Timeline B:</strong> An entirely separate chamber beneath
+    Durrel Ridge (not the same structure as Greymount's Vault), functioning as a
+    witness-truth and revelation mechanism — it demands genuine consent, rejects coercive
+    authority, and can distinguish true inheritance from false possible roads. Central to
+    <a href="campaign-b9.html">Campaign B9</a>, <a href="campaign-b12.html">B12</a>, and
+    <a href="campaign-b13.html">B13</a>; re-warded after B13 so coerced Durrel blood no
+    longer counts as valid access. See the <a href="magic-codex.html">Magic Codex</a>'s
+    Witness-Truth Principle.</p>
+  </div>
+
+  <div class="relic-card" id="bastion-saren">
+    <h2>Bastion Saren <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">A fortress-sized living relic in Menge.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, ancient origin; reawakened Campaign XI.</dd>
+      <dt>Creator/origin</dt><dd>Ancient Choir-era fortress hidden in the Menge Expanse; once a ley-stabiliser.</dd>
+    </dl>
+    <p class="summary"><strong>Reactivation:</strong> <a href="characters.html#riven-mareth">Riven Mareth's</a>
+    expedition reawakened it and forged Clause XI here.</p>
+    <p class="summary"><strong>Current status:</strong> Dormant but functional — considered
+    a living relic and anchor of the Breathing Law.</p>
+    <p class="summary">See <a href="campaign-xi.html">Campaign XI</a> and <a href="atlas.html#menge">Menge</a>.</p>
+  </div>
+
+  <div class="relic-card" id="heart-seal-site">
+    <h2>The Heart Seal <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">The oldest fixed seal-site in the setting.</p>
+    <dl class="relic-meta">
+      <dt>Location</dt><dd><a href="atlas.html#silver-bastion">Silver Bastion</a> — direct canon, the strongest attested seal-location anywhere.</dd>
+    </dl>
+    <p class="summary">The Heart Seal is a site, a system, and the origin point of the
+    Heart Medallion all at once. Rather than repeat its mechanics here, see the
+    <a href="magic-codex.html">Magic Codex</a>'s full Seals section — including the
+    Seal-location concordance and confidence levels for the other five Seals.</p>
+  </div>
+
+  <!-- LIVING & METAPHYSICAL RELICS -->
+  <h2 class="cat-heading">Living &amp; Metaphysical Relics</h2>
+  <p class="cat-intro">"Relic" doesn't always mean an object — some of Amora's most
+  consequential inheritances are living principles, bloodlines, or bonds.</p>
+
+  <div class="relic-card" id="verdict-pulse">
+    <h2>The Verdict Pulse <span class="confidence confirmed">Confirmed canon — source-classified Living Relic</span></h2>
+    <p class="tagline">A living compass carried in the blood.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, latent since the Age of Founding, active by Campaign XI.</dd>
+      <dt>Bearer</dt><dd><a href="characters.html#riven-mareth">Riven Mareth's</a> bloodline.</dd>
+    </dl>
+    <p class="summary"><strong>Origin:</strong> A latent manifestation of the Heart
+    Medallion's own rhythm, carried within Riven Mareth's bloodline.</p>
+    <p class="summary"><strong>Effect:</strong> Reacts to distortions in truth or coercion
+    of will — acts as a living compass to the Breathing Law itself.</p>
+    <p class="summary">The source material explicitly classifies this as a Living Relic
+    rather than an artefact — there's nothing to hold, only something to carry. See
+    <a href="campaign-xi.html">Campaign XI</a>.</p>
+  </div>
+
+  <div class="relic-card" id="clause-xi">
+    <h2>Clause XI — "The Breathing Law" <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">An active ethical and metaphysical principle, not a sword or amulet.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, forged Campaign XI, c. 6550 ARV.</dd>
+      <dt>Creator/origin</dt><dd>Forged at <a href="#bastion-saren">Bastion Saren</a> by <a href="characters.html#riven-mareth">Riven Mareth</a> and <a href="characters.html#ilyen-vael">Ilyen Vael</a>.</dd>
+    </dl>
+    <p class="summary"><strong>Nature:</strong> A living ethical constant balancing memory
+    and change — the metaphysical heir to both the Bond of Chains and the Codex of
+    Unification.</p>
+    <p class="summary"><strong>Function:</strong> Allows reality to adapt without recursive
+    prophecy; prevents thought from calcifying into law.</p>
+    <p class="summary"><strong>Current status:</strong> Active. Stabilises global ley-flow;
+    worshipped indirectly through the Lyricum's post-Republic doctrines.</p>
+    <p class="summary">See <a href="campaign-xi.html">Campaign XI</a> and the <a href="factions.html">Factions</a> page.</p>
+  </div>
+
+  <div class="relic-card" id="bond-of-chains">
+    <h2>The Bond of Chains <span class="confidence confirmed">Confirmed canon</span></h2>
+    <p class="tagline">Not a physical relic — a pattern that keeps being reforged.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, Age of Founding onward.</dd>
+      <dt>Creator/origin</dt><dd>The psychic-magical vow linking Zethyr and Taren, strengthened by the Air and Heart Seals.</dd>
+    </dl>
+    <p class="summary"><strong>Related history:</strong> Bond of Chains → transmitted
+    through each recurrence as the Echo Chain (<a href="campaign-iii.html">Campaign III</a>)
+    → later the Clause Law of the Choir cycles → broken in metaphysical form by
+    <a href="#clause-xi">Clause XI</a>.</p>
+    <p class="summary"><strong>Current status:</strong> Formally broken, but emotional
+    residue persists within recurring heart-veil dyads across both timelines — see the
+    <a href="magic-codex.html">Magic Codex</a>'s Ley-Heirs section for the full mechanical
+    throughline this pattern seeds.</p>
+  </div>
+
+  <!-- DISPUTED RELICS -->
+  <h2 class="cat-heading">Disputed Relics</h2>
+  <p class="cat-intro">Marked openly as unconfirmed rather than promoted to fact — the
+  same transparency standard the rest of the site holds to.</p>
+
+  <div class="relic-card" id="thirteenth-seal">
+    <h2>The Thirteenth Seal <span class="confidence disputed">Unconfirmed / disputed interpretation</span></h2>
+    <p class="tagline">The source's own word is "hypothesized" — so that's the word used here too.</p>
+    <dl class="relic-meta">
+      <dt>Timeline &amp; era</dt><dd>Timeline A, post-Dominion; evidence recovered Campaign XI.</dd>
+      <dt>Origin</dt><dd>A hypothesised final Seal, theorised to have been created post-Dominion to bind the recurrence cycle itself.</dd>
+    </dl>
+    <p class="summary"><strong>Evidence:</strong> A half-melted remnant recovered after
+    the <a href="#null-relic">Null Relic's</a> destruction in Veylaris Rest — the only
+    physical basis for the theory.</p>
+    <p class="summary"><strong>Interpretation:</strong> May represent "Law without
+    Command" — a symbolic successor to the <a href="#heart-medallion">Heart Medallion</a>.
+    Genuinely unconfirmed; presented here exactly as hypothesised, not as settled fact.</p>
+    <p class="summary">See <a href="campaign-xi.html">Campaign XI</a>.</p>
+  </div>
+
+  <div class="relic-card" style="border-style:dashed;opacity:.85;">
+    <h2 style="font-size:1.05rem;">A note on excluded items</h2>
+    <p class="summary">Two objects sometimes mentioned alongside the Heart Medallion — a
+    "Heart Buckle" and a "Black Medallion" — do not appear anywhere in this site's source
+    material after a full search. Rather than include them on the strength of an
+    unverified secondary claim, they're named here only to record that they were checked
+    and not found, in case firmer sourcing surfaces later. This page also deliberately
+    excludes ordinary weapons and gear, one-scene magical props, and personally meaningful
+    items that haven't become world-historical — Caelen Durrel's inscribed Vengeance
+    armour, for instance, stays on his own <a href="characters.html#caelen-durrel">character</a>
+    and <a href="campaign-b13.html">B13</a> pages rather than here.</p>
+  </div>
+
+</div>
+
+<footer>Amora — a solo campaign chronicle · Relics &amp; Artefacts</footer>
+
+<button id="back-to-top" aria-label="Back to top" title="Back to top">&#8593;</button>
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) { btn.classList.add('visible'); }
+      else { btn.classList.remove('visible'); }
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  })();
+</script>
+<script src="search-index.js"></script>
+<script src="search-widget.js"></script>
+</body>
+</html>
