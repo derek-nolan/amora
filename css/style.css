@@ -69,6 +69,8 @@ header.site-header {
   z-index: 10;
 }
 
+[id] { scroll-margin-top: 110px; }
+
 .wordmark {
   font-family: 'Fraunces', serif;
   font-weight: 700;
