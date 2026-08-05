@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factions, Orders &amp; Institutions · Amora — The Continuity Ledger</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .faction-card { border: 1px solid var(--hairline); background: var(--ink-raised); padding: 24px 26px; border-radius: 3px; margin: 20px 0; }
+  .faction-card h2 { margin: 0 0 4px; font-size: 1.3rem; }
+  .faction-card .doctrine { font-family: 'Spectral', serif; font-style: italic; color: var(--vellum-dim); font-size: .95rem; margin: 4px 0 14px; }
+  .faction-meta { display: grid; grid-template-columns: 100px 1fr; gap: 5px 12px; font-size: .86rem; margin-bottom: 14px; }
+  .faction-meta dt { font-family: 'JetBrains Mono', monospace; font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--vellum-dim); align-self: start; padding-top: 2px; }
+  .faction-meta dd { margin: 0; color: var(--vellum); }
+  .faction-card .summary { font-size: .92rem; color: var(--vellum-dim); margin: 8px 0; }
+  .faction-jump { display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 20px 0 30px; }
+  .faction-jump a { font-size: .82rem; color: var(--vellum-dim); text-decoration: none; border-bottom: 1px dotted var(--hairline); }
+  .faction-jump a:hover { color: var(--bronze); border-bottom-color: var(--bronze); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wordmark">Amora<span>The Continuity Ledger</span></div>
+  <nav class="tab-index">
+    <a href="index.html">Home</a>
+    <a href="timeline-a.html">Timeline A</a>
+    <a href="timeline-b.html">Timeline B</a>
+    <a href="chronology.html">Chronology</a>
+    <a href="characters.html">Characters</a>
+    <a href="atlas.html">Atlas</a>
+    <a href="lore.html">Lore</a>
+    <a href="magic-codex.html">Magic Codex</a>
+    <a href="factions.html" class="current">Factions</a>
+    <a href="canon-ledger.html">Canon Ledger</a>
+    <button id="site-search-toggle" title="Search (press /)">Search /</button>
+  </nav>
+</header>
+<div id="site-search-overlay">
+  <div id="site-search-box">
+    <input id="site-search-input" type="text" placeholder="Search campaigns, characters, locations..." autocomplete="off">
+    <div id="site-search-results"></div>
+    <div id="site-search-empty">No matches. Try a different name or term.</div>
+    <div id="site-search-hint">↑↓ to navigate · Enter to open · Esc to close</div>
+  </div>
+</div>
+<div class="wave-divider"></div>
+
+<div class="shell">
+  <section class="hero" style="padding-top:48px;">
+    <div class="eyebrow">The other half of Amora's history</div>
+    <h1>Factions, Orders &amp; Institutions</h1>
+    <p class="lede">Amora is as much a history of institutions as characters — orders founded,
+    corrupted, severed, and refounded across both timelines, often by the same handful of
+    doctrines wearing new names. This page tracks each one: what it believed, when it
+    stood, who led it, what it became, and how it ended (or didn't).</p>
+  </section>
+
+  <nav class="faction-jump">
+    <a href="#heartwardens">Heartwardens</a>
+    <a href="#veilwardens">Veilwardens</a>
+    <a href="#silver-dawn">Silver Dawn</a>
+    <a href="#order-of-anchors">Order of Anchors</a>
+    <a href="#collegium-arcanum">Collegium Arcanum</a>
+    <a href="#collegium-equilibria">Collegium Equilibria</a>
+    <a href="#wardens-executors">Wardens &amp; Executors</a>
+    <a href="#hidden-ledger">Hidden Ledger</a>
+    <a href="#lyricum">Lyricum</a>
+    <a href="#republic-inquest">Republic Inquest</a>
+    <a href="#concord">Concord</a>
+    <a href="#the-lantern">The Lantern</a>
+    <a href="#durrel-ridge-wardens">Durrel Ridge Wardens</a>
+    <a href="#house-valecour">House Valecour</a>
+    <a href="#thorn-house">Thorn House</a>
+    <a href="#veiled-citadel-hierarchy">Shah-Aligned Bastion Hierarchy</a>
+  </nav>
+
+  <div class="faction-card" id="heartwardens">
+    <h2>The Heartwardens</h2>
+    <p class="doctrine">"Through Heart, Balance."</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Paladins and stewards of the Heart Seal — protection through balance, not conquest.</dd>
+      <dt>Era</dt><dd>Timeline A, Campaign I, 0–27 ARV (founding); revived generations after an original lapse.</dd>
+      <dt>Headquarters</dt><dd><a href="atlas.html#silver-bastion">Silver Bastion</a>, its fortress-temple.</dd>
+      <dt>Founders</dt><dd>Originally founded by Tarenus Durrel, generations before Campaign I; revived (not refounded) by <a href="characters.html#zethyr-durrel">Zethyr Durrel</a> and <a href="characters.html#taren-durrel">Taren Durrel</a>.</dd>
+      <dt>Successors</dt><dd>The Veilwardens (Campaign II, after corruption); the New Heartwardens (Campaign III, after Severance); indirectly, the <a href="#order-of-anchors">Order of Anchors</a> in Timeline B.</dd>
+      <dt>Fate</dt><dd>Consumed from within — Taren renames them Veilwardens as the Dominion consolidates.</dd>
+    </dl>
+    <p class="summary">Banner of crimson, white, and gold; remembered oath sworn under Zethyr's
+    creed. Founded as both paladins and stewards, their rise to continental trust is tied
+    directly to the Frost Seal crisis they resolve in their first year. The order's own
+    fall becomes the templates every later Amoran institution is built to guard against —
+    a genuinely good order calcifying into empire from the inside.</p>
+    <p class="summary">See <a href="campaign-i.html">Campaign I</a> for the founding.</p>
+  </div>
+
+  <div class="faction-card" id="veilwardens">
+    <h2>The Veilwardens</h2>
+    <p class="doctrine">"Through Shadow, Dominion" — the Heartwardens' own creed inverted.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Hierarchy and control in service of the Dominion; obedience recast as devotion.</dd>
+      <dt>Era</dt><dd>Timeline A, Campaign II, 28–55 ARV.</dd>
+      <dt>Headquarters</dt><dd>Silver Bastion, reforged as the Obsidian Bastion / Sanctum of the Veil.</dd>
+      <dt>Founders</dt><dd><a href="characters.html#taren-durrel">Taren Durrel</a>, renaming the order he once served after founding the Dominion.</dd>
+      <dt>Successors</dt><dd>The New Heartwardens (Campaign III), founded explicitly in reaction against them.</dd>
+      <dt>Fate</dt><dd>Ended by <a href="characters.html#zethyr-durrel">Zethyr's</a> Severance — the first recorded use of the mechanism, though it has no name yet when he performs it.</dd>
+    </dl>
+    <p class="summary">Old Council figures who resist the transformation — Seraphine Vale among
+    them — are executed as the new order replaces the old, institutional and spiritual
+    resistance crushed in the same stroke. Everything the Heartwardens once protected, the
+    Veilwardens enforce instead.</p>
+    <p class="summary">See <a href="campaign-ii.html">Campaign II</a>.</p>
+  </div>
+
+  <div class="faction-card" id="silver-dawn">
+    <h2>The Silver Dawn</h2>
+    <p class="doctrine">Compassionate order, in Luminara's own image.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Justice, mercy, and light — the direct model for later Light-resistance traditions.</dd>
+      <dt>Era</dt><dd>Attested across Timeline B, notably Campaign B1 onward, and referenced in Timeline A's early paladin tradition.</dd>
+      <dt>Headquarters</dt><dd>Not fixed to a single seat; oversight and squire-training presence recorded at Durrel Ridge and beyond.</dd>
+      <dt>Founders</dt><dd>Not directly attested — a standing order rather than a single-campaign founding.</dd>
+      <dt>Successors</dt><dd>Its Timeline B graduates go on to found or join the <a href="#order-of-anchors">Order of Anchors</a> and, later, the <a href="#durrel-ridge-wardens">Durrel Ridge Wardens</a>.</dd>
+      <dt>Fate</dt><dd>Still active as of the latest recorded campaigns — <a href="characters.html#corvin-hale">Corvin Hale</a> remains a Silver Dawn paladin through Campaigns B13–B14.</dd>
+    </dl>
+    <p class="summary"><a href="characters.html#lio-serrin-later-vareth">Lio Serrin</a> begins
+    Campaign B1 as a Silver Dawn squire before the founding rupture makes him Timeline B's
+    first Anchor — the order provides oversight and mentorship in the Age of Founding's
+    earliest days, one of several traveller-and-institution partnerships that stabilise the
+    new timeline.</p>
+  </div>
+
+  <div class="faction-card" id="order-of-anchors">
+    <h2>Order of Anchors</h2>
+    <p class="doctrine">Partners, not specimens; service, not study.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Stabilising seals, containing ruptures, and safeguarding the six time-displaced travellers as people rather than research subjects.</dd>
+      <dt>Era</dt><dd>Timeline B, founded Campaign B1, 0 ARV.</dd>
+      <dt>Headquarters</dt><dd><a href="atlas.html#silver-bastion">Silver Bastion</a>.</dd>
+      <dt>Founders</dt><dd><a href="characters.html#seraphine-vale">Seraphine Vale</a> and <a href="characters.html#kellan-vance-later-caen">Kellan Vance (later Caen)</a>, formally founded at Silver Bastion after the Mind's destruction.</dd>
+      <dt>Successors</dt><dd>None formal — its founding principle survives in the <a href="#durrel-ridge-wardens">Durrel Ridge Wardens</a>' own culture after Seraphine's death.</dd>
+      <dt>Fate</dt><dd>Loses its founding moral centre when Seraphine is killed in Campaign B5's Shah-aligned internal conflict; paladin authority is absorbed into Caen's own sovereign command structure with no senior figure left to check it.</dd>
+    </dl>
+    <p class="summary">Timeline B's entire founding institution — born the instant Taren and
+    Zethyr are unmade, in the same chamber, on the same night. Seraphine's own principle,
+    asserted directly against a Council leadership eager to treat the six travellers as
+    research subjects, becomes the order's whole culture. See <a href="campaign-b1.html">Campaign B1</a>.</p>
+  </div>
+
+  <div class="faction-card" id="collegium-arcanum">
+    <h2>Collegium Arcanum</h2>
+    <p class="doctrine">Magic catalogued, not merely wielded.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>A mage college linking scholarship to the founding paladin order — study first, power second.</dd>
+      <dt>Era</dt><dd>Timeline A, Campaign I (founding ranks); rebuilt Campaign III.</dd>
+      <dt>Headquarters</dt><dd>Linked to Silver Bastion in its founding era; location shifts with rebuilding.</dd>
+      <dt>Founders</dt><dd><a href="campaign-i.html">Arienna Voss</a> (also recorded as Arienna Lume), Magister and Flamebinder, among the Heartwardens' own founding ranks.</dd>
+      <dt>Successors</dt><dd>None named directly — its cataloguing function is echoed later by the <a href="#lyricum">Lyricum</a>.</dd>
+      <dt>Fate</dt><dd>Survives the Dominion's fall in diminished form; rebuilt after the fractured city-states era to catalogue Veil remnants.</dd>
+    </dl>
+    <p class="summary">Arienna's own research eventually brings her into conflict with Taren —
+    the Collegium's scholarly instinct to study the Veil directly is exactly the kind of
+    inquiry the Dominion can't tolerate once it consolidates.</p>
+  </div>
+
+  <div class="faction-card" id="collegium-equilibria">
+    <h2>Collegium Equilibria</h2>
+    <p class="doctrine">"Through Memory, Rebirth" — magic follows choice and vow, not decree.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Relationship-bound magic — shared custody, genuine consent, distributed guardianship — as a deliberate answer to Taren and Zethyr's own history.</dd>
+      <dt>Era</dt><dd>Timeline A, founded Campaign VI, roughly 5500 ARV.</dd>
+      <dt>Headquarters</dt><dd>Evermere's Collegium.</dd>
+      <dt>Founders</dt><dd><a href="characters.html#kael-duren">Kael Duren</a>, "The Restorer," after rediscovering a Heart Shard older than the Choir or the Dominion.</dd>
+      <dt>Successors</dt><dd>None named directly; its stabilising doctrine is cited across several later ages whenever institutions drift back toward command-based magic.</dd>
+      <dt>Fate</dt><dd>Endures as a body of doctrine long after Kael's own reign — a philosophy more than a standing power structure.</dd>
+    </dl>
+    <p class="summary">The first age to consciously build magical institutions to <em>avoid</em>
+    repeating the Taren/Zethyr pattern rather than simply react to its aftermath. See
+    <a href="campaign-vi.html">Campaign VI</a>.</p>
+  </div>
+
+  <div class="faction-card" id="wardens-executors">
+    <h2>The Wardens &amp; the Executor Office</h2>
+    <p class="doctrine">"Through Law, Salvation" — and, one generation later, "Through Discipline, Purity."</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Theocratic law as the mechanism of civic salvation; discipline as a route to purity.</dd>
+      <dt>Era</dt><dd>Timeline A, Campaigns VII–VIII, roughly 5800–5900 ARV.</dd>
+      <dt>Headquarters</dt><dd>The Gate.</dd>
+      <dt>Founders</dt><dd><a href="characters.html#elian-dorn">Elian Dorn</a> founds the Executor office (Campaign VII); <a href="characters.html#sirian">Sirian</a> codifies the Gate Codex a generation later (Campaign VIII).</dd>
+      <dt>Successors</dt><dd>None named directly — the Theocracy collapses under its own accumulated law.</dd>
+      <dt>Fate</dt><dd>Falls in fire and open rebellion at the opening of Campaign X, "The Severing," when Serik Thorne dismantles the destiny engines built up under its rule.</dd>
+    </dl>
+    <p class="summary">The Gate Codex outlives the Theocracy itself by a wide margin — cited by
+    courts seeking legitimacy and tyrants seeking cover in equal measure, long after the
+    Wardens who wrote it are gone. See <a href="campaign-vii.html">Campaign VII</a> and
+    <a href="campaign-viii.html">Campaign VIII</a>.</p>
+  </div>
+
+  <div class="faction-card" id="hidden-ledger">
+    <h2>The Hidden Ledger</h2>
+    <p class="doctrine">Balance over faction.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>A secretive information and archival network descended from the ancient Editors — loyalty to balance itself, not any one side.</dd>
+      <dt>Era</dt><dd>Timeline A, active by Campaign XI, roughly 6550 ARV.</dd>
+      <dt>Headquarters</dt><dd>Cells operate covertly across the Republic; a known presence in Veylaris Rest's Old Choir Quarter.</dd>
+      <dt>Founders</dt><dd>Not directly attested — an old order predating the campaign, descended from the Editors.</dd>
+      <dt>Successors</dt><dd>None named directly.</dd>
+      <dt>Fate</dt><dd>Survives Campaign XI's upheavals intact; <a href="characters.html#ilyen-vael">Ilyen Vael</a> co-authors Clause XI and the later Breath-Bridge on the Ledger's behalf.</dd>
+    </dl>
+    <p class="summary">Operatives like <a href="characters.html#ilyen-vael">Ilyen Vael</a> and
+    Verrin Mael move between factions rather than serving one outright — the Ledger's
+    entire value lies in being trusted by everyone a little and owned by no one. See
+    <a href="campaign-xi.html">Campaign XI</a>.</p>
+  </div>
+
+  <div class="faction-card" id="lyricum">
+    <h2>The Lyricum</h2>
+    <p class="doctrine">Magic codified as jurisprudence.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Treats magical law and precedent the way a legal system treats statute — documented, cited, argued.</dd>
+      <dt>Era</dt><dd>Timeline A, emergent by Campaign XI, roughly 6550 ARV.</dd>
+      <dt>Headquarters</dt><dd>Freight tunnels beneath Veylaris Rest connect it to the wider Republic; an "Annex" also recorded at Evermere in later eras.</dd>
+      <dt>Founders</dt><dd>Not directly attested as a single founding act — described as emergent alongside the Republic Inquest.</dd>
+      <dt>Successors</dt><dd>None named directly.</dd>
+      <dt>Fate</dt><dd>Active and stable through Campaign XI; <a href="characters.html#leora-vance">Leora Vance</a> becomes its archivist of the Breath after Clause Zero's founding.</dd>
+    </dl>
+    <p class="summary"><a href="characters.html#leora-vance">Leora Vance</a> risks censure to
+    preserve fragments of Choir law within it rather than let power quietly erase them —
+    documenting truth methodically while others act on it. See <a href="campaign-xi.html">Campaign XI</a>.</p>
+  </div>
+
+  <div class="faction-card" id="republic-inquest">
+    <h2>The Republic Inquest</h2>
+    <p class="doctrine">Harmonic inheritance, monitored and witnessed.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Chartered oversight of the Twelve Herald Houses' descendant lineages — Witnesses, Editors, Recorders, Judges — each tracing back to a different facet of the old law.</dd>
+      <dt>Era</dt><dd>Timeline A, chartered by the close of Campaign XI, roughly 6550 ARV.</dd>
+      <dt>Headquarters</dt><dd>Republic-wide; tied to the Twelve Herald Houses rather than one seat.</dd>
+      <dt>Founders</dt><dd>Chartered as an institutional outcome of Campaign XI's events, following <a href="characters.html#riven-mareth">Riven Mareth's</a> discovery of his own Herald lineage.</dd>
+      <dt>Successors</dt><dd>None named directly.</dd>
+      <dt>Fate</dt><dd>Stands as a going institution at Campaign XI's close, restoring a suppressed truth — that modern Republic history had erased Zethyr's role in ending the Dominion, remembering only Taren as a lone Lawgiver.</dd>
+    </dl>
+    <p class="summary">Confirms the Twelve Herald Houses (Mareth, Vael, Vance, Serin, Avenar,
+    Tarell, Rhos, Dorn, Selene, Korin, Kethar, Verris) as the founding lineages behind the
+    Republic's own institutions. See <a href="campaign-xi.html">Campaign XI</a>.</p>
+  </div>
+
+  <div class="faction-card" id="concord">
+    <h2>The Concord</h2>
+    <p class="doctrine">Law without a throne — proof over rumour, receipts over spectacle.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Civic law made visible: witness-hand consent, line-of-sight accountability, proof-first process. Codified as Card + Law + Aegis.</dd>
+      <dt>Era</dt><dd>Timeline A's Third Cyberpunk Age, Campaigns XV–XVI, roughly 8210–8245 ARV.</dd>
+      <dt>Headquarters</dt><dd><a href="atlas.html#highever">Highever</a>, later extended corridor-wide to Tarenus Reclaimed and the Port Annex.</dd>
+      <dt>Founders</dt><dd>The Concord Charter passes under Valen and <a href="characters.html#dareth">Dareth</a> in Campaign XV, extended into full corridor practice by <a href="characters.html#kaeso-vyr">Kaeso Vyr</a> and Coren in Campaign XVI.</dd>
+      <dt>Successors</dt><dd>None — its proof-first ethic doesn't survive the Age of Disconnection's collapse.</dd>
+      <dt>Fate</dt><dd>Collapses when the last neon towers of Highever dim at the opening of Campaign XVII — the whole "printer, ink, perimeter" architecture reverts to ink, whispers, and knives almost overnight.</dd>
+    </dl>
+    <p class="summary">The high-water mark of proof-first civic architecture anywhere in the
+    record — badge unification, Sanctuary Architecture, and Doors Law all trace back to
+    the same founding charter. See <a href="campaign-xv.html">Campaign XV</a> and
+    <a href="campaign-xvi.html">Campaign XVI</a>.</p>
+  </div>
+
+  <div class="faction-card" id="the-lantern">
+    <h2>The Lantern</h2>
+    <p class="doctrine">Chosen family over inherited cages.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>A resistance hub disguised as an ordinary coastal tavern — mutual aid, safehousing, and quiet civic resistance to Shah-aligned pressure.</dd>
+      <dt>Era</dt><dd>Timeline B, founded Campaign B6, active through at least Campaign B9.</dd>
+      <dt>Headquarters</dt><dd><a href="atlas.html#evermere">Evermere</a>, a coastal tavern on the waterfront.</dd>
+      <dt>Founders</dt><dd><a href="characters.html#dain-corvett">Dain Corvett</a>, using the tavern to convert a resistance cell into a genuine home; <a href="characters.html#dain-corvett">Maera Holt</a> becomes its permanent manager.</dd>
+      <dt>Successors</dt><dd>None named directly — remains The Lantern throughout its recorded history.</dd>
+      <dt>Fate</dt><dd>Standing and active as of the latest campaigns to reference it; forms a mutual-aid pact with <a href="#durrel-ridge-wardens">Durrel Ridge</a> in Campaign B7.</dd>
+    </dl>
+    <p class="summary">Its Lantern Annex (a converted dockside warehouse) and the Underworks
+    beneath it extend its reach into training, evidence storage, and old smuggler
+    corridors. See <a href="campaign-b6.html">Campaign B6</a>.</p>
+  </div>
+
+  <div class="faction-card" id="durrel-ridge-wardens">
+    <h2>The Durrel Ridge Wardens</h2>
+    <p class="doctrine">Sanctuary, witness, consent — "Light with teeth."</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>A paladin institution built on witness-truth over authority, and household belonging over bloodline purity.</dd>
+      <dt>Era</dt><dd>Timeline B, active Campaigns B7–B14, roughly 85–162 ARV.</dd>
+      <dt>Headquarters</dt><dd><a href="atlas.html#durrel-ridge">Durrel Ridge</a>.</dd>
+      <dt>Founders</dt><dd>Traces to the same Tarenus Durrel who founded the original Heartwardens; formally revived and modernised by <a href="characters.html#taren-durrel-ridge">Taren Durrel (Ridge)</a> in Campaign B9.</dd>
+      <dt>Successors</dt><dd>None — remains the standing institution through Campaign B14.</dd>
+      <dt>Fate</dt><dd>Its strongest chapter yet by Campaign B14: reclaims Silver Bastion outright, proving it can project organised power well beyond its own walls, and formally inducts <a href="characters.html#michael-mike-rookvale">Mike Rookvale</a> as a scout without requiring a religious oath.</dd>
+    </dl>
+    <p class="summary">The clearest through-line in Timeline B — from Seren's road-warden
+    years, through Taren-Ridge's Warden induction and Renewed Oath, to Jack's Warden of
+    Meaning and Caelen's Oath of Vengeance. See the <a href="characters.html#the-timeline-b-durrel-line">Timeline B Durrel Line</a>
+    on Characters for the full succession, and <a href="campaign-b9.html">Campaign B9</a> for its formal revival.</p>
+  </div>
+
+  <div class="faction-card" id="house-valecour">
+    <h2>House Valecour</h2>
+    <p class="doctrine">A city does not fall to conquest if it can be taught to prefer its chains.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Political dependency dressed as noble restoration — control through quiet institutional capture rather than open force.</dd>
+      <dt>Era</dt><dd>Timeline B, Campaign B10, roughly 146–147 ARV.</dd>
+      <dt>Headquarters</dt><dd><a href="atlas.html#brevair">Brevair</a>, seat of House Valecour itself.</dd>
+      <dt>Founders</dt><dd>An established noble house; its engineered "fall and rebirth" is architected covertly by <a href="characters.html#delryn-vale-valecour">Rhalen Valecour</a>.</dd>
+      <dt>Successors</dt><dd>None — Rhalen's own uncrowned rule over Brevair is the house's final form.</dd>
+      <dt>Fate</dt><dd>Rhalen becomes Brevair's effective ruler in all but title by campaign's end, with <a href="characters.html#delryn-vale-valecour">Delryn</a> — publicly his acknowledged bastard, privately revealed as blood kin hidden inside a more convenient story — as his husband and the keystone conduit of his rule.</dd>
+    </dl>
+    <p class="summary">Widow houses, redirected chapel and charity funds, and quiet merchant/
+    magistrate dependency all become channels of Rhalen's consolidation — control that
+    never needs to look like conquest. See <a href="campaign-b10.html">Campaign B10</a>.</p>
+  </div>
+
+  <div class="faction-card" id="thorn-house">
+    <h2>Thorn House</h2>
+    <p class="doctrine">Destroyed — no surviving doctrine statement.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Identity conditioning and false-consent architecture dressed as devotion; see the <a href="magic-codex.html">Magic Codex</a> for the mechanism.</dd>
+      <dt>Era</dt><dd>Timeline B, active until its destruction in Campaign B13, roughly 162 ARV.</dd>
+      <dt>Headquarters</dt><dd>Within the Brevair sphere / road network — exact location deliberately left unpinned; see the <a href="canon-ledger.html">Canon Ledger</a>.</dd>
+      <dt>Founders</dt><dd>Not directly attested; led at the time of its fall by Maelor Venn, with Sareth as its senior handler.</dd>
+      <dt>Successors</dt><dd>None — its transformation infrastructure and command architecture are destroyed in the same operation that ends it.</dd>
+      <dt>Fate</dt><dd>Destroyed outright by <a href="characters.html#caelen-durrel">Caelen Durrel's</a> Ridge-led strike in Campaign B13 — Maelor killed by Caelen personally, Sareth killed attempting to reach a victim one last time, its command-line severing rite freeing every active victim it held in a single motion.</dd>
+    </dl>
+    <p class="summary">Proves its own doctrine against itself: no one who conditions another
+    is safe from being conditioned in turn by someone senior in the same structure — exactly
+    what happens to Rul Hask once Thorn House turns its methods on him. See
+    <a href="campaign-b13.html">Campaign B13</a>.</p>
+  </div>
+
+  <div class="faction-card" id="veiled-citadel-hierarchy">
+    <h2>Shah-Aligned Bastion Hierarchy (The Veiled Citadel)</h2>
+    <p class="doctrine">Devotion is doing most of the work already — the Veil barely needs to help.</p>
+    <dl class="faction-meta">
+      <dt>Doctrine</dt><dd>Conquest through the ruler / ward-knight / ward-anchor structure — a single interlocking chain of command binding a corrupted fortress-soul mechanism to a living conduit to a ruling authority.</dd>
+      <dt>Era</dt><dd>Timeline B, Campaign B11–B14, roughly 148–162 ARV.</dd>
+      <dt>Headquarters</dt><dd><a href="atlas.html#silver-bastion">Silver Bastion</a>, publicly renamed the Veiled Citadel upon its reconsecration.</dd>
+      <dt>Founders</dt><dd>Cameron, rising through <a href="characters.html#gavren">Gavren's</a> genuine devotion to become the Veiled Citadel's outright ruler.</dd>
+      <dt>Successors</dt><dd>None — the structure is designed to collapse as a whole if any single piece breaks.</dd>
+      <dt>Fate</dt><dd>Ended completely in Campaign B14: <a href="characters.html#michael-mike-rookvale">Mike Rookvale</a> kills Gavren (the ward-knight) and Cameron (the ruler) in the same operation, while <a href="characters.html#jack-durrel">Jack Durrel</a> restores the ward-anchor directly — the whole interlocking structure falls at once, and the fortress reverts to Silver Bastion.</dd>
+    </dl>
+    <p class="summary">See the Magic Codex's <a href="magic-codex.html">"Meaning, Identity, and
+    Relational Coercion"</a> section for the full mechanical breakdown of how the structure
+    actually worked and why breaking any one piece was enough to end all three. Campaign
+    pages: <a href="campaign-b11.html">B11</a>, <a href="campaign-b14.html">B14</a>.</p>
+  </div>
+
+</div>
+
+<footer>Amora — a solo campaign chronicle · Factions, Orders &amp; Institutions</footer>
+
+<button id="back-to-top" aria-label="Back to top" title="Back to top">&#8593;</button>
+<script>
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) { btn.classList.add('visible'); }
+      else { btn.classList.remove('visible'); }
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  })();
+</script>
+<script src="search-index.js"></script>
+<script src="search-widget.js"></script>
+</body>
+</html>
