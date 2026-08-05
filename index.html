@@ -5,6 +5,108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Amora — The Continuity Ledger</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+  .hero-glow {
+    position: relative;
+    padding-top: 20px;
+  }
+  .hero-glow::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse at center, rgba(185,134,63,0.14) 0%, rgba(127,161,179,0.08) 45%, transparent 75%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-glow > * { position: relative; z-index: 1; }
+
+  .map-frame-home {
+    max-width: 780px;
+    margin: 8px auto 0;
+    border: 1px solid var(--hairline);
+    background: var(--ink-raised);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+  }
+  .map-frame-home img { width: 100%; height: auto; display: block; }
+  .map-frame-home figcaption {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    color: var(--vellum-dim);
+    font-size: .84rem;
+    padding: 10px 14px 14px;
+  }
+  .map-frame-home figcaption a { color: var(--steel); }
+
+  .stat-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 38px 0 4px;
+    border-top: 1px dotted var(--hairline);
+    border-bottom: 1px dotted var(--hairline);
+    padding: 18px 0;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 0 28px;
+    border-left: 1px solid var(--hairline);
+  }
+  .stat-item:first-child { border-left: none; }
+  .stat-num {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--bronze);
+  }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .64rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--vellum-dim);
+  }
+  @media (max-width: 600px) {
+    .stat-item { padding: 0 14px; }
+    .stat-num { font-size: 1.3rem; }
+  }
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin: 20px 0 10px;
+  }
+  .explore-card {
+    display: block;
+    text-decoration: none;
+    border: 1px solid var(--hairline);
+    background: var(--ink-raised);
+    border-radius: 3px;
+    padding: 16px 16px 14px;
+    transition: border-color .15s, transform .15s;
+  }
+  .explore-card:hover { border-color: var(--bronze); transform: translateY(-2px); }
+  .explore-card .explore-icon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .68rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--bronze);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .explore-card h3 { margin: 0 0 4px; font-size: 1rem; color: var(--vellum); }
+  .explore-card p { margin: 0; font-size: .8rem; color: var(--vellum-dim); }
+</style>
 </head>
 <body>
 
@@ -37,14 +139,29 @@
 
 <div class="shell">
 
-  <section class="hero">
+  <section class="hero hero-glow">
     <div class="eyebrow">Compiled by the Evermere Collegium · Working Canon Edition</div>
     <h1>Two threads. One world, unmade and reforged.</h1>
     <p class="lede">Amora has ended once and begun again. This ledger tracks both histories —
     the completed cycle of Timeline A, and the reforged world of Timeline B born from its
     fracture — across founding, dominion, machine, and cyberpunk ages, from 0 ARV to the
     Fracture and back to 0 ARV once more.</p>
+
+    <figure class="map-frame-home">
+      <img src="maps/vanmere-000arv-thumb.jpg" alt="Map of Vanmere at Year 0 ARV, the shared beginning of both timelines">
+      <figcaption>Vanmere, c. Year 0 ARV — the shared beginning both timelines diverge
+      from. See the full <a href="atlas.html">interactive map viewer</a> for every later era.</figcaption>
+    </figure>
   </section>
+
+  <div class="stat-row">
+    <div class="stat-item"><span class="stat-num">39</span><span class="stat-label">Campaigns</span></div>
+    <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Timelines</span></div>
+    <div class="stat-item"><span class="stat-num">60+</span><span class="stat-label">Characters</span></div>
+    <div class="stat-item"><span class="stat-num">16</span><span class="stat-label">Factions</span></div>
+    <div class="stat-item"><span class="stat-num">16</span><span class="stat-label">Relics</span></div>
+    <div class="stat-item"><span class="stat-num">9800</span><span class="stat-label">Years spanned</span></div>
+  </div>
 
   <div class="timeline-pair">
     <div class="timeline-card a">
@@ -68,10 +185,46 @@
   <section>
     <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px;">Where to start</h2>
     <ul class="cast-list">
-      <li><span class="who">New to Amora?</span> <span class="role">Start with <a href="timeline-a.html">Campaign I — The Heartwardens</a>, the founding of the Durrel bond.</span></li>
+      <li><span class="who">New to Amora?</span> <span class="role">Start with <a href="campaign-i.html">Campaign I — The Heartwardens</a>, the founding of the Durrel bond.</span></li>
       <li><span class="who">Tracking dates?</span> <span class="role">The <a href="chronology.html">Chronology</a> page lays out the full ARV count across both timelines.</span></li>
-      <li><span class="who">Something look inconsistent?</span> <span class="role">Check the Canon Ledger before assuming it's an error — most naming variants are recorded on purpose.</span></li>
+      <li><span class="who">Something look inconsistent?</span> <span class="role">Check the <a href="canon-ledger.html">Canon Ledger</a> before assuming it's an error — most naming variants are recorded on purpose.</span></li>
     </ul>
+  </section>
+
+  <section>
+    <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px;margin-top:40px;">Explore further</h2>
+    <div class="explore-grid">
+      <a class="explore-card" href="characters.html">
+        <span class="explore-icon">Who</span>
+        <h3>Characters</h3>
+        <p>Full biographies for every protagonist and their partners, both timelines.</p>
+      </a>
+      <a class="explore-card" href="atlas.html">
+        <span class="explore-icon">Where</span>
+        <h3>Atlas</h3>
+        <p>Every region traced campaign by campaign, plus the interactive map viewer.</p>
+      </a>
+      <a class="explore-card" href="magic-codex.html">
+        <span class="explore-icon">How</span>
+        <h3>Magic Codex</h3>
+        <p>The Seals, the Ley-Heir cycle, and Timeline B's resonance system explained.</p>
+      </a>
+      <a class="explore-card" href="factions.html">
+        <span class="explore-icon">Who Rules</span>
+        <h3>Factions</h3>
+        <p>Orders, institutions, and the doctrines that rose and fell across both timelines.</p>
+      </a>
+      <a class="explore-card" href="relics.html">
+        <span class="explore-icon">What</span>
+        <h3>Relics</h3>
+        <p>The objects and sites with real world-historical weight, across every age.</p>
+      </a>
+      <a class="explore-card" href="lore.html">
+        <span class="explore-icon">Why</span>
+        <h3>Lore</h3>
+        <p>Deep history — the Oath Wars, the Shattering, and what came before Campaign I.</p>
+      </a>
+    </div>
   </section>
 
 </div>
