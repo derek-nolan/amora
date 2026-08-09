@@ -57,6 +57,24 @@
   .jump-links { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 14px; max-height: 260px; overflow-y: auto; }
   .jump-links a { font-size: .84rem; color: var(--vellum-dim); text-decoration: none; border-bottom: 1px dotted var(--hairline); white-space: nowrap; }
   .jump-links a:hover { color: var(--bronze); border-bottom-color: var(--bronze); }
+  .browse-campaigns { margin: 10px 0 24px; }
+  .browse-campaigns summary { cursor: pointer; list-style: none; }
+  .browse-campaigns summary::-webkit-details-marker { display: none; }
+  .browse-campaigns summary::before { content: "▸ "; color: var(--bronze); font-family: 'JetBrains Mono', monospace; }
+  .browse-campaigns[open] summary::before { content: "▾ "; }
+  .browse-hint { font-size: .8rem; color: var(--vellum-dim); font-weight: normal; }
+  .browse-note { font-size: .84rem; color: var(--vellum-dim); margin: 10px 0 18px; max-width: 700px; }
+  .browse-tl-label { font-family: 'JetBrains Mono', monospace; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; margin: 18px 0 8px; }
+  .browse-tl-label.tl-a-label { color: var(--bronze); }
+  .browse-tl-label.tl-b-label { color: var(--steel); }
+  .browse-grid { margin-bottom: 6px; }
+  button.char-filter-tile { font-family: inherit; text-align: left; cursor: pointer; width: 100%; }
+  button.char-filter-tile.tile-active { border-color: var(--bronze); background: rgba(185,134,63,0.12); }
+  button.char-filter-tile[data-tl="tl-b"].tile-active { border-color: var(--steel); background: rgba(127,161,179,0.12); }
+  .filter-status { display: flex; align-items: center; gap: 14px; background: var(--ink-raised); border: 1px solid var(--hairline); border-radius: 3px; padding: 10px 16px; margin-bottom: 16px; font-size: .9rem; }
+  #clear-filter-btn { font-family: inherit; font-size: .82rem; color: var(--bronze); background: none; border: 1px solid var(--bronze-dim); border-radius: 3px; padding: 4px 10px; cursor: pointer; }
+  #clear-filter-btn:hover { background: var(--bronze-dim); color: var(--ink); }
+  .char-hidden-by-filter { display: none !important; }
 </style>
 </head>
 <body>
@@ -71,19 +89,19 @@
 <a href="atlas.html">Atlas</a>
 <a href="lore.html">Lore</a>
 <a href="magic-codex.html">Magic Codex</a>
-    <a href="factions.html">Factions</a>
-    <a href="relics.html">Relics</a>
+<a href="factions.html">Factions</a>
+<a href="relics.html">Relics</a>
 <a href="canon-ledger.html">Canon Ledger</a>
 <button id="site-search-toggle" title="Search (press /)">Search /</button>
 </nav>
 </header>
 <div id="site-search-overlay">
-  <div id="site-search-box">
-    <input id="site-search-input" type="text" placeholder="Search campaigns, characters, locations..." autocomplete="off">
-    <div id="site-search-results"></div>
-    <div id="site-search-empty">No matches. Try a different name or term.</div>
-    <div id="site-search-hint">↑↓ to navigate · Enter to open · Esc to close</div>
-  </div>
+<div id="site-search-box">
+<input autocomplete="off" id="site-search-input" placeholder="Search campaigns, characters, locations..." type="text"/>
+<div id="site-search-results"></div>
+<div id="site-search-empty">No matches. Try a different name or term.</div>
+<div id="site-search-hint">↑↓ to navigate · Enter to open · Esc to close</div>
+</div>
 </div>
 <div class="wave-divider"></div>
 <div class="shell">
@@ -96,95 +114,315 @@
     with a link straight to their campaign. See the <a href="canon-ledger.html">Canon
     Ledger</a> for name variants like Durrel/Durell and Kellan/Caen.</p>
 </section>
-
+<section class="hero" style="padding-top:0;padding-bottom:0;">
+<details class="browse-campaigns">
+  <summary><h2 style="display:inline;">Browse by Campaign <span class="browse-hint">— click a campaign to filter the list below to just its cast</span></h2></summary>
+  <p class="browse-note">These tiles filter this page only — they don't navigate away. Reused from the <a href="timeline-a.html">Timeline A</a> and <a href="timeline-b.html">Timeline B</a> pages so campaign names stay consistent; if you want the full campaign story, follow the link inside a character's card instead.</p>
+  <div id="filter-status" class="filter-status" style="display:none;">
+    <span id="filter-status-text"></span>
+    <button type="button" id="clear-filter-btn">Clear filter ✕</button>
+  </div>
+  <h3 class="browse-tl-label tl-a-label">Timeline A</h3>
+  <div class="campaign-grid browse-grid">
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="i" data-tl="tl-a">
+      <span class="num">Campaign I</span>
+      <h3>The Heartwardens</h3>
+      <span class="date">0–27 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="ii" data-tl="tl-a">
+      <span class="num">Campaign II</span>
+      <h3>The Veil Ascendant</h3>
+      <span class="date">28–55 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="iii" data-tl="tl-a">
+      <span class="num">Campaign III</span>
+      <h3>The Durrel Legacy</h3>
+      <span class="date">c. 900 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="iv" data-tl="tl-a">
+      <span class="num">Campaign IV</span>
+      <h3>The Emperor Reforged</h3>
+      <span class="date">c. 1900–2000 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="v" data-tl="tl-a">
+      <span class="num">Campaign V</span>
+      <h3>The Choir Reconstruction</h3>
+      <span class="date">c. 2500 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="vi" data-tl="tl-a">
+      <span class="num">Campaign VI</span>
+      <h3>The Restorer</h3>
+      <span class="date">c. 5500 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="vii" data-tl="tl-a">
+      <span class="num">Campaign VII</span>
+      <h3>The Warden Executor</h3>
+      <span class="date">c. 5800 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="viii" data-tl="tl-a">
+      <span class="num">Campaign VIII</span>
+      <h3>The Codifier of Order</h3>
+      <span class="date">c. 5900 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="ix" data-tl="tl-a">
+      <span class="num">Campaign IX</span>
+      <h3>The Techno-Explorer</h3>
+      <span class="date">c. 5950 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="x" data-tl="tl-a">
+      <span class="num">Campaign X</span>
+      <h3>The Severing</h3>
+      <span class="date">c. 6450 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xi" data-tl="tl-a">
+      <span class="num">Campaign XI</span>
+      <h3>Clause XI / The Null Relic</h3>
+      <span class="date">c. 6550 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xii" data-tl="tl-a">
+      <span class="num">Campaign XII</span>
+      <h3>Age of Inheritance / Arden & Caelen</h3>
+      <span class="date">7400–7410 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xiii" data-tl="tl-a">
+      <span class="num">Campaign XIII</span>
+      <h3>The Citadel of Inheritance</h3>
+      <span class="date">7420–7421 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xiv" data-tl="tl-a">
+      <span class="num">Campaign XIV</span>
+      <h3>The Dominion Cycle</h3>
+      <span class="date">7920–8040 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xv" data-tl="tl-a">
+      <span class="num">Campaign XV</span>
+      <h3>Neon Concord: The Regent and the Voice</h3>
+      <span class="date">8210–8215 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xvi" data-tl="tl-a">
+      <span class="num">Campaign XVI</span>
+      <h3>The Corridor Crown</h3>
+      <span class="date">8240–8245 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xvii" data-tl="tl-a">
+      <span class="num">Campaign XVII</span>
+      <h3>The Widow's Oath</h3>
+      <span class="date">8410–8415 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xviii" data-tl="tl-a">
+      <span class="num">Campaign XVIII</span>
+      <h3>The Mage of the Red Veil</h3>
+      <span class="date">8500–8505 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xix" data-tl="tl-a">
+      <span class="num">Campaign XIX</span>
+      <h3>The Dominion Reborn: The Crown and the Anchor</h3>
+      <span class="date">8550–8555 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xx" data-tl="tl-a">
+      <span class="num">Campaign XX</span>
+      <h3>The Vault Unbound</h3>
+      <span class="date">8600–8620 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xxi" data-tl="tl-a">
+      <span class="num">Campaign XXI</span>
+      <h3>The Last Key</h3>
+      <span class="date">8650–8660 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xxii" data-tl="tl-a">
+      <span class="num">Campaign XXII</span>
+      <h3>The Shattered Quiet</h3>
+      <span class="date">9650–9660 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xxiii" data-tl="tl-a">
+      <span class="num">Campaign XXIII</span>
+      <h3>The Quiet Recursion</h3>
+      <span class="date">9670–9680 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xxiv" data-tl="tl-a">
+      <span class="num">Campaign XXIV</span>
+      <h3>The Resonant Veil</h3>
+      <span class="date">9700–9720 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="xxv" data-tl="tl-a">
+      <span class="num">Campaign XXV</span>
+      <h3>The Broken Anchor</h3>
+      <span class="date">9750–9800 ARV</span>
+    </button>
+  </div>
+  <h3 class="browse-tl-label tl-b-label">Timeline B</h3>
+  <div class="campaign-grid browse-grid">
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b1" data-tl="tl-b">
+      <span class="num">Campaign B1</span>
+      <h3>The Anchor at Silver Bastion</h3>
+      <span class="date">0 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b2" data-tl="tl-b">
+      <span class="num">Campaign B2</span>
+      <h3>The Hollowrest Awakening</h3>
+      <span class="date">0 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b3" data-tl="tl-b">
+      <span class="num">Campaign B3</span>
+      <h3>The Frostborn Inheritance</h3>
+      <span class="date">1–2 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b4" data-tl="tl-b">
+      <span class="num">Campaign B4</span>
+      <h3>The Veil That Never Was</h3>
+      <span class="date">2 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b5" data-tl="tl-b">
+      <span class="num">Campaign B5</span>
+      <h3>The Living Reliquary</h3>
+      <span class="date">3–4 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b6" data-tl="tl-b">
+      <span class="num">Campaign B6</span>
+      <h3>The Lantern and the Severance</h3>
+      <span class="date">84–85 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b7" data-tl="tl-b">
+      <span class="num">Campaign B7</span>
+      <h3>The Lantern Crew</h3>
+      <span class="date">85 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b8" data-tl="tl-b">
+      <span class="num">Campaign B8</span>
+      <h3>The Corvett Reckoning</h3>
+      <span class="date">86 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b9" data-tl="tl-b">
+      <span class="num">Campaign B9</span>
+      <h3>The Renewed Oath of the Ridge</h3>
+      <span class="date">136–137 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b10" data-tl="tl-b">
+      <span class="num">Campaign B10</span>
+      <h3>The Quiet Rule of Brevair</h3>
+      <span class="date">146–147 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b11" data-tl="tl-b">
+      <span class="num">Campaign B11</span>
+      <h3>The Fall of Silver Bastion</h3>
+      <span class="date">148–149 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b12" data-tl="tl-b">
+      <span class="num">Campaign B12</span>
+      <h3>The Warden of Meaning</h3>
+      <span class="date">150 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b13" data-tl="tl-b">
+      <span class="num">Campaign B13</span>
+      <h3>The Thorned Hound</h3>
+      <span class="date">c. 162 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b14" data-tl="tl-b">
+      <span class="num">Campaign B14</span>
+      <h3>The Bastion Reclaimed</h3>
+      <span class="date">Late c. 162 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b15" data-tl="tl-b">
+      <span class="num">Campaign B15</span>
+      <h3>The Crownless War</h3>
+      <span class="date">Late c. 162 ARV</span>
+    </button>
+    <button type="button" class="campaign-tile char-filter-tile" data-campaign="b16" data-tl="tl-b">
+      <span class="num">Campaign B16</span>
+      <h3>Echoes Beneath Stone</h3>
+      <span class="date">c. 342 ARV</span>
+    </button>
+  </div>
+</details>
+</section>
 <details class="jump-index">
-  <summary><h3 style="display:inline;">Jump to a character</h3>
-  <span class="jump-count">(80 profiles)</span></summary>
-  <nav class="jump-links">
-      <a href="#zethyr-durrel">Zethyr Durrel</a>
-      <a href="#taren-durrel">Taren Durrel</a>
-      <a href="#seraphine-vale">Seraphine Vale</a>
-      <a href="#edrin-durrel">Edrin Durrel</a>
-      <a href="#cael-veyne">Cael</a>
-      <a href="#feran-durrel">Feran Durrel</a>
-      <a href="#coren-veyne">Coren Veyne</a>
-      <a href="#jax-korran">Jax Korran</a>
-      <a href="#taren-choir-reconstruction">Taren (Choir Reconstruction)</a>
-      <a href="#kael-duren">Kael Duren</a>
-      <a href="#elian-dorn">Elian Dorn</a>
-      <a href="#sirian">Sirian</a>
-      <a href="#rhett-vale">Rhett Vale</a>
-      <a href="#serik-thorne">Serik Thorne</a>
-      <a href="#riven-mareth">Riven Mareth</a>
-      <a href="#cassian-vale">Cassian Vale</a>
-      <a href="#ilyen-vael">Ilyen Vael</a>
-      <a href="#leora-vance">Leora Vance</a>
-      <a href="#kael-durreth">Kael Durreth</a>
-      <a href="#evren-thalos">Evren Thalos</a>
-      <a href="#rian-leth">Rian Leth</a>
-      <a href="#calen-vorr">Calen Vorr</a>
-      <a href="#rhett-of-the-vale">Rhett of the Vale</a>
-      <a href="#niall-argent">Niall Argent</a>
-      <a href="#dareth">Dareth</a>
-      <a href="#valen">Valen</a>
-      <a href="#kaeso-vyr">Kaeso Vyr</a>
-      <a href="#coren">Coren</a>
-      <a href="#lucen-marrin">Lucen Marrin</a>
-      <a href="#sorell-marcone">Sorell Marcone</a>
-      <a href="#auren-lysar">Auren Lysar</a>
-      <a href="#kael-verris">Kael Verris</a>
-      <a href="#thalen-ro">Thalen Ro</a>
-      <a href="#ravel-morn">Ravel Morn</a>
-      <a href="#kade-varin">Kade Varin</a>
-      <a href="#varo-merenth">Varo Merenth</a>
-      <a href="#talen-marric">Talen Marric</a>
-      <a href="#seren-valor">Seren Valor</a>
-      <a href="#arden-vale">Arden Vale</a>
-      <a href="#rian-thale">Rian Thale</a>
-      <a href="#zeth-caden">Zeth Caden</a>
-      <a href="#talren-vale">Talren Vale</a>
-      <a href="#solan">Solan</a>
-      <a href="#marrek">Marrek</a>
-      <a href="#lio-serrin-later-vareth">Lio Serrin (later Vareth)</a>
-      <a href="#kellan-vance-later-caen">Kellan Vance (later Caen)</a>
-      <a href="#dain-corvett">Dain Corvett</a>
-      <a href="#mark-mark-val-marcus-valmere">Mark "Mark Val" (Marcus Valmere)</a>
-      <a href="#taren-durrel-ridge">Taren Durrel (Ridge)</a>
-      <a href="#delryn-vale-valecour">Delryn Vale / Valecour</a>
-      <a href="#rhalen-valecour">Rhalen Valecour</a>
-      <a href="#garran-vey">Garran Vey</a>
-      <a href="#nicholas-nick-soren">Nicholas "Nick" Soren</a>
-      <a href="#jarek-flint">Jarek Flint</a>
-      <a href="#professor-halden">Professor Halden</a>
-      <a href="#maraine-soren">Maraine Soren</a>
-      <a href="#elara-soren">Elara Soren</a>
-      <a href="#vale-b16">Vale</a>
-      <a href="#edric-harl">Edric Harl</a>
-      <a href="#arienna-lume">Arienna Lume</a>
-      <a href="#aldric-fen">Aldric Fen</a>
-      <a href="#iris">Iris</a>
-      <a href="#mirelle-tress">Mirelle Tress</a>
-      <a href="#caelen-marrith">Caelen Marrith</a>
-      <a href="#joryn">Joryn</a>
-      <a href="#cassien">Cassien</a>
-      <a href="#captain-mara">Captain Mara</a>
-      <a href="#rul-hask">Rul Hask</a>
-      <a href="#lucien-varric">Lucien Varric</a>
-      <a href="#silver-bastion-loyalists">Silver Bastion Loyalists</a>
-      <a href="#gavren">Gavren</a>
-      <a href="#cameron">Cameron</a>
-      <a href="#the-timeline-b-durrel-line">The Timeline B Durrel Line</a>
-      <a href="#jack-durrel">Jack Durrel</a>
-      <a href="#jorah">Jorah</a>
-      <a href="#caelen-durrel">Caelen Durrel</a>
-      <a href="#corvin-hale">Corvin Hale</a>
-      <a href="#michael-mike-rookvale">Michael "Mike" Rookvale</a>
-      <a href="#evan-marric">Evan Marric</a>
-      <a href="#dena">Dena</a>
-  </nav>
+<summary><h3 style="display:inline;">Jump to a character</h3>
+<span class="jump-count">(80 profiles)</span></summary>
+<nav class="jump-links">
+<a href="#zethyr-durrel">Zethyr Durrel</a>
+<a href="#taren-durrel">Taren Durrel</a>
+<a href="#seraphine-vale">Seraphine Vale</a>
+<a href="#edrin-durrel">Edrin Durrel</a>
+<a href="#cael-veyne">Cael</a>
+<a href="#feran-durrel">Feran Durrel</a>
+<a href="#coren-veyne">Coren Veyne</a>
+<a href="#jax-korran">Jax Korran</a>
+<a href="#taren-choir-reconstruction">Taren (Choir Reconstruction)</a>
+<a href="#kael-duren">Kael Duren</a>
+<a href="#elian-dorn">Elian Dorn</a>
+<a href="#sirian">Sirian</a>
+<a href="#rhett-vale">Rhett Vale</a>
+<a href="#serik-thorne">Serik Thorne</a>
+<a href="#riven-mareth">Riven Mareth</a>
+<a href="#cassian-vale">Cassian Vale</a>
+<a href="#ilyen-vael">Ilyen Vael</a>
+<a href="#leora-vance">Leora Vance</a>
+<a href="#kael-durreth">Kael Durreth</a>
+<a href="#evren-thalos">Evren Thalos</a>
+<a href="#rian-leth">Rian Leth</a>
+<a href="#calen-vorr">Calen Vorr</a>
+<a href="#rhett-of-the-vale">Rhett of the Vale</a>
+<a href="#niall-argent">Niall Argent</a>
+<a href="#dareth">Dareth</a>
+<a href="#valen">Valen</a>
+<a href="#kaeso-vyr">Kaeso Vyr</a>
+<a href="#coren">Coren</a>
+<a href="#lucen-marrin">Lucen Marrin</a>
+<a href="#sorell-marcone">Sorell Marcone</a>
+<a href="#auren-lysar">Auren Lysar</a>
+<a href="#kael-verris">Kael Verris</a>
+<a href="#thalen-ro">Thalen Ro</a>
+<a href="#ravel-morn">Ravel Morn</a>
+<a href="#kade-varin">Kade Varin</a>
+<a href="#varo-merenth">Varo Merenth</a>
+<a href="#talen-marric">Talen Marric</a>
+<a href="#seren-valor">Seren Valor</a>
+<a href="#arden-vale">Arden Vale</a>
+<a href="#rian-thale">Rian Thale</a>
+<a href="#zeth-caden">Zeth Caden</a>
+<a href="#talren-vale">Talren Vale</a>
+<a href="#solan">Solan</a>
+<a href="#marrek">Marrek</a>
+<a href="#lio-serrin-later-vareth">Lio Serrin (later Vareth)</a>
+<a href="#kellan-vance-later-caen">Kellan Vance (later Caen)</a>
+<a href="#dain-corvett">Dain Corvett</a>
+<a href="#mark-mark-val-marcus-valmere">Mark "Mark Val" (Marcus Valmere)</a>
+<a href="#taren-durrel-ridge">Taren Durrel (Ridge)</a>
+<a href="#delryn-vale-valecour">Delryn Vale / Valecour</a>
+<a href="#rhalen-valecour">Rhalen Valecour</a>
+<a href="#garran-vey">Garran Vey</a>
+<a href="#nicholas-nick-soren">Nicholas "Nick" Soren</a>
+<a href="#jarek-flint">Jarek Flint</a>
+<a href="#professor-halden">Professor Halden</a>
+<a href="#maraine-soren">Maraine Soren</a>
+<a href="#elara-soren">Elara Soren</a>
+<a href="#vale-b16">Vale</a>
+<a href="#edric-harl">Edric Harl</a>
+<a href="#arienna-lume">Arienna Lume</a>
+<a href="#aldric-fen">Aldric Fen</a>
+<a href="#iris">Iris</a>
+<a href="#mirelle-tress">Mirelle Tress</a>
+<a href="#caelen-marrith">Caelen Marrith</a>
+<a href="#joryn">Joryn</a>
+<a href="#cassien">Cassien</a>
+<a href="#captain-mara">Captain Mara</a>
+<a href="#rul-hask">Rul Hask</a>
+<a href="#lucien-varric">Lucien Varric</a>
+<a href="#silver-bastion-loyalists">Silver Bastion Loyalists</a>
+<a href="#gavren">Gavren</a>
+<a href="#cameron">Cameron</a>
+<a href="#the-timeline-b-durrel-line">The Timeline B Durrel Line</a>
+<a href="#jack-durrel">Jack Durrel</a>
+<a href="#jorah">Jorah</a>
+<a href="#caelen-durrel">Caelen Durrel</a>
+<a href="#corvin-hale">Corvin Hale</a>
+<a href="#michael-mike-rookvale">Michael "Mike" Rookvale</a>
+<a href="#evan-marric">Evan Marric</a>
+<a href="#dena">Dena</a>
+</nav>
 </details>
 <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px;">Recurring Figures</h2>
-<div class="char-card" id="zethyr-durrel">
+<div class="char-card" data-campaigns="b1 i ii" id="zethyr-durrel">
 <div class="card-head"><h3>Zethyr Durrel <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></div></div>
 <div class="aka">High Commander of the Heartwardens · Lightbound paladin</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, killed ending the Dominion (Timeline A); unmade before birth (Timeline B)</span><span><span class="qf-label">Home</span>Silver Bastion</span><span><span class="qf-label">Key relationship</span>Taren Durrel (bonded)</span></div>
@@ -223,7 +461,7 @@
     building toward catastrophe well before the end, and Taren ignores every warning.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-i.html">I</a></span><span>Revives the lapsed Heartwardens as High Commander; the founding ritual with Taren creates their psychic bond and unknowingly seeds the Dark Filament.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-ii.html">II</a></span><span>Consort and Co-Regent to Taren's Veiled Emperor — in practice, an instrument of his will. Foresees the coming collapse and is ignored. Ends the Dominion by severing the Veil Core himself, killing them both.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Unmade by a third-layer force in the opening rupture — erased, not killed, before his story can begin. Timeline B's entire divergence starts here.</span></div></div>
 </div>
-<div class="char-card" id="arienna-lume">
+<div class="char-card" data-campaigns="i ii" id="arienna-lume">
 <div class="card-head"><h3>Arienna Lume</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a></div></div>
 <div class="aka">Magister of the Collegium Arcanum · Flamewarden (also recorded as Arienna Voss)</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, mind-stilled and sealed into Veil infrastructure</span><span><span class="qf-label">Home</span>Silver Bastion / Collegium Arcanum</span><span><span class="qf-label">Key relationship</span>Taren Durrel (antagonist)</span></div>
@@ -236,7 +474,7 @@
     Dominion's earliest demonstrations that intellectual independence, not just open
     rebellion, would be treated as a threat.</p>
 </div>
-<div class="char-card" id="aldric-fen">
+<div class="char-card" data-campaigns="i ii" id="aldric-fen">
 <div class="card-head"><h3>Aldric Fen</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a></div></div>
 <div class="aka">Heartwarden Chaplain</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, executed alongside Seraphine</span><span><span class="qf-label">Home</span>Silver Bastion</span><span><span class="qf-label">Key relationship</span>The old Council (allegiance)</span></div>
@@ -246,7 +484,7 @@
     that renames the Heartwardens the Veilwardens, spiritual and institutional resistance
     crushed in the same stroke.</p>
 </div>
-<div class="char-card" id="taren-durrel">
+<div class="char-card" data-campaigns="b1 i ii" id="taren-durrel">
 <div class="card-head"><h3>Taren Durrel</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></div></div>
 <div class="aka">Captain of the Heartwardens · The Veiled Emperor</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, killed ending the Dominion (Timeline A); unmade before birth (Timeline B)</span><span><span class="qf-label">Home</span>Silver Bastion / the Dominion</span><span><span class="qf-label">Key relationship</span>Zethyr Durrel (bonded)</span></div>
@@ -283,7 +521,7 @@
     to violently, and within months Zethyr ends it the only way left to him.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-i.html">I</a></span><span>Captain of the revived Heartwardens; the founding ritual with Zethyr creates their psychic bond.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-ii.html">II</a></span><span>Redefines Balance as control, becomes the Veiled Emperor at the head of the Dominion. Killed alongside Zethyr when the Veil Core is severed.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Unmade alongside Zethyr in the opening rupture — erased before either of their stories can begin.</span></div></div>
 </div>
-<div class="char-card" id="seraphine-vale">
+<div class="char-card" data-campaigns="b1 b2 b3 b4 b5 i ii" id="seraphine-vale">
 <div class="card-head"><h3>Seraphine Vale</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b3.html">B3</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a><a class="stamp-badge tl-b" href="campaign-b5.html">B5</a></div></div>
 <div class="aka">Grand Marshal of the Paladin Council · High Paladin of Silver Bastion</div>
 <p class="summary">The clearest case of a single person's fate splitting completely
@@ -308,7 +546,7 @@
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-i.html">I</a></span><span>Grand Marshal of the Paladin Council; supervises the first Seal work.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-ii.html">II</a></span><span>Represents the old Council against the Dominion; executed as the Veilwardens replace the Heartwardens.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>High Paladin of Silver Bastion; founds the Order of Anchors after the rupture that unmakes Taren and Zethyr.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a></span><span>Oversees the Hollowrest Custodial Mandate.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b3.html">B3</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Blocks the Council's attempt to classify the six travellers as research subjects; guides the Order's political and doctrinal response to the Frostborn and Veil-echo discoveries.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b5.html">B5</a></span><span>Killed amid escalating Shah-aligned internal conflict — ending the Order's direct continuity with its founding.</span></div></div>
 <p class="summary" style="margin-top:10px;"><strong>Personality.</strong> Composed, principled, and deeply perceptive — she balances compassion with duty so cleanly it borders on artistry, reading people quickly and kindly and always leaving room for honesty. She leads by clarity rather than force, trusts competence over hierarchy, and is acutely aware of how power corrodes intention. Soft-spoken but commanding: she listens first, asks precise questions second, and speaks last.</p>
 </div>
-<div class="char-card" id="edrin-durrel">
+<div class="char-card" data-campaigns="iii" id="edrin-durrel">
 <div class="card-head"><h3>Edrin Durrel <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-iii.html">III</a></div></div>
 <div class="aka">Scholar-echo · Last Known Claimant of the Durrel Line</div>
 <p class="summary">Meets Cael at the Hollow within the campaign's first two months —
@@ -326,7 +564,7 @@
     and sealing the Vault of Tarenus — pausing the cycle rather than destroying it, and
     opening what history calls the Age of Equilibrium.</p>
 </div>
-<div class="char-card" id="cael-veyne">
+<div class="char-card" data-campaigns="iii" id="cael-veyne">
 <div class="card-head"><h3>Cael</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-iii.html">III</a></div></div>
 <div class="aka">Paladin-echo of Taren</div>
 <p class="summary">Bonds with Edrin at the Hollow through what becomes the Echo Chain —
@@ -340,7 +578,7 @@
     person. Edrin's Severance ends it before it can go further; Cael vanishes at the
     Northern Gate the instant the Echo Chain breaks, his fate afterward unrecorded.</p>
 </div>
-<div class="char-card" id="feran-durrel">
+<div class="char-card" data-campaigns="iv" id="feran-durrel">
 <div class="card-head"><h3>Feran Durrel <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-iv.html">IV</a></div></div>
 <div class="aka">Heartbearer · Explorer and Guardian</div>
 <p class="summary">Becomes Coren's human counterweight at the Confluence — the partner
@@ -355,7 +593,7 @@
     campaign's end, but the failure is softer than the Dominion's ever was, and later
     scholars credit Feran's counterweight for exactly that difference.</p>
 </div>
-<div class="char-card" id="coren-veyne">
+<div class="char-card" data-campaigns="iv" id="coren-veyne">
 <div class="card-head"><h3>Coren Veyne</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-iv.html">IV</a></div></div>
 <div class="aka">The Emperor Reforged</div>
 <p class="summary">Rises among the fractured city-states left after Campaign III's
@@ -371,7 +609,7 @@
     were. The Confluence he assembles outlives his own reign, becoming raw material later
     reformers and scholars draw on for generations.</p>
 </div>
-<div class="char-card" id="jax-korran">
+<div class="char-card" data-campaigns="v" id="jax-korran">
 <div class="card-head"><h3>Jax Korran <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-v.html">V</a></div></div>
 <div class="aka">Smuggler Turned Technician · Warden Progenitor</div>
 <p class="summary">A smuggler who becomes a technician out of necessity when the
@@ -387,7 +625,7 @@
     and later partners with Rhett Vale, becoming, in later record, a progenitor figure for
     the modern Wardens founded in Campaign IX.</p>
 </div>
-<div class="char-card" id="iris">
+<div class="char-card" data-campaigns="v" id="iris">
 <div class="card-head"><h3>Iris</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-v.html">V</a></div></div>
 <div class="aka">Engineer · Choir Architecture Specialist</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Unknown</span><span><span class="qf-label">Home</span>Veylaris</span><span><span class="qf-label">Key relationship</span>Jax Korran (co-discoverer)</span></div>
@@ -398,7 +636,7 @@
     ley lines at the Choir's collapse, making her as directly responsible for ending the
     Choir's reign as either of the two figures the history books remember first.</p>
 </div>
-<div class="char-card" id="taren-choir-reconstruction">
+<div class="char-card" data-campaigns="v" id="taren-choir-reconstruction">
 <div class="card-head"><h3>Taren (Choir Reconstruction)</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-v.html">V</a></div></div>
 <div class="aka">Architect-in-Code</div>
 <p class="summary">Not the ghost of the original Taren Durrel, dead for millennia by
@@ -412,7 +650,7 @@
     stasis beginning the moment it's done. What becomes of the reconstruction itself once
     the Choir falls isn't recorded.</p>
 </div>
-<div class="char-card" id="kael-duren">
+<div class="char-card" data-campaigns="vi" id="kael-duren">
 <div class="card-head"><h3>Kael Duren <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-vi.html">VI</a></div></div>
 <div class="aka">"The Restorer"</div>
 <p class="summary">Rediscovers a Heart Shard surviving from the very earliest age of
@@ -430,7 +668,7 @@
     Equilibria, a stabilising philosophy later ages return to whenever institutions start
     drifting back toward command-based magic instead of consent-based magic.</p>
 </div>
-<div class="char-card" id="elian-dorn">
+<div class="char-card" data-campaigns="vii" id="elian-dorn">
 <div class="card-head"><h3>Elian Dorn <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-vii.html">VII</a></div></div>
 <div class="aka">"The Warden Executor"</div>
 <p class="summary">Becomes the spiritual and political leader of the Wardens as the
@@ -446,7 +684,7 @@
     it openly from outside them. By his campaign's end, the Warden state has hardened into
     a rigid system that Sirian will later codify even further.</p>
 </div>
-<div class="char-card" id="sirian">
+<div class="char-card" data-campaigns="viii" id="sirian">
 <div class="card-head"><h3>Sirian <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-viii.html">VIII</a></div></div>
 <div class="aka">The Codifier of Order</div>
 <p class="summary">A legalist who sets out to write the Gate Codex, believing that if
@@ -466,7 +704,7 @@
     Both readings are consistent with what the Codex actually does once written; which one
     reflects Sirian's real private motive isn't settled here.</p>
 </div>
-<div class="char-card" id="rhett-vale">
+<div class="char-card" data-campaigns="ix" id="rhett-vale">
 <div class="card-head"><h3>Rhett Vale <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-ix.html">IX</a></div></div>
 <div class="aka">The Techno-Explorer</div>
 <p class="summary">An explorer and tinkerer by temperament who ventures into the Ring
@@ -482,7 +720,7 @@
     technocrats and reformers, and the machine age accelerates hard in their wake — laying
     the direct foundations for the cyberpunk eras that follow.</p>
 </div>
-<div class="char-card" id="serik-thorne">
+<div class="char-card" data-campaigns="x" id="serik-thorne">
 <div class="card-head"><h3>Serik Thorne <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-x.html">X</a></div></div>
 <div class="aka">The Severing</div>
 <p class="summary">A former inquisitor who emerges as a genuine revolutionary reformer
@@ -497,7 +735,7 @@
     anything, the fourth recorded Severance in the record and the first framed explicitly
     as a legal and constitutional act rather than a personal sacrifice.</p>
 </div>
-<div class="char-card" id="riven-mareth">
+<div class="char-card" data-campaigns="xi" id="riven-mareth">
 <div class="card-head"><h3>Riven Mareth <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xi.html">XI</a></div></div>
 <div class="aka">Human Rogue ("Whisperknife") · Relic Broker · Clause Zero</div>
 <p class="summary">Lean, early thirties, dark hair, pale eyes, weather-worn leathers —
@@ -517,7 +755,7 @@
     fully human. He ends the campaign remembered as Clause Zero, the Breath Between Laws —
     not a myth stepping out of the world, but a mortal who chose to keep living in it.</p>
 </div>
-<div class="char-card" id="cassian-vale">
+<div class="char-card" data-campaigns="xi" id="cassian-vale">
 <div class="card-head"><h3>Cassian Vale</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xi.html">XI</a></div></div>
 <div class="aka">Ex-Watchman Turned Mercenary · Riven's Partner</div>
 <p class="summary">Broad-shouldered, short-bearded, calm-eyed, in practical armour —
@@ -534,7 +772,7 @@
     rewriting reality so Cassian becomes Riven's husband even if he'd never remember it —
     is the clearest window into what actually holds the two of them together.</p>
 </div>
-<div class="char-card" id="ilyen-vael">
+<div class="char-card" data-campaigns="xi" id="ilyen-vael">
 <div class="card-head"><h3>Ilyen Vael</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xi.html">XI</a></div></div>
 <div class="aka">Hidden Ledger Agent · Descendant of the Editors</div>
 <p class="summary">Compact, ash-blonde, sharp grey eyes — a Hidden Ledger operative
@@ -549,7 +787,7 @@
     is tested once Verrin's more pragmatic methods enter the picture, but she never fully
     breaks from either her order or her growing trust in Riven's group.</p>
 </div>
-<div class="char-card" id="leora-vance">
+<div class="char-card" data-campaigns="xi" id="leora-vance">
 <div class="card-head"><h3>Leora Vance</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xi.html">XI</a></div></div>
 <div class="aka">Lyricum Scholar · Archivist of the Breath</div>
 <p class="summary">Auburn hair, grey eyes, ink-stained hands — a Lyricum archivist who
@@ -565,7 +803,7 @@
     the custodian of the Clause Zero record itself, the person history will actually check
     when it wants to know what really happened.</p>
 </div>
-<div class="char-card" id="kael-durreth">
+<div class="char-card" data-campaigns="xii" id="kael-durreth">
 <div class="card-head"><h3>Kael Durreth <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xii.html">XII</a></div></div>
 <div class="aka">Prime Steward · Oath of Inheritance Paladin</div>
 <p class="summary">Founds Inheritance-Reclaimed and its Harmony Network — a leygrid
@@ -581,7 +819,7 @@
     build-out protecting his new institutions; Jalen/Joren keeps him tied to an ordinary
     human life beyond councils and oaths; Cassius opens trade routes to Harn.</p>
 </div>
-<div class="char-card" id="evren-thalos">
+<div class="char-card" data-campaigns="xii" id="evren-thalos">
 <div class="card-head"><h3>Evren Thalos</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xii.html">XII</a></div></div>
 <div class="aka">Hidden Ledger Scholar · Co-Architect</div>
 <p class="summary">Kael's partner and co-architect of the Republic of Inheritance —
@@ -590,7 +828,7 @@
     Constantly asking the one question builders of grand systems tend to avoid: who would
     be harmed by this lasting forever?</p>
 </div>
-<div class="char-card" id="rian-leth">
+<div class="char-card" data-campaigns="xiii" id="rian-leth">
 <div class="card-head"><h3>Rian Leth <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xiii.html">XIII</a></div></div>
 <div class="aka">Oath Guard Initiate · Stabiliser Node</div>
 <p class="summary">Displays perfect obedience as an Oath Guard Initiate until emotion
@@ -607,7 +845,7 @@
     them settled together at a forge north of the Menge Expanse, teaching that discipline
     isn't obedience and silence can be its own kind of freedom.</p>
 </div>
-<div class="char-card" id="calen-vorr">
+<div class="char-card" data-campaigns="xiii" id="calen-vorr">
 <div class="card-head"><h3>Calen Vorr</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xiii.html">XIII</a></div></div>
 <div class="aka">Captain · Sentinel Officer</div>
 <p class="summary">Assigned to test and oversee Rian's synchronisation with the Chain,
@@ -620,7 +858,7 @@
     service — discipline chosen, not imposed. He and Rian settle together north of the
     Menge Expanse in the campaign's quiet epilogue.</p>
 </div>
-<div class="char-card" id="rhett-of-the-vale">
+<div class="char-card" data-campaigns="xiv" id="rhett-of-the-vale">
 <div class="card-head"><h3>Rhett of the Vale</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xiv.html">XIV</a></div></div>
 <div class="aka">Emperor · Architect of Stillness</div>
 <p class="summary">Inherits a fractured world and sets out to weld it into unity under
@@ -637,7 +875,7 @@
     perfecting dissolve into weather, and vanishes into the northern forests — remembered
     afterward as the Last Emperor.</p>
 </div>
-<div class="char-card" id="niall-argent">
+<div class="char-card" data-campaigns="xiv" id="niall-argent">
 <div class="card-head"><h3>Niall Argent</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xiv.html">XIV</a></div></div>
 <div class="aka">Witness and Consort · First Warden of Motion</div>
 <p class="summary">Bearer of the Pattern Complete and Rhett's Witness — desperate to
@@ -651,7 +889,7 @@
     rising in the Dominion's place never again worship stillness the way Rhett's empire
     did. Remembered as the Witness Who Let It Move.</p>
 </div>
-<div class="char-card" id="dareth">
+<div class="char-card" data-campaigns="xv" id="dareth">
 <div class="card-head"><h3>Dareth <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xv.html">XV</a></div></div>
 <div class="aka">Rogue/Fixer of the Red Lattice · Civic Consort &amp; the Voice</div>
 <p class="summary">A Red Lattice rogue and fixer elevated into Civic Consort and the
@@ -666,7 +904,7 @@
     the harbor rail. Ends the campaign as "Voice Unbound," the model every later Concord
     consort role gets measured against.</p>
 </div>
-<div class="char-card" id="valen">
+<div class="char-card" data-campaigns="xv" id="valen">
 <div class="card-head"><h3>Valen</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xv.html">XV</a></div></div>
 <div class="aka">Aegis Knight Turned Concord Regent</div>
 <p class="summary">Rises from Aegis Knight to Concord Regent by turning perimeter craft
@@ -675,7 +913,7 @@
     to lifetime penitent service as Warden-Prime, a quiet ending for a figure who spent the
     whole campaign making visibility itself into the mechanism of trust.</p>
 </div>
-<div class="char-card" id="kaeso-vyr">
+<div class="char-card" data-campaigns="xvi" id="kaeso-vyr">
 <div class="card-head"><h3>Kaeso Vyr <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xvi.html">XVI</a></div></div>
 <div class="aka">Zethyr-Echo · Consort-Primus</div>
 <p class="summary">An unknowing Zethyr-echo at the campaign's start, Kaeso awakens the
@@ -688,7 +926,7 @@
     by practice rather than decree, publicly acknowledged as myth yet bounded firmly by
     appeal and public ledger.</p>
 </div>
-<div class="char-card" id="coren">
+<div class="char-card" data-campaigns="xvi" id="coren">
 <div class="card-head"><h3>Coren</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xvi.html">XVI</a></div></div>
 <div class="aka">Taren-Echo · "The Crown"</div>
 <p class="summary">A reconstituted Taren-type echo discovered in containment, who
@@ -701,7 +939,7 @@
     own choice, to punctuation only — a raised finger marking a period, an open palm setting
     the pace — while Kaeso carries the corridor's actual rhythm.</p>
 </div>
-<div class="char-card" id="lucen-marrin">
+<div class="char-card" data-campaigns="xvii" id="lucen-marrin">
 <div class="card-head"><h3>Lucen Marrin <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xvii.html">XVII</a></div></div>
 <div class="aka">Rogue, Thief · Blade for the Gray Woman's Order</div>
 <p class="summary">A survivor of the fallen Concord grids turned blade for hire — once
@@ -720,7 +958,7 @@
     vineyards, tending quiet — though the Gray Woman's mark on his wrist still burns
     whenever the law is broken back in Evermere.</p>
 </div>
-<div class="char-card" id="mirelle-tress">
+<div class="char-card" data-campaigns="xvii" id="mirelle-tress">
 <div class="card-head"><h3>Mirelle Tress, "The Widow"</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xvii.html">XVII</a></div></div>
 <div class="aka">Mistress of the Pale Ring</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, secretly executed</span><span><span class="qf-label">Home</span>Evermere</span><span><span class="qf-label">Key relationship</span>Lucen Marrin (executioner)</span></div>
@@ -731,7 +969,7 @@
     Woman the public spectacle she'd demanded — a final act of control exercised over her
     own story even after losing everything else.</p>
 </div>
-<div class="char-card" id="sorell-marcone">
+<div class="char-card" data-campaigns="xvii xviii" id="sorell-marcone">
 <div class="card-head"><h3>Sorell Marcone</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xvii.html">XVII</a><a class="stamp-badge" href="campaign-xviii.html">XVIII</a></div></div>
 <div class="aka">Officer of Evermere's Council</div>
 <p class="summary">Lucen's lover, torn between civic duty and the man he cannot bring
@@ -746,7 +984,7 @@
     facilitator still working through what Evermere cost him.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-xvii.html">XVII</a></span><span>Council officer and Lucen's lover; rules Evermere pragmatically after the Pale Ring's fall.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-xviii.html">XVIII</a></span><span>Carried forward as a mentor within the Collegium; a conflicted facilitator to Auren and Kael.</span></div></div>
 </div>
-<div class="char-card" id="auren-lysar">
+<div class="char-card" data-campaigns="xviii" id="auren-lysar">
 <div class="card-head"><h3>Auren Lysar <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xviii.html">XVIII</a></div></div>
 <div class="aka">Collegium Scholar</div>
 <p class="summary">The conduit whose obedience becomes the era's focus — Auren seizes
@@ -762,7 +1000,7 @@
     behind. Remembered afterward as one of the Red Glass Guardians, saints of balance
     through surrender.</p>
 </div>
-<div class="char-card" id="kael-verris">
+<div class="char-card" data-campaigns="xviii" id="kael-verris">
 <div class="card-head"><h3>Kael Verris</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xviii.html">XVIII</a></div></div>
 <div class="aka">Veil-Adept · Tutor and Axis of Power</div>
 <p class="summary">Decisive and commanding, Kael becomes Auren's tutor and then the
@@ -775,7 +1013,7 @@
     sealed there afterward, a dormant, dreaming presence at the Collegium that calibrates
     public order without ever compelling it again.</p>
 </div>
-<div class="char-card" id="thalen-ro">
+<div class="char-card" data-campaigns="xix" id="thalen-ro">
 <div class="card-head"><h3>Thalen Ro <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xix.html">XIX</a></div></div>
 <div class="aka">Paladin Cadet · Zethyr-Echo, the Anchor</div>
 <p class="summary">Chooses alignment with Ravel Morn out of love, their first clasp
@@ -789,7 +1027,7 @@
     Fragment at the exact peak of the ritual, calling Severance. The Heart Crown splits; the
     network dissolves without a single army or flame.</p>
 </div>
-<div class="char-card" id="ravel-morn">
+<div class="char-card" data-campaigns="xix" id="ravel-morn">
 <div class="card-head"><h3>Ravel Morn</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xix.html">XIX</a></div></div>
 <div class="aka">Academy Prodigy · Taren-Echo, Bearer of the Heart Crown</div>
 <p class="summary">Precise and persuasive, growing steadily more serene as his control
@@ -803,7 +1041,7 @@
     Severance splits the Crown in two, leaving only two silhouettes burned into the
     Sanctuary's marble — one standing, one reaching.</p>
 </div>
-<div class="char-card" id="kade-varin">
+<div class="char-card" data-campaigns="xx" id="kade-varin">
 <div class="card-head"><h3>Kade Varin <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xx.html">XX</a></div></div>
 <div class="aka">Paladin Cadet · "Anchor"</div>
 <p class="summary">A Custodian academy cadet whose Vault audit training exercise
@@ -818,7 +1056,7 @@
     continuous consent, rather than either one alone, for the world to move in rhythm
     again.</p>
 </div>
-<div class="char-card" id="varo-merenth">
+<div class="char-card" data-campaigns="xx" id="varo-merenth">
 <div class="card-head"><h3>Varo Merenth</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xx.html">XX</a></div></div>
 <div class="aka">Paladin Cadet and Legal Heir · "The Voice"</div>
 <p class="summary">Public face of the "civil engine" governance pilots pursued by the
@@ -833,7 +1071,7 @@
     affectionate equilibrium: order by mutual will, the dual key requiring both of them
     forever after.</p>
 </div>
-<div class="char-card" id="talen-marric">
+<div class="char-card" data-campaigns="xxi" id="talen-marric">
 <div class="card-head"><h3>Talen Marric <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxi.html">XXI</a></div></div>
 <div class="aka">Custodian · Carrier of a Live Veil Shard</div>
 <p class="summary">Wears old Custodian/Dominion "atonement gear" and traces a relay
@@ -848,7 +1086,7 @@
     only choice." The Heart-Veil unwinds rather than shatters; Seren steadies him through
     the aftershock.</p>
 </div>
-<div class="char-card" id="seren-valor">
+<div class="char-card" data-campaigns="xxi" id="seren-valor">
 <div class="card-head"><h3>Seren Valor</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxi.html">XXI</a></div></div>
 <div class="aka">Former Warden Captain</div>
 <p class="summary">Protective, possessive, and the one who says "steady" — Seren
@@ -861,7 +1099,7 @@
     Seren is the one who steadies him through the aftershock as the Heart-Veil's threads
     lift like spider-silk and the old heartbeat stops for good.</p>
 </div>
-<div class="char-card" id="arden-vale">
+<div class="char-card" data-campaigns="b1 b2 b4 xxii xxiii xxiv xxv" id="arden-vale">
 <div class="card-head"><h3>Arden Vale <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxii.html">XXII</a><a class="stamp-badge" href="campaign-xxiii.html">XXIII</a><a class="stamp-badge" href="campaign-xxiv.html">XXIV</a><a class="stamp-badge" href="campaign-xxv.html">XXV</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></div></div>
 <div class="aka">One of the Six Travellers</div>
 <p class="summary">His arc begins at Caelwick, where an accidental behavioural imprint
@@ -881,7 +1119,7 @@
     asking questions, goes flat and uncompromising the moment a line is crossed.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxii.html">XXII</a><a class="stamp-badge" href="campaign-xxiii.html">XXIII</a></span><span>Forms the accidental shard-pattern imprint with Caelen Marrith that reinstantiates a millennium later; Caelen dies at the Spirefall.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxiv.html">XXIV</a></span><span>Mentors Zeth and Talren as the era's first Safe Anchor.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxv.html">XXV</a></span><span>Part of the six-point resonance formation that ends the Caelen echo and triggers the Fracture.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Arrives in the Age of Founding; witnesses Lio and Kellan's bonding and the Order of Anchors' founding.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Continues as stabiliser and witness through the Hollowrest, Frostborn, and Veil-echo campaigns.</span></div></div>
 </div>
-<div class="char-card" id="caelen-marrith">
+<div class="char-card" data-campaigns="xxii xxiii" id="caelen-marrith">
 <div class="card-head"><h3>Caelen Marrith</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxii.html">XXII</a><a class="stamp-badge" href="campaign-xxiii.html">XXIII</a></div></div>
 <div class="aka">Paladin Captain · Shard-Pattern Primary Axis</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, shot at the Spirefall</span><span><span class="qf-label">Home</span>Caelwick</span><span><span class="qf-label">Key relationship</span>Arden Vale (shard-pattern axis)</span></div>
@@ -892,7 +1130,7 @@
     Spirefall, shot cleanly and silently while unarmoured — a death staged with the same
     quiet control that defined how he lived.</p>
 </div>
-<div class="char-card" id="rian-thale">
+<div class="char-card" data-campaigns="b1 b2 b4 xxiii xxv" id="rian-thale">
 <div class="card-head"><h3>Rian Thale</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxiii.html">XXIII</a><a class="stamp-badge" href="campaign-xxv.html">XXV</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></div></div>
 <div class="aka">One of the Six Travellers</div>
 <p class="summary">A civic cartographer with no history in the Caelwick imprint and
@@ -904,7 +1142,7 @@
     choice rather than duty.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxiii.html">XXIII</a></span><span>Teaches Arden autonomy and consent after Caelen's death; becomes his partner.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxv.html">XXV</a></span><span>Holds the group's emotional line during the six-point resonance formation.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Arrives in the Age of Founding as one of the six travellers.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Continues as stabiliser and witness through Timeline B's earliest campaigns.</span></div></div>
 </div>
-<div class="char-card" id="zeth-caden">
+<div class="char-card" data-campaigns="b1 b2 b4 xxiv xxv" id="zeth-caden">
 <div class="card-head"><h3>Zeth Caden <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxiv.html">XXIV</a><a class="stamp-badge" href="campaign-xxv.html">XXV</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></div></div>
 <div class="aka">One of the Six Travellers</div>
 <p class="summary">Meets Talren at the Academy of Resonant Studies with an instant,
@@ -917,7 +1155,7 @@
     logic did to him.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxiv.html">XXIV</a></span><span>Becomes half of the era's first Living Dyad with Talren, mentored by Arden.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxv.html">XXV</a></span><span>Front-left anchor-light in the six-point resonance formation.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Arrives in the Age of Founding as one of the six travellers.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Continues as stabiliser and witness through Timeline B's earliest campaigns.</span></div></div>
 </div>
-<div class="char-card" id="talren-vale">
+<div class="char-card" data-campaigns="b1 b2 b4 xxiv xxv" id="talren-vale">
 <div class="card-head"><h3>Talren Vale</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxiv.html">XXIV</a><a class="stamp-badge" href="campaign-xxv.html">XXV</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></div></div>
 <div class="aka">One of the Six Travellers</div>
 <p class="summary">A senior trainee acting as stabiliser-in-training when Zeth arrives
@@ -929,7 +1167,7 @@
     simply hold it.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxiv.html">XXIV</a></span><span>Becomes half of the era's first Living Dyad with Zeth, mentored by Arden.</span></div><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxv.html">XXV</a></span><span>Rear-left blade in the six-point resonance formation.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Arrives in the Age of Founding as one of the six travellers.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Continues as stabiliser and witness through Timeline B's earliest campaigns.</span></div></div>
 </div>
-<div class="char-card" id="solan">
+<div class="char-card" data-campaigns="b1 b2 b4 xxv" id="solan">
 <div class="card-head"><h3>Solan <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxv.html">XXV</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></div></div>
 <div class="aka">One of the Six Travellers</div>
 <p class="summary">Forms a tether with Marrek strong enough to warp temporal geometry —
@@ -941,7 +1179,7 @@
     destiny.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxv.html">XXV</a></span><span>Centre of the six-point resonance formation; his tether with Marrek and instinctive stabilising presence anchor the group against the temporal fracture.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Arrives in the Age of Founding as one of the six travellers.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Continues as stabiliser and witness through Timeline B's earliest campaigns.</span></div></div>
 </div>
-<div class="char-card" id="marrek">
+<div class="char-card" data-campaigns="b1 b2 b4 xxv" id="marrek">
 <div class="card-head"><h3>Marrek</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-xxv.html">XXV</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></div></div>
 <div class="aka">One of the Six Travellers</div>
 <p class="summary">The specific thread a temporal fracture hunts across every era it
@@ -953,7 +1191,7 @@
     him useful again.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge" href="campaign-xxv.html">XXV</a></span><span>Right flank of the six-point resonance formation; the fracture's specific target throughout.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Arrives in the Age of Founding as one of the six travellers.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Continues as stabiliser and witness through Timeline B's earliest campaigns.</span></div></div>
 </div>
-<div class="char-card" id="lio-serrin-later-vareth">
+<div class="char-card" data-campaigns="b1 b2 b3 b4 b5" id="lio-serrin-later-vareth">
 <div class="card-head"><h3>Lio Serrin (later Vareth) <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b3.html">B3</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a><a class="stamp-badge tl-b" href="campaign-b5.html">B5</a></div></div>
 <div class="aka">First Anchor of the Reforged Cycle</div>
 <p class="summary">The founding Anchor of Timeline B's entire magic system — the role
@@ -981,7 +1219,7 @@
     Won't tolerate coercion regardless of the form it takes.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Bonds with Kellan during the founding rupture; becomes the Heart Seal's first Anchor.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a></span><span>Leads the Hollowrest expedition; recognised by the proto-Anchor as a successor to the Binders.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b3.html">B3</a></span><span>Supports Caen through the Frostborn revelation, emerging more grounded rather than destabilised.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>Trusts Caen completely through the Veil-echo corruption; performs the first Deep-Drop Inversion Purge.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b5.html">B5</a></span><span>Renamed Vareth; becomes half of the "Living Reliquary," an unintentional Ley-Heir-equivalent structure.</span></div></div>
 </div>
-<div class="char-card" id="kellan-vance-later-caen">
+<div class="char-card" data-campaigns="b1 b2 b3 b4 b5" id="kellan-vance-later-caen">
 <div class="card-head"><h3>Kellan Vance (later Caen)</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a><a class="stamp-badge tl-b" href="campaign-b3.html">B3</a><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a><a class="stamp-badge tl-b" href="campaign-b5.html">B5</a></div></div>
 <div class="aka">First Stabiliser Thread of the Reforged Cycle</div>
 <p class="summary">A disciplined paladin who becomes Lio's Thread the same moment Lio
@@ -1009,7 +1247,7 @@
     of Lio.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></span><span>Stabilises Lio during the founding rupture; becomes the Heart Seal's first Thread.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b2.html">B2</a></span><span>Co-leads the Hollowrest expedition alongside Lio.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b3.html">B3</a></span><span>His Frostborn heritage is revealed; the source material's naming shifts to Caen from here.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b4.html">B4</a></span><span>A Veil echo exposes and amplifies his suppressed dominant instincts; post-purge, he integrates rather than denies them.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b5.html">B5</a></span><span>With Seraphine dead, becomes half of the "Living Reliquary" and effective ruler of Bastion — structure hardening into myth with no institutional check left on him.</span></div></div>
 </div>
-<div class="char-card" id="dain-corvett">
+<div class="char-card" data-campaigns="b6 b7" id="dain-corvett">
 <div class="card-head"><h3>Dain Corvett <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b6.html">B6</a><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a></div></div>
 <div class="aka">Twilight Cleric · Former Noble · Lantern Proprietor</div>
 <p class="summary">Core drive: autonomy through belonging. Primary conflict: control
@@ -1035,7 +1273,7 @@
     because of how well he survived it once.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b6.html">B6</a></span><span>Leads a Luminara resistance cell in Greymount; survives an escalating conditioning arc and an attempted Ley-Heir overwrite; founds The Lantern in Evermere.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a></span><span>Runs Evermere's quiet-authority civic operation alongside Joryn, Maera, Cassian, and Rafe.</span></div></div>
 </div>
-<div class="char-card" id="joryn">
+<div class="char-card" data-campaigns="b6" id="joryn">
 <div class="card-head"><h3>Joryn</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b6.html">B6</a></div></div>
 <div class="aka">Dain Corvett's Co-Leader and Partner</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive (historical, B6 era)</span><span><span class="qf-label">Home</span>Evermere</span><span><span class="qf-label">Key relationship</span>Dain Corvett (partner)</span></div>
@@ -1048,7 +1286,7 @@
     River House</a> entry for how that continuity actually works nearly eight decades
     later.</p>
 </div>
-<div class="char-card" id="mark-mark-val-marcus-valmere">
+<div class="char-card" data-campaigns="b7 b8" id="mark-mark-val-marcus-valmere">
 <div class="card-head"><h3>Mark "Mark Val" (Marcus Valmere) <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a><a class="stamp-badge tl-b" href="campaign-b8.html">B8</a></div></div>
 <div class="aka">Shadow Sorcerer · Exiled Noble · Youth Squad Rear</div>
 <p class="summary">Core drive: belonging without being owned. Primary conflict: hunger
@@ -1070,7 +1308,7 @@
     rather than staying a stolen hour.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a></span><span>Arrives at The Lantern under an alias; joins the youth squad; the Heart Seal loosens his conditioning residue at Durrel Ridge; trains at the Umbral Collegium.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b8.html">B8</a></span><span>Trusted youth-squad lead; uses his trained Shadow Sorcery for a dramatic one-time group transit during the Corvett confrontation.</span></div></div>
 </div>
-<div class="char-card" id="taren-durrel-ridge">
+<div class="char-card" data-campaigns="b12 b13 b14 b15 b9" id="taren-durrel-ridge">
 <div class="card-head"><h3>Taren Durrel (Ridge) <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Paladin on the Oath of the Ridge · Warden</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive, Paladin Level 9</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Mara &amp; Cassien (confidants); Jack Durrel (successor)</span></div>
@@ -1101,7 +1339,7 @@
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a></span><span>Undergoes Warden induction; reclaims Tarenus's Vault after Arden's tyranny is broken; swears the Renewed Oath of the Ridge and liberates Bastion's civic anchor.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a></span><span>Ridge leadership; his reserve toward Jack Durrel finally breaks once Jack shares what the Vault revealed to him.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a></span><span>Leads the Ridge's response once Caelen is recovered; helps cleanse Tarenus's Vault of lingering Thorn House residue.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a></span><span>Commands the main Ridge assault on Silver Bastion, holding the chapel approach while Mike opens the breach from within.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></span><span>Extracts Delryn from Brevair, destroys the Keystone, kills Rhalen personally, and names Jack his successor — closing the Ridge Arc.</span></div></div>
 <p class="summary" style="margin-top:10px;"><a href="#durrel-tree-b">See the full House Durrel family tree (Timeline B) ↓</a></p>
 </div>
-<div class="char-card" id="cassien">
+<div class="char-card" data-campaigns="b15 b9" id="cassien">
 <div class="card-head"><h3>Cassien</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Arcane Warden of Durrel Ridge</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Taren Durrel-Ridge (confidant)</span></div>
@@ -1114,7 +1352,7 @@
     absolve Taren of it afterward, even while keeping the account private within the
     household.</p>
 </div>
-<div class="char-card" id="captain-mara">
+<div class="char-card" data-campaigns="b15 b9" id="captain-mara">
 <div class="card-head"><h3>Captain Mara</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Archer · Captain of the Wardens</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Taren Durrel-Ridge (confidant)</span></div>
@@ -1127,7 +1365,7 @@
     Evermere supply routes and Brevair-linked trade intelligence during B15 — three
     genuinely different people sharing a very similar name.</p>
 </div>
-<div class="char-card" id="delryn-vale-valecour">
+<div class="char-card" data-campaigns="b10 b15" id="delryn-vale-valecour">
 <div class="card-head"><h3>Delryn Vale / Valecour <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b10.html">B10</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Shadow Sorcerer · Acknowledged Bastard of House Valecour</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive, severed, in protected custody</span><span><span class="qf-label">Home</span>Silver Bastion (custody)</span><span><span class="qf-label">Key relationship</span>Rhalen Valecour (former ruler/handler)</span></div>
@@ -1160,7 +1398,7 @@
     severance itself declare him innocent of what he helped build, and enters protected
     Silver Bastion custody to answer for it on his own terms.</p>
 </div>
-<div class="char-card" id="rhalen-valecour">
+<div class="char-card" data-campaigns="b10 b15" id="rhalen-valecour">
 <div class="card-head"><h3>Rhalen Valecour</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b10.html">B10</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Hidden Ruler of Brevair · Architect of the Keystone</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, killed by Taren in B15</span><span><span class="qf-label">Home</span>Brevair</span><span><span class="qf-label">Key relationship</span>Delryn Valecour (husband, keystone conduit)</span></div>
@@ -1188,7 +1426,7 @@
     Rhalen is confronted and killed personally by Taren Durrel inside his own inner palace,
     the chamber from which he once governed Brevair through hidden magical command.</p>
 </div>
-<div class="char-card" id="garran-vey">
+<div class="char-card" data-campaigns="b15" id="garran-vey">
 <div class="card-head"><h3>Garran Vey</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Brevair Operative · Ashen Hand</div>
 <p class="summary">Enters Durrel Ridge as a captured intruder, wearing imitation Ridge
@@ -1208,7 +1446,7 @@
     judgment for his own role in building Rhalen's system rather than claiming immunity
     as a resistance member.</p>
 </div>
-<div class="char-card" id="gavren">
+<div class="char-card" data-campaigns="b11 b14" id="gavren">
 <div class="card-head"><h3>Gavren <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b11.html">B11</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a></div></div>
 <div class="aka">Bastion Paladin</div>
 <p class="summary">Works alongside Cameron on shared Evermere assignments, and what
@@ -1229,7 +1467,7 @@
     Silver Bastion; the magical ruler/ward-knight/fortress structure binding him to the
     Citadel collapses with him.</p>
 </div>
-<div class="char-card" id="cameron">
+<div class="char-card" data-campaigns="b11 b14" id="cameron">
 <div class="card-head"><h3>Cameron</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b11.html">B11</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a></div></div>
 <div class="aka">Veil Operative</div>
 <p class="summary">Rises through Gavren's genuine devotion to become the Shah-aligned
@@ -1248,7 +1486,7 @@
     the false ruler/ward-knight/ward-anchor structure he built ends with him, and the
     Veiled Citadel ends as an active magical identity.</p>
 </div>
-<div class="char-card" id="the-timeline-b-durrel-line">
+<div class="char-card" data-campaigns="b12 b13 b15 b7 b9" id="the-timeline-b-durrel-line">
 <div class="card-head"><h3>The Timeline B Durrel Line</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Three surviving branches: the direct Ridge line · Jack's Caelan cadet branch · Caelen's remote cadet branch</div>
 <p class="summary">A later, separate branch of the Durrel family — not descendants of
@@ -1390,7 +1628,7 @@ dies without issue, succession should require a formal Ridge decision or Warden 
 than passing automatically to Jack or Caelen.</p>
 </details>
 </div>
-<div class="char-card" id="jack-durrel">
+<div class="char-card" data-campaigns="b12 b13 b14 b15" id="jack-durrel">
 <div class="card-head"><h3>Jack Durrel <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Durrel Heir · Ridge Operative · Warden of Meaning</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Jorah (partner); Taren (successor to)</span></div>
@@ -1421,7 +1659,7 @@ than passing automatically to Jack or Caelen.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a></span><span>Reopens his inherited house at the Ridge; named Warden of Meaning after the Vault confirms Jorah's reality and Marcus's death.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a></span><span>Leads the Ridge's response to Caelen's abduction; helps cleanse Tarenus's Vault of Thorn House residue.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a></span><span>Plans the reclamation of Silver Bastion, restores its ward-anchor to the Light, breaks Lucien's final working, and formally names Mike Rookvale a Ridge field scout.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></span><span>Holds the Ridge during Taren's Brevair extraction; negotiates the terms of his own succession rather than accepting it as handed down.</span></div></div>
 <p class="summary" style="margin-top:10px;"><a href="#durrel-tree-b">See the full House Durrel family tree (Timeline B) ↓</a></p>
 </div>
-<div class="char-card" id="jorah">
+<div class="char-card" data-campaigns="b12 b15" id="jorah">
 <div class="card-head"><h3>Jorah</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Jack's Partner</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Jack Durrel (partner)</span></div>
@@ -1440,7 +1678,7 @@ than passing automatically to Jack or Caelen.</p>
     when Jack agrees to become Taren's successor, he makes clear on the record that any
     future he accepts includes Jorah.</p>
 </div>
-<div class="char-card" id="caelen-durrel">
+<div class="char-card" data-campaigns="b13 b14 b15" id="caelen-durrel">
 <div class="card-head"><h3>Caelen Durrel <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Young Durrel Paladin · Oath of Vengeance</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Corvin Hale (husband)</span></div>
@@ -1470,7 +1708,7 @@ than passing automatically to Jack or Caelen.</p>
     at the shrine.</p>
 <p class="summary" style="margin-top:10px;"><a href="#durrel-tree-b">See the full House Durrel family tree (Timeline B) ↓</a></p>
 </div>
-<div class="char-card" id="rul-hask">
+<div class="char-card" data-campaigns="b13" id="rul-hask">
 <div class="card-head"><h3>Rul Hask</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a></div></div>
 <div class="aka">Caelen's Initial Lover · Thorn House Handler</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive, cleansed and exiled</span><span><span class="qf-label">Home</span>Unknown, no longer Thorn House</span><span><span class="qf-label">Key relationship</span>Caelen Durrel (former lover)</span></div>
@@ -1485,7 +1723,7 @@ than passing automatically to Jack or Caelen.</p>
     once the truth comes out, treated as a victim of the same system he once
     weaponised against someone else.</p>
 </div>
-<div class="char-card" id="corvin-hale">
+<div class="char-card" data-campaigns="b13 b14 b15" id="corvin-hale">
 <div class="card-head"><h3>Corvin Hale</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Silver Dawn Paladin</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Caelen Durrel (husband)</span></div>
@@ -1506,7 +1744,7 @@ than passing automatically to Jack or Caelen.</p>
 <p class="summary"><strong>B15.</strong> Remains at the Ridge during Caelen's deployment
     into Brevair, helping coordinate the party's retreat and Lantern contact from home.</p>
 </div>
-<div class="char-card" id="michael-mike-rookvale">
+<div class="char-card" data-campaigns="b14 b15" id="michael-mike-rookvale">
 <div class="card-head"><h3>Michael "Mike" Rookvale <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Human Rogue, Swashbuckler · Unsworn Light-Aligned Infiltrator</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Silver Bastion / Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Evan Marric (partner)</span></div>
@@ -1534,12 +1772,12 @@ than passing automatically to Jack or Caelen.</p>
     extraction — including stripping the poison from Delryn's hand before he can use it on
     himself.</p>
 <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
-      <tr class="tl-b"><td class="camp"><a href="campaign-b14.html">B14</a></td><td>Infiltrates and opens Silver Bastion from within; carries the last clean Saint-Ward; kills Lucien, Gavren, and Cameron; becomes a Durrel Ridge field scout.</td></tr>
-      <tr class="tl-b"><td class="camp"><a href="campaign-b15.html">B15</a></td><td>Infiltrator, skirmisher, and bridge operative during the Brevair extraction; strips the poison from Delryn's hand before he can use it.</td></tr>
-    </table>
+<tr><th>Campaign</th><th>Role</th></tr>
+<tr class="tl-b"><td class="camp"><a href="campaign-b14.html">B14</a></td><td>Infiltrates and opens Silver Bastion from within; carries the last clean Saint-Ward; kills Lucien, Gavren, and Cameron; becomes a Durrel Ridge field scout.</td></tr>
+<tr class="tl-b"><td class="camp"><a href="campaign-b15.html">B15</a></td><td>Infiltrator, skirmisher, and bridge operative during the Brevair extraction; strips the poison from Delryn's hand before he can use it.</td></tr>
+</table>
 </div>
-<div class="char-card" id="lucien-varric">
+<div class="char-card" data-campaigns="b14" id="lucien-varric">
 <div class="card-head"><h3>Lucien Varric</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a></div></div>
 <div class="aka">Velvet Gate Broker · Officer Chain Operator</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, killed by Mike Rookvale</span><span><span class="qf-label">Home</span>Silver Bastion (occupation era)</span><span><span class="qf-label">Key relationship</span>Mike Rookvale (primary antagonist)</span></div>
@@ -1551,7 +1789,7 @@ than passing automatically to Jack or Caelen.</p>
     and Evan together before Jack and Caelen break it, treating both men as its victims
     rather than its accomplices.</p>
 </div>
-<div class="char-card" id="silver-bastion-loyalists">
+<div class="char-card" data-campaigns="b14" id="silver-bastion-loyalists">
 <div class="card-head"><h3>The Silver Bastion Loyalists</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a></div></div>
 <div class="aka">Harlan · Mira Tallow · Cook Ansel</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive (as of B14)</span><span><span class="qf-label">Home</span>Silver Bastion</span><span><span class="qf-label">Key relationship</span>Mike Rookvale's infiltration</span></div>
@@ -1569,8 +1807,7 @@ than passing automatically to Jack or Caelen.</p>
     holding the chapel stairs during the Bastion's original fall, a detail that makes
     Mike's return to reclaim it personal rather than purely tactical.</p>
 </div>
-
-<div class="char-card" id="evan-marric">
+<div class="char-card" data-campaigns="b14 b15" id="evan-marric">
 <div class="card-head"><h3>Evan Marric</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Durrel Ridge Scout</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>Mike Rookvale (partner)</span></div>
@@ -1589,13 +1826,12 @@ than passing automatically to Jack or Caelen.</p>
 <p class="summary"><strong>B15.</strong> Remains at Durrel Ridge during Mike's deployment
     into Brevair, part of the household holding the line at home.</p>
 <table class="appear-table">
-      <tr><th>Campaign</th><th>Role</th></tr>
-      <tr class="tl-b"><td class="camp"><a href="campaign-b14.html">B14</a></td><td>Mike's infiltration partner and field superior; caught alongside him in Lucien's final working; becomes his partner at the Ridge.</td></tr>
-      <tr class="tl-b"><td class="camp"><a href="campaign-b15.html">B15</a></td><td>Remains at the Ridge during the Brevair extraction.</td></tr>
-    </table>
+<tr><th>Campaign</th><th>Role</th></tr>
+<tr class="tl-b"><td class="camp"><a href="campaign-b14.html">B14</a></td><td>Mike's infiltration partner and field superior; caught alongside him in Lucien's final working; becomes his partner at the Ridge.</td></tr>
+<tr class="tl-b"><td class="camp"><a href="campaign-b15.html">B15</a></td><td>Remains at the Ridge during the Brevair extraction.</td></tr>
+</table>
 </div>
-
-<div class="char-card" id="dena">
+<div class="char-card" data-campaigns="b12 b13 b14 b15" id="dena">
 <div class="card-head"><h3>Dena</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Household Anchor of Durrel Ridge</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Durrel Ridge</span><span><span class="qf-label">Key relationship</span>The whole Ridge household</span></div>
@@ -1624,8 +1860,7 @@ than passing automatically to Jack or Caelen.</p>
     decided was necessary.</p>
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a></span><span>Helps Jack reopen and repopulate his inherited house; becomes a key emotional anchor for the household forming around him.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a></span><span>Caelen's safest domestic figure and the Ridge's emotional truth-keeper; he goes to her kitchen first after his restoration.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a></span><span>Protects survivors during the Bastion reclamation; her kitchen becomes Mike Rookvale's favourite place, and she's the one who first invites him to sit and eat rather than just take food.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></span><span>Holds Taren's sealed will; orders the returning household into the kitchens before any formal welcome; challenges Taren on whether he acted from principle or necessity.</span></div></div>
 </div>
-
-<div class="char-card" id="nicholas-nick-soren">
+<div class="char-card" data-campaigns="b16" id="nicholas-nick-soren">
 <div class="card-head"><h3>Nicholas "Nick" Soren <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b16.html">B16</a></div></div>
 <div class="aka">Human Sorcerer · Custodian, Western Icewarden Branch</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Highever / Rimeholt</span><span><span class="qf-label">Key relationship</span>Jarek Flint</span></div>
@@ -1652,8 +1887,7 @@ than passing automatically to Jack or Caelen.</p>
     genuinely uncertain what his three killings mean about the kind of dangerous person
     he's choosing to become.</p>
 </div>
-
-<div class="char-card" id="jarek-flint">
+<div class="char-card" data-campaigns="b16" id="jarek-flint">
 <div class="card-head"><h3>Jarek Flint</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b16.html">B16</a></div></div>
 <div class="aka">Highever Carpenter · Western Way-hand</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Highever</span><span><span class="qf-label">Key relationship</span>Nick Soren</span></div>
@@ -1679,8 +1913,7 @@ than passing automatically to Jack or Caelen.</p>
     decide for himself. Neither the love nor the manipulation cancels the other out, and
     B16 ends with the contradiction fully intact and entirely unexposed to Nick.</p>
 </div>
-
-<div class="char-card" id="professor-halden">
+<div class="char-card" data-campaigns="b16" id="professor-halden">
 <div class="card-head"><h3>Professor Halden</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b16.html">B16</a></div></div>
 <div class="aka">Senior Collegium Archaeologist · Nick's Mentor</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Highever Collegium</span><span><span class="qf-label">Key relationship</span>Nick Soren (mentor)</span></div>
@@ -1703,8 +1936,7 @@ than passing automatically to Jack or Caelen.</p>
     unquestioned fact. His relationship with Nick grows increasingly personal without
     becoming a parental replacement.</p>
 </div>
-
-<div class="char-card" id="maraine-soren">
+<div class="char-card" data-campaigns="b16" id="maraine-soren">
 <div class="card-head"><h3>Maraine Soren</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b16.html">B16</a></div></div>
 <div class="aka">Nick's Mother · Western Icewarden Bloodline, Never Presented</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Rimeholt (formerly Belisar, Nareth Isle)</span><span><span class="qf-label">Key relationship</span>Nick Soren (son)</span></div>
@@ -1726,8 +1958,7 @@ than passing automatically to Jack or Caelen.</p>
     him once he answers plainly that he wants an ordinary shared life with Nick — work,
     home, arguments, whatever remains once the mysteries stop being immediate.</p>
 </div>
-
-<div class="char-card" id="elara-soren">
+<div class="char-card" data-campaigns="b16" id="elara-soren">
 <div class="card-head"><h3>Elara Soren</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b16.html">B16</a></div></div>
 <div class="aka">Nick's Grandmother · Previous Western Custodian</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, before B16 begins</span><span><span class="qf-label">Home</span>Rimeholt</span><span><span class="qf-label">Key relationship</span>Nick Soren (grandson, successor)</span></div>
@@ -1750,8 +1981,7 @@ than passing automatically to Jack or Caelen.</p>
     choice preserved" — proving that preservation, for the Western Icewardens, sometimes
     means protecting people from an office rather than delivering them into it.</p>
 </div>
-
-<div class="char-card" id="vale-b16">
+<div class="char-card" data-campaigns="b16" id="vale-b16">
 <div class="card-head"><h3>Vale</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b16.html">B16</a></div></div>
 <div class="aka">Outsider · Leader of the Rimeholt Cell</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Dead, killed by Nick in B16</span><span><span class="qf-label">Home</span>Unknown</span><span><span class="qf-label">Key relationship</span>Antagonist to Nick Soren</span></div>
@@ -1775,8 +2005,7 @@ than passing automatically to Jack or Caelen.</p>
     Nick or Jarek — it withdraws downward through the quarry floor, confirming Vale was
     a user of the phenomenon, never its entirety.</p>
 </div>
-
-<div class="char-card" id="edric-harl">
+<div class="char-card" data-campaigns="b16" id="edric-harl">
 <div class="card-head"><h3>Edric Harl</h3><div class="card-stamps"><a class="stamp-badge tl-b" href="campaign-b16.html">B16</a></div></div>
 <div class="aka">Retired Rimeholt Surveyor</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Alive</span><span><span class="qf-label">Home</span>Rimeholt</span><span><span class="qf-label">Key relationship</span>Elara Soren (historical)</span></div>
@@ -1794,42 +2023,88 @@ than passing automatically to Jack or Caelen.</p>
     own generation, and had deliberately prevented its careless rediscovery for just as
     long.</p>
 </div>
-
 <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px; margin-top:44px;">Everyone else, by campaign</h2>
 <p style="color:var(--vellum-dim); font-size:.9rem; margin-top:-4px;">Six Travellers members (Arden Vale, Rian Thale, Zeth Caden, Talren Vale, Solan, Marrek) aren't repeated here — see their card above.</p>
 <div class="char-group timeline-a">
 <h2>Timeline A</h2>
-<div class="char-row"><span class="name">Merien Thalos</span><span class="role">Collegium archaeologist who aids the sealing of the Vault of Tarenus after Edrin's Severance. Later co-founds the New Heartwardens, carrying Edrin's caution about power directly into the order's new charter.</span><span class="link"><a href="campaign-iii.html">III</a></span></div>
-<div class="char-row"><span class="name">Alaric &amp; Lorian</span><span class="role">Paladin of Light and Scholar of Silence, married. Their household is where the Gate Codex's human cost actually shows — a marriage tested by living inside laws Sirian wrote to be fair but which get weaponised regardless.</span><span class="link"><a href="campaign-viii.html">VIII</a></span></div>
-<div class="char-row"><span class="name">Lior &amp; Iria</span><span class="role">Serik's closest civic allies through the Severing — co-rebels and moral equals rather than followers, serving as both his personal leverage and his reason for restraint whenever restraint is the harder choice.</span><span class="link"><a href="campaign-x.html">X</a></span></div>
-<div class="char-row"><span class="name">Verrin Mael</span><span class="role">Hidden Ledger archivist and smuggler; reveals how to destroy the null-relic using the Lyricum's resonance engine</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
-<div class="char-row"><span class="name">Keth Damaris</span><span class="role">Provost of Evermere's Lyricum; flees with a null-relic fragment, later allied once his intent is understood</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
-<div class="char-row"><span class="name">Maela Vael &amp; Renna Varr</span><span class="role">Editor-scholar and smuggler-captain who aid the Vance Archive infiltration and Breath-Bridge ritual</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
-<div class="char-row"><span class="name">Jalen / Joren</span><span class="role">Tavern-keeper, personal tie to Kael; keeps his human world alive beyond councils and oaths</span><span class="link"><a href="campaign-xii.html">XII</a></span></div>
-<div class="char-row"><span class="name">Speaker Lira Durrel</span><span class="role">Council chair and obedience absolutist who orders Rian and Calen's Resonance Interrogation, believing total civic control is genuinely achievable. Proof the Durrel name recurs as antagonist as easily as protagonist.</span><span class="link"><a href="campaign-xiii.html">XIII</a></span></div>
-<div class="char-row"><span class="name">Advocate Rell</span><span class="role">A legalist who blocks the 3-B affidavit at the Hall of Records, forcing Dareth's team to route around printer-sovereign bureaucracy rather than through it — an early proof that Concord's paperwork protections cut both ways.</span><span class="link"><a href="campaign-xv.html">XV</a></span></div>
-<div class="char-row"><span class="name">Eryx</span><span class="role">Sanctuary Keeper at the Red Lattice; holds the "unwinding words" that can recall hazed vows</span><span class="link"><a href="campaign-xvi.html">XVI</a></span></div>
-<div class="char-row"><span class="name">Preceptor Senn</span><span class="role">Dissident Preceptor carrying a Luminara text; creates the dissonance that enables Severance</span><span class="link"><a href="campaign-xix.html">XIX</a></span></div>
-<div class="char-row"><span class="name">Kett Ironrun</span><span class="role">Dwarf merchant-archivist and keeper of odd relics salvaged from collapsed Dominion sites — skeptical but curious, and the first to recognise Dominion administrative sigils inside the Shard Chamber for what they are.</span><span class="link"><a href="campaign-xxii.html">XXII</a></span></div>
+<div class="char-row" data-campaigns="iii"><span class="name">Merien Thalos</span><span class="role">Collegium archaeologist who aids the sealing of the Vault of Tarenus after Edrin's Severance. Later co-founds the New Heartwardens, carrying Edrin's caution about power directly into the order's new charter.</span><span class="link"><a href="campaign-iii.html">III</a></span></div>
+<div class="char-row" data-campaigns="viii"><span class="name">Alaric &amp; Lorian</span><span class="role">Paladin of Light and Scholar of Silence, married. Their household is where the Gate Codex's human cost actually shows — a marriage tested by living inside laws Sirian wrote to be fair but which get weaponised regardless.</span><span class="link"><a href="campaign-viii.html">VIII</a></span></div>
+<div class="char-row" data-campaigns="x"><span class="name">Lior &amp; Iria</span><span class="role">Serik's closest civic allies through the Severing — co-rebels and moral equals rather than followers, serving as both his personal leverage and his reason for restraint whenever restraint is the harder choice.</span><span class="link"><a href="campaign-x.html">X</a></span></div>
+<div class="char-row" data-campaigns="xi"><span class="name">Verrin Mael</span><span class="role">Hidden Ledger archivist and smuggler; reveals how to destroy the null-relic using the Lyricum's resonance engine</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
+<div class="char-row" data-campaigns="xi"><span class="name">Keth Damaris</span><span class="role">Provost of Evermere's Lyricum; flees with a null-relic fragment, later allied once his intent is understood</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
+<div class="char-row" data-campaigns="xi"><span class="name">Maela Vael &amp; Renna Varr</span><span class="role">Editor-scholar and smuggler-captain who aid the Vance Archive infiltration and Breath-Bridge ritual</span><span class="link"><a href="campaign-xi.html">XI</a></span></div>
+<div class="char-row" data-campaigns="xii"><span class="name">Jalen / Joren</span><span class="role">Tavern-keeper, personal tie to Kael; keeps his human world alive beyond councils and oaths</span><span class="link"><a href="campaign-xii.html">XII</a></span></div>
+<div class="char-row" data-campaigns="xiii"><span class="name">Speaker Lira Durrel</span><span class="role">Council chair and obedience absolutist who orders Rian and Calen's Resonance Interrogation, believing total civic control is genuinely achievable. Proof the Durrel name recurs as antagonist as easily as protagonist.</span><span class="link"><a href="campaign-xiii.html">XIII</a></span></div>
+<div class="char-row" data-campaigns="xv"><span class="name">Advocate Rell</span><span class="role">A legalist who blocks the 3-B affidavit at the Hall of Records, forcing Dareth's team to route around printer-sovereign bureaucracy rather than through it — an early proof that Concord's paperwork protections cut both ways.</span><span class="link"><a href="campaign-xv.html">XV</a></span></div>
+<div class="char-row" data-campaigns="xvi"><span class="name">Eryx</span><span class="role">Sanctuary Keeper at the Red Lattice; holds the "unwinding words" that can recall hazed vows</span><span class="link"><a href="campaign-xvi.html">XVI</a></span></div>
+<div class="char-row" data-campaigns="xix"><span class="name">Preceptor Senn</span><span class="role">Dissident Preceptor carrying a Luminara text; creates the dissonance that enables Severance</span><span class="link"><a href="campaign-xix.html">XIX</a></span></div>
+<div class="char-row" data-campaigns="xxii"><span class="name">Kett Ironrun</span><span class="role">Dwarf merchant-archivist and keeper of odd relics salvaged from collapsed Dominion sites — skeptical but curious, and the first to recognise Dominion administrative sigils inside the Shard Chamber for what they are.</span><span class="link"><a href="campaign-xxii.html">XXII</a></span></div>
 </div>
 <div class="char-group timeline-b">
 <h2>Timeline B</h2>
-<div class="char-row"><span class="name">Eryndrel</span><span class="role">Steward construct of Hollowrest's proto-Anchor, first treating the party as intruders before yielding control once Lio and Kellan's dyad-alignment proves stabilising rather than coercive. Confirmed as Hollowrest's Fixed Custodian afterward.</span><span class="link"><a href="campaign-b2.html">B2</a></span></div>
-<div class="char-row"><span class="name">Lucan</span><span class="role">Shah-aligned former lover of Dain who carries out repeated conditioning rites; exposed and removed once his ties to the Shah's ritual network come to light. Resurfaces to target Mark in Campaign B7 before being fully removed from Evermere.</span><span class="link"><a href="campaign-b6.html">B6</a></span></div>
-<div class="char-row"><span class="name">Maera Holt</span><span class="role">Tests Mark personally when he first arrives at The Lantern under his alias, seeing through his noble polish and admitting him anyway. Becomes the tavern's permanent manager and its real operational gatekeeper. Roughly 77 years on, the Lantern's leadership still honours the mutual-aid pact she helped establish — her name persists as an institutional term ("Maera's office") for the network's operations arm, though nothing establishes she personally remains alive to run it in B15.</span><span class="link"><a href="campaign-b6.html">B6</a></span></div>
-<div class="char-row"><span class="name">Elowen Marr</span><span class="role">Mid-tier Relief Registry steward who agrees to testify against the Corvett audit network in exchange for a guaranteed Stability agreement — the flip that turns Evermere's own civic backbone into an ally instead of a battleground.</span><span class="link"><a href="campaign-b8.html">B8</a></span></div>
-<div class="char-row"><span class="name">Darius Corvett</span><span class="role">Patriarch and steering hand behind Evermere's covert stewardship-audit network, the campaign's primary antagonist — removed through documented proof and civic inevitability rather than open war.</span><span class="link"><a href="campaign-b8.html">B8</a></span></div>
-<div class="char-row"><span class="name">Seran Mordane</span><span class="role">Veil captain and Delryn's early handler, who recognises both his political usefulness and his susceptibility to control. Briefly seizes command of House Valecour before Rhalen poisons him, revealing the deeper design had moved past him long before.</span><span class="link"><a href="campaign-b10.html">B10</a></span></div>
-<div class="char-row"><span class="name">Alwen Stroud</span><span class="role">One of Bastion's last true Light stabilisers, and the officer tied to Gavren's own earlier path into the fortress. Killed by Gavren at Cameron's direction — the single act that makes the corruption between them irreversible.</span><span class="link"><a href="campaign-b11.html">B11</a></span></div>
-<div class="char-row"><span class="name">Marek</span><span class="role">Jack Durrel's loyal core household circle member, alongside Dena — part of the practical architecture that turns the reopened Ridge house into a functioning household rather than a symbolic inheritance-space.</span><span class="link"><a href="campaign-b12.html">B12</a></span></div>
-<div class="char-row"><span class="name">Sareth</span><span class="role">Thorn House's manipulator-handler, who transforms both Rul and Edran Valehart using the same conditioning methods, proving the House's own doctrine that no one who conditions another is safe from being conditioned themselves. Killed during the strike attempting to reach Edran one last time.</span><span class="link"><a href="campaign-b13.html">B13</a></span></div>
-<div class="char-row"><span class="name">Oren Voss</span><span class="role">Nick's sociable, perceptive Collegium friend — one of the first to realise Nick is hiding things during the early investigation. His genuine hurt at being made to feel merely nosy for noticing obvious lies becomes a real strain the friendship survives once Nick admits the truth; the repair matters as much as the wound.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
-<div class="char-row"><span class="name">Esmond Krail &amp; Tamsin Brack</span><span class="role">Nick's other Collegium friends — Esmond methodical and inscription-focused, becoming a key independent recorder during the Rimeholt descent; Tamsin practically capable and more concerned with everyone's survival than mystical speculation. Both become the independent witnesses Elara's own philosophy demanded.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
-<div class="char-row"><span class="name">Deren Flint</span><span class="role">Jarek's uncle and a former legitimate Way-hand, severed from a foreign attachment by Elara decades earlier with his own cooperation.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
-<div class="char-row"><span class="name">Bren Talwick</span><span class="role">Rimeholt handyman recruited into Vale's network; plants a black-gold marker in the Soren house and steals family papers. Freed by Nick on the condition he abandon Vale and leave for good.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
+<div class="char-row" data-campaigns="b2"><span class="name">Eryndrel</span><span class="role">Steward construct of Hollowrest's proto-Anchor, first treating the party as intruders before yielding control once Lio and Kellan's dyad-alignment proves stabilising rather than coercive. Confirmed as Hollowrest's Fixed Custodian afterward.</span><span class="link"><a href="campaign-b2.html">B2</a></span></div>
+<div class="char-row" data-campaigns="b6"><span class="name">Lucan</span><span class="role">Shah-aligned former lover of Dain who carries out repeated conditioning rites; exposed and removed once his ties to the Shah's ritual network come to light. Resurfaces to target Mark in Campaign B7 before being fully removed from Evermere.</span><span class="link"><a href="campaign-b6.html">B6</a></span></div>
+<div class="char-row" data-campaigns="b6"><span class="name">Maera Holt</span><span class="role">Tests Mark personally when he first arrives at The Lantern under his alias, seeing through his noble polish and admitting him anyway. Becomes the tavern's permanent manager and its real operational gatekeeper. Roughly 77 years on, the Lantern's leadership still honours the mutual-aid pact she helped establish — her name persists as an institutional term ("Maera's office") for the network's operations arm, though nothing establishes she personally remains alive to run it in B15.</span><span class="link"><a href="campaign-b6.html">B6</a></span></div>
+<div class="char-row" data-campaigns="b8"><span class="name">Elowen Marr</span><span class="role">Mid-tier Relief Registry steward who agrees to testify against the Corvett audit network in exchange for a guaranteed Stability agreement — the flip that turns Evermere's own civic backbone into an ally instead of a battleground.</span><span class="link"><a href="campaign-b8.html">B8</a></span></div>
+<div class="char-row" data-campaigns="b8"><span class="name">Darius Corvett</span><span class="role">Patriarch and steering hand behind Evermere's covert stewardship-audit network, the campaign's primary antagonist — removed through documented proof and civic inevitability rather than open war.</span><span class="link"><a href="campaign-b8.html">B8</a></span></div>
+<div class="char-row" data-campaigns="b10"><span class="name">Seran Mordane</span><span class="role">Veil captain and Delryn's early handler, who recognises both his political usefulness and his susceptibility to control. Briefly seizes command of House Valecour before Rhalen poisons him, revealing the deeper design had moved past him long before.</span><span class="link"><a href="campaign-b10.html">B10</a></span></div>
+<div class="char-row" data-campaigns="b11"><span class="name">Alwen Stroud</span><span class="role">One of Bastion's last true Light stabilisers, and the officer tied to Gavren's own earlier path into the fortress. Killed by Gavren at Cameron's direction — the single act that makes the corruption between them irreversible.</span><span class="link"><a href="campaign-b11.html">B11</a></span></div>
+<div class="char-row" data-campaigns="b12"><span class="name">Marek</span><span class="role">Jack Durrel's loyal core household circle member, alongside Dena — part of the practical architecture that turns the reopened Ridge house into a functioning household rather than a symbolic inheritance-space.</span><span class="link"><a href="campaign-b12.html">B12</a></span></div>
+<div class="char-row" data-campaigns="b13"><span class="name">Sareth</span><span class="role">Thorn House's manipulator-handler, who transforms both Rul and Edran Valehart using the same conditioning methods, proving the House's own doctrine that no one who conditions another is safe from being conditioned themselves. Killed during the strike attempting to reach Edran one last time.</span><span class="link"><a href="campaign-b13.html">B13</a></span></div>
+<div class="char-row" data-campaigns="b16"><span class="name">Oren Voss</span><span class="role">Nick's sociable, perceptive Collegium friend — one of the first to realise Nick is hiding things during the early investigation. His genuine hurt at being made to feel merely nosy for noticing obvious lies becomes a real strain the friendship survives once Nick admits the truth; the repair matters as much as the wound.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
+<div class="char-row" data-campaigns="b16"><span class="name">Esmond Krail &amp; Tamsin Brack</span><span class="role">Nick's other Collegium friends — Esmond methodical and inscription-focused, becoming a key independent recorder during the Rimeholt descent; Tamsin practically capable and more concerned with everyone's survival than mystical speculation. Both become the independent witnesses Elara's own philosophy demanded.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
+<div class="char-row" data-campaigns="b16"><span class="name">Deren Flint</span><span class="role">Jarek's uncle and a former legitimate Way-hand, severed from a foreign attachment by Elara decades earlier with his own cooperation.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
+<div class="char-row" data-campaigns="b16"><span class="name">Bren Talwick</span><span class="role">Rimeholt handyman recruited into Vale's network; plants a black-gold marker in the Soren house and steals family papers. Freed by Nick on the condition he abandon Vale and leave for good.</span><span class="link"><a href="campaign-b16.html">B16</a></span></div>
 </div>
 </div>
 <footer>Amora — a solo campaign chronicle · Characters index</footer>
+<script>
+  (function() {
+    var filterTiles = document.querySelectorAll('.char-filter-tile');
+    var filterStatus = document.getElementById('filter-status');
+    var filterStatusText = document.getElementById('filter-status-text');
+    var clearBtn = document.getElementById('clear-filter-btn');
+    var filterable = document.querySelectorAll('[data-campaigns]');
+
+    function applyFilter(campaignId, label) {
+      filterable.forEach(function(el) {
+        var campaigns = (el.getAttribute('data-campaigns') || '').split(' ');
+        if (campaigns.indexOf(campaignId) === -1) {
+          el.classList.add('char-hidden-by-filter');
+        } else {
+          el.classList.remove('char-hidden-by-filter');
+        }
+      });
+      filterTiles.forEach(function(t) {
+        t.classList.toggle('tile-active', t.getAttribute('data-campaign') === campaignId);
+      });
+      filterStatusText.textContent = 'Showing characters from ' + label + ' only';
+      filterStatus.style.display = 'flex';
+      var list = document.querySelector('.jump-index');
+      if (list) list.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+
+    function clearFilter() {
+      filterable.forEach(function(el) { el.classList.remove('char-hidden-by-filter'); });
+      filterTiles.forEach(function(t) { t.classList.remove('tile-active'); });
+      filterStatus.style.display = 'none';
+    }
+
+    filterTiles.forEach(function(tile) {
+      tile.addEventListener('click', function() {
+        var cid = tile.getAttribute('data-campaign');
+        var label = tile.querySelector('h3').textContent + ' (' + tile.querySelector('.num').textContent + ')';
+        if (tile.classList.contains('tile-active')) {
+          clearFilter();
+        } else {
+          applyFilter(cid, label);
+        }
+      });
+    });
+
+    if (clearBtn) clearBtn.addEventListener('click', clearFilter);
+  })();
+</script>
 <script>
   function openTreeIfLinked() {
     if (window.location.hash === '#durrel-tree-b') {
@@ -1844,7 +2119,7 @@ than passing automatically to Jack or Caelen.</p>
   window.addEventListener('hashchange', openTreeIfLinked);
   document.addEventListener('DOMContentLoaded', openTreeIfLinked);
 </script>
-<button id="back-to-top" aria-label="Back to top" title="Back to top">&#8593;</button>
+<button aria-label="Back to top" id="back-to-top" title="Back to top">↑</button>
 <script>
   (function() {
     var btn = document.getElementById('back-to-top');
