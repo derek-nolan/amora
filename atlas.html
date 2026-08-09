@@ -96,6 +96,12 @@
   .current-state.tl-a .label { color: var(--bronze); }
   .current-state.tl-b .label { color: var(--steel); }
   .current-state p { margin: 4px 0 0; font-size: .92rem; }
+  .subloc-details summary { cursor: pointer; list-style: none; margin-top: 14px; }
+  .subloc-details summary::-webkit-details-marker { display: none; }
+  .subloc-details summary h3 { display: inline; }
+  .subloc-details summary::before { content: "▸ "; color: var(--steel); font-family: 'JetBrains Mono', monospace; }
+  .subloc-details[open] summary::before { content: "▾ "; }
+  .subloc-details .sublocs { margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -208,8 +214,9 @@
       <tr class="tl-b"><td class="camp">B14</td><td>Late c. 162 ARV</td><td>Silver Bastion returns to Light control. Highever regains its symbolic fortress, though the realm must still rebuild its military, sacred, and civic institutions after years of internal occupation. Brevair remains the principal surviving territorial concentration of Veil authority.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (11)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">Silver Bastion</span><br><span class="locnote">Highever's central fortress — see its own entry below for full history.</span></li>
       <li><span class="locname">Auran Gate</span><br><span class="locnote">Conquered and converted into a Veil-paladin foundry (Campaign <a href="campaign-ii.html" class="tl-a">II</a>).</span></li>
       <li><span class="locname">Crown District ("the Crown")</span><br><span class="locnote">Terraces and bridges over the canals; site of the Highever Crown/Chorus-Key optics (Campaign <a href="campaign-xv.html" class="tl-a">XV</a>).</span></li>
@@ -222,6 +229,7 @@
       <li><span class="locname">Port Annex (Harbor Satellites)</span><br><span class="locnote">Dockline 3 piers, the Old Jetty, bell towers, and lamppost-reader lanes, brought under corridor cadence so festivals can run city-to-city-to-port. The Old Jetty specifically serves as a signature-bait site where the Chain's black-silver signature is left visible to draw tracer handlers into Court-First folds (Campaign <a href="campaign-xvi.html" class="tl-a">XVI</a>).</span></li>
       <li><span class="locname">The Collegium &amp; the Western Icewarden Route Network</span><br><span class="locnote">Highever's magical Collegium, where Nick Soren studies and first encounters the reacting Warden statue — one known node within a forgotten Western Icewarden route network extending far beyond it, not the network's own origin point. Concealed routes lead west-northwest from here through <a href="#rimeholt">Rimeholt's</a> Return VI waystation, deliberately trending away from the public road toward Gloamford (Campaign <a href="campaign-b16.html" class="tl-b">B16</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- SILVER BASTION -->
@@ -270,8 +278,9 @@
       <tr class="tl-b"><td class="camp">B16</td><td>c. 342 ARV</td><td>Nicholas Soren presents himself formally as Custodian of the Western Icewarden branch, explicitly claiming no authority over the Frost Seal or Heartwarden standing — a distinction the Bastion accepts. His visit confirms directly that the Heart Seal was never transferred to Durrel Ridge, even after the Bastion's own B11 fall; the surviving Frostborn material here gives him only a faint response, reinforcing that identity alone is not authority.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (12)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">Sanctuary of Balance</span><br><span class="locnote">Academy annex where the Purity network's Heart Crown is rekindled and severed (Campaign <a href="campaign-xix.html" class="tl-a">XIX</a>).</span></li>
       <li><span class="locname">Main Chapel</span><br><span class="locnote">Former Light ritual chamber, stripped and reconsecrated rather than destroyed when Cameron takes the fortress — Light altars overwritten with black-cloth, iron-lattice, basin-based Shah observance. Site of the first public Shah rite of the new regime and Gavren's public fixing beneath Cameron (Campaign <a href="campaign-b11.html" class="tl-b">B11</a>).</span></li>
       <li><span class="locname">Bastion Ward Chamber (Fortress Ward-Anchor)</span><br><span class="locnote">Not the original Heart Ward of Durrel Ridge, but Bastion's closest functional equivalent — a fortress-soul mechanism. Corrupted through a living conduit (Gavren) rather than destroyed during Campaign <a href="campaign-b11.html" class="tl-b">B11</a>; restored by Jack Durrel during Campaign <a href="campaign-b14.html" class="tl-b">B14</a> once Cameron and Gavren are killed and the false ruler/ward-knight/ward-anchor structure is broken. Its restored Light release ends the Veiled Citadel as an active magical identity for good.</span></li>
@@ -285,6 +294,7 @@
       <li><span class="locname">Elder Circle Hall (Council Chamber)</span><br><span class="locnote">Site of Caen and Lio's joint report on the first documented inversion purge; formally logged in the Atlas as the "Recorded Site of Triad Echo Purge Debrief" (Campaign <a href="campaign-b4.html" class="tl-b">B4</a>).</span></li>
       <li><span class="locname">South Practice Hall (Training Quarters)</span><br><span class="locnote">Referenced but not physically altered; its training implements were briefly misidentified as resonance conduits during echo analysis (Campaign <a href="campaign-b4.html" class="tl-b">B4</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- EVERMERE -->
@@ -326,8 +336,9 @@
       <tr class="tl-b"><td class="camp">B8</td><td>86 ARV</td><td>Corvett Estate and civic registry/licensing institutions become the setting for an entirely paper-based conflict.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (16)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">The Red Lattice Quarter</span><br><span class="locnote">Evermere's most infamous sanctuary district — information, refuge, and confession (<a href="campaign-xvii.html" class="tl-a">XVII</a>, echoed in <a href="campaign-xvi.html" class="tl-a">XVI</a>'s "Red Lattice D-3").</span></li>
       <li><span class="locname">The Clerk's Hall</span><br><span class="locnote">Once an administrative monolith of Concord glass, refitted as a stone-and-timber citadel of record — candles burn where holo-projectors once glowed (Campaign <a href="campaign-xvii.html" class="tl-a">XVII</a>).</span></li>
       <li><span class="locname">The Cage</span><br><span class="locnote">Reclaimed from an old transport dock, now a marketplace and tribunal arena; its rusted elevators are sealed, and no one remembers how to make them rise (Campaign <a href="campaign-xvii.html" class="tl-a">XVII</a>).</span></li>
@@ -345,6 +356,7 @@
       <li><span class="locname">Sable Gate Cisterns</span><br><span class="locnote">Ritual floor of the Null council (Campaign <a href="campaign-xxi.html" class="tl-a">XXI</a>).</span></li>
       <li><span class="locname">Corvett Estate</span><br><span class="locnote">Seat of House Corvett's covert civic-pressure network (Campaign <a href="campaign-b8.html" class="tl-b">B8</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- RIMEHOLT -->
@@ -366,14 +378,16 @@
       <tr class="tl-b"><td class="camp">B16</td><td>c. 342 ARV</td><td>Revealed as a former Western Icewarden refuge — its original Icewarden households, spouses, and craftspeople expanded over generations into an ordinary town that entirely forgot its own founding purpose, surviving precisely by ceasing to look like a Warden settlement. Nick Soren returns home to find it at the centre of a hostile excavation.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (5)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">The Soren House</span><br><span class="locnote">An outwardly ordinary family property inside the town, not an isolated manor. Elara's former room conceals old Western junction geometry and hidden survey points; a heavily secured garden shed hides a concealed Western-controlled access stair carrying Elara's own warnings — "deep access requires witnessed opening," "if pursued, do not descend." Occupied by Maraine Soren in 342 ARV (Campaign <a href="campaign-b16.html" class="tl-b">B16</a>).</span></li>
       <li><span class="locname">The Buried Rimeholt Complex</span><br><span class="locnote">A much older structure predating the Western Icewardens' own arrival, which they subsequently monitored, reinforced, restricted, used, or simply watched in parts. Contains an ancient magical transit chamber — not a Great Seal, not part of the Frost Seal, and not evidence of a ninth Seal. Material inside dates to the War of Ash and Glass period, tying the site physically to the Badlands' own origin. Its local transit function was deliberately destroyed while preserving the chamber for study (Campaign <a href="campaign-b16.html" class="tl-b">B16</a>).</span></li>
       <li><span class="locname">North Quarry</span><br><span class="locnote">An old quarry northwest of the town proper, used by the hostile operative Vale as his principal excavation base, following the same deep alignment first identified decades earlier by surveyor Edric Harl. A collapsed passage connects it to the buried transit chamber; Vale had excavated dangerously close to reaching it before his defeat (Campaign <a href="campaign-b16.html" class="tl-b">B16</a>).</span></li>
       <li><span class="locname">The Old Mill</span><br><span class="locnote">A disused mill near the town's agricultural edge, used by Vale as a surveillance and communications relay rather than another entrance to the ancient complex. Edric Harl was held here after his kidnapping; its active black-gold relay network was dismantled (Campaign <a href="campaign-b16.html" class="tl-b">B16</a>).</span></li>
       <li><span class="locname">Return VI</span><br><span class="locnote">A waystation within the forgotten Western Icewarden route network connecting Highever to Rimeholt — a secondary, secret route trending west-northwest rather than following the public road toward Gloamford. Site of the discovery that Jarek Flint's uncle Deren was once a legitimate Way-hand (Campaign <a href="campaign-b16.html" class="tl-b">B16</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- GREYMOUNT / TARENUS -->
@@ -412,14 +426,16 @@
       <tr class="tl-b"><td class="camp">B6</td><td>84–85 ARV</td><td>A Luminara resistance cell investigates ritual consecration practices here; the buried vault systems stay dormant and undisturbed throughout — no ley-field distortion, no conduit reactivation. Shah influence remains present but doesn't escalate; the city returns to relative equilibrium once the cell departs.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (5)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">The Vault of Tarenus</span><br><span class="locnote">Not sealed here by Edrin — that event happened at Durrel Ridge (Campaign <a href="campaign-iii.html" class="tl-a">III</a>); see that region's entry. A vault of the same name later stirs, reopens, and is stabilised as the Dual-Key Heart-shard chamber here at Tarenus Reclaimed (Campaign <a href="campaign-xx.html" class="tl-a">XX</a>), catalogued with new sub-levels including the Ravel Protocol. Whether this is genuinely the same structure relocated, a distinct vault sharing the name, or a documentation drift across nine millennia of source material is an open question — see the <a href="canon-ledger.html">Canon Ledger</a>.</span></li>
       <li><span class="locname">Hall of Memory / Anchor Vault</span><br><span class="locnote">Where the Chain's origin is uncovered and severed; part of the Upper City alongside the Council Spires and Collegium Archives. The Anchor Vault itself sits sealed in the substructure beneath the Hall (Campaign <a href="campaign-xiii.html" class="tl-a">XIII</a>).</span></li>
       <li><span class="locname">Forge District (Lower City)</span><br><span class="locnote">The former industrial quarter, converted to civilian housing after the Severance (Campaign <a href="campaign-xiii.html" class="tl-a">XIII</a>).</span></li>
       <li><span class="locname">Western Surge</span><br><span class="locnote">A storm-basin plateau roughly 110 leagues north via the Spine Highway; site of the Chain's physical resurgence as a ley-storm (Campaign <a href="campaign-xiii.html" class="tl-a">XIII</a>).</span></li>
       <li><span class="locname">Anchor Vale (Silent Pass)</span><br><span class="locnote">Northern valleys where Rian Leth and Calen Vorr settle after the campaign — the "Quiet Years" region, forge by a river (<a href="campaign-xiii.html" class="tl-a">XIII</a> epilogue).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- BREVAIR -->
@@ -457,13 +473,15 @@
       <tr class="tl-b"><td class="camp">B15</td><td>Late c. 162 ARV</td><td>Rhalen's Keystone — the concealed magical architecture routing military commands, civic appointments, grain distribution, judicial decisions, and administrative authority through Delryn's body — is permanently destroyed. Rhalen is killed by Taren Durrel inside his own inner palace. Brevair is not annexed or occupied; older magistrates, officers, and local powers begin reasserting ordinary authority, with no guarantee the result stays peaceful or unified.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (4)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">House Valecour</span><br><span class="locnote">Noble house at the centre of <a href="campaign-b10.html" class="tl-b">B10</a>'s political engineering; becomes a political instrument disguised as a restored noble house. Key rooms: the West Salon/West Wing (private governance and disclosure site, treated as part of the house's inner ruling architecture, not ordinary quarters); the Old Music Room's hidden piano cache (where records proving Rhalen and Seran's long collaboration are found); and the former Chapter Council Chamber, where Rhalen poisons the surviving inner circle — the regime-turning room that ends chapter pluralism for good.</span></li>
       <li><span class="locname">Rhalen's Inner Palace</span><br><span class="locnote">The ruined Keystone chamber from which Rhalen governed Brevair through hidden magical command; the site of his death at Taren's hand. Survives physically but loses all central Veil authority and ward coordination once the Keystone is destroyed (Campaign <a href="campaign-b15.html" class="tl-b">B15</a>).</span></li>
       <li><span class="locname">Thorn House (destroyed)</span><br><span class="locnote">A Brevair-adjacent Veil estate built around identity remaking and conditioning; destroyed in the strike that ends <a href="campaign-b13.html" class="tl-b">B13</a> and is no longer operational. See that campaign's page for the site's terminology approach.</span></li>
       <li><span class="locname">The Ruined Border Shrine</span><br><span class="locnote">A ruined shrine in the high forest between Durrel Ridge and Brevair, near midnight-dark and unguarded except by Rhalen's own forces. Site of Delryn Valecour's extraction, the Retriever's death, and Taren's first Radiant Reversal against the Keystone (Campaign <a href="campaign-b15.html" class="tl-b">B15</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- DURREL RIDGE -->
@@ -513,8 +531,9 @@
       <tr class="tl-b"><td class="camp">B15</td><td>Late c. 162 ARV</td><td>Breached from within via a stolen Heart Ward fragment; the ward is repaired openly and later repurposed as a one-way passage into Rhalen's palace. Taren formally names Jack Durrel his successor, turning a sealed death instruction into an open household agreement — Durrel Ridge is confirmed as the continuity-house of the northern Light resistance.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (12)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">Tarenus's Vault (Ridge)</span><br><span class="locnote">A separate truth-mechanism beneath the Ridge itself, responding to bloodline, words, and witness — distinct from the later Tarenus Reclaimed/Greymount vault of Campaigns XIX–XX, though notably closer in spirit to Timeline A's own original Ridge vault, sealed here by Edrin Durrel in Campaign III (Campaigns <a href="campaign-b9.html" class="tl-b">B9</a>, <a href="campaign-b12.html" class="tl-b">B12</a>, <a href="campaign-b13.html" class="tl-b">B13</a>).</span></li>
       <li><span class="locname">Family Crypt &amp; Heart Vault</span><br><span class="locnote">Beneath the Ridge; houses a statue hall of early Heartwarden figures and Tarenus Durrel's own entombment site. Restricted access, used for stewardship rites and controlled legacy custody (Campaign <a href="campaign-b7.html" class="tl-b">B7</a>).</span></li>
       <li><span class="locname">Element Hall</span><br><span class="locnote">Seal-linked stewardship plaques and a training circle, functioning as both memorial and practical discipline space. Became central to the "Ridge Leak" sting operation — its dead-drop niches are now monitored (Campaign <a href="campaign-b7.html" class="tl-b">B7</a>).</span></li>
@@ -528,6 +547,7 @@
       <li><span class="locname">Taren's Solar</span><br><span class="locnote">Taren's locked private chamber; a cedar box and silver key appear here to open the first Veil corridor of Campaign B15 — proof the supposedly secure Ridge could still be breached, traced to a stolen Heart Ward fragment carried home unknowingly by Rellan Vos (Campaign <a href="campaign-b15.html" class="tl-b">B15</a>).</span></li>
       <li><span class="locname">The Abandoned Ridge Hunting Lodge</span><br><span class="locnote">A Ridge-allied shelter used as a waypoint during the Brevair extraction; here Cassien secretly draws the remaining Keystone root from Delryn's chest, and Taren later asks him to reopen the repaired Heart Ward as a one-way passage into Rhalen's palace (Campaign <a href="campaign-b15.html" class="tl-b">B15</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- THE BADLANDS -->
@@ -672,12 +692,14 @@
       <tr class="tl-b"><td class="camp">B3</td><td>1–2 ARV</td><td>Vyrn's Spring confirmed as a hidden, living Frostborn enclave.</td></tr>
     </table>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (3)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">Bastion Saren</span><br><span class="locnote">Frozen pre-Dominion relay fortress; site of Clause XI's completion (Campaign <a href="campaign-xi.html" class="tl-a">XI</a>).</span></li>
       <li><span class="locname">Hollowrest Citadel</span><br><span class="locnote">Ancient structure predating the Heart, Flame, and Stone Seals; map-keyed as a northern Binder historical site — not the classic Frost Seal-site itself, but part of the same northern seal landscape (Campaign <a href="campaign-b2.html" class="tl-b">B2</a>).</span></li>
       <li><span class="locname">Vyrn's Spring</span><br><span class="locnote">The Frost Seal's location — strong inference from the map concordance. A hidden Frostbound enclave carved into the Northern Ridges above Silver Bastion, warmed by a geothermal Fissure. Notable features include the Watcher Tunnels (training and travel, kin-only access), the Training Ring (its sigils respond to Caen's bloodline), the Resonance Wells where Frostbound craft ice-signature tools, and the Marker of Caelen — a stele marking where Caen's mother fell during a storm, inscribed "she carried her son into the storm." Holds one half of a watcher-bridge Sending Stone paired with Caen's own, giving Bastion and the Spring a permanent communication link (Campaign <a href="campaign-b3.html" class="tl-b">B3</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- 4CE TERRITORIES -->
@@ -702,13 +724,15 @@
       <li><span class="locname">The Sunrise Barrows</span><br><span class="locnote">Unrelated to the <a href="campaign-xxii.html" class="tl-a">XXII</a> shard event, but flagged for stone that carries a faint post-Severance resonance of its own.</span></li>
     </ul>
 
-    <h3>Notable sub-locations</h3>
-    <ul class="sublocs">
+    <details class="subloc-details">
+      <summary><h3>Notable sub-locations (4)</h3></summary>
+      <ul class="sublocs">
       <li><span class="locname">The Courtyard</span><br><span class="locnote">An open-air quadrangle between the Academy's towers, originally a grid-stabilised training yard; becomes the first recorded Resonance Burst Zone when Zeth's uncontrolled aura, amplified by the shard-presence, causes a radial shockwave (Campaign <a href="campaign-xxiv.html" class="tl-a">XXIV</a>).</span></li>
       <li><span class="locname">The Containment Chamber</span><br><span class="locnote">A cylindrical deep-structure vault beneath the Academy, hybridising inert Concord shielding with 4CE gridcode dampeners. Site of Zeth's early second-layer activation, with Arden providing Safe Anchor oversight (Campaign <a href="campaign-xxiv.html" class="tl-a">XXIV</a>).</span></li>
       <li><span class="locname">East Archive Wing</span><br><span class="locnote">A library-laboratory hybrid where Zeth studies second-layer lattices and Talren repeatedly grounds him — the Academy's first recorded instance of a dyadic lattice filament forming between two people (Campaign <a href="campaign-xxiv.html" class="tl-a">XXIV</a>).</span></li>
       <li><span class="locname">Dyadic Lattice Threshold</span><br><span class="locnote">Not a physical location — a conceptual magical zone reached only through fully merged resonance. Zeth and Talren reach its threshold without full entry, the first empirical proof of a third magical layer existing anywhere post-Severance (Campaign <a href="campaign-xxiv.html" class="tl-a">XXIV</a>).</span></li>
     </ul>
+    </details>
   </div>
 
   <!-- NARETH ISLE -->
