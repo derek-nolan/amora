@@ -2138,6 +2138,7 @@ than passing automatically to Jack or Caelen.</p>
     filterable.forEach(function(el) { el.classList.add('char-hidden-by-filter'); });
     if (rfHeading) rfHeading.classList.add('char-hidden-by-filter');
     if (eeHeading) eeHeading.classList.add('char-hidden-by-filter');
+    recomputeSectionVisibility();
 
     function applyFilter(campaignId, label) {
       filterable.forEach(function(el) {
