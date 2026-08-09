@@ -428,7 +428,7 @@
 <a href="#dena">Dena</a>
 </nav>
 </details>
-<h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px;">Recurring Figures</h2>
+<h2 id="recurring-figures-heading" class="char-hidden-by-filter" style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px;">Recurring Figures</h2>
 <div class="char-card" data-campaigns="b1 i ii" id="zethyr-durrel">
 <div class="card-head"><h3>Zethyr Durrel <span class="pc-tag">PC</span></h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a><a class="stamp-badge tl-b" href="campaign-b1.html">B1</a></div></div>
 <div class="aka">High Commander of the Heartwardens · Lightbound paladin</div>
@@ -1525,7 +1525,7 @@
 <div class="appear-list"><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a></span><span>Seren, Caelan, and Steward Alren Durrel introduce the Ridge as a standing ally.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a></span><span>Taren Durrel <span class="pc-tag">PC</span> reclaims Tarenus's Vault and swears the Renewed Oath of the Ridge.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a></span><span>Jack Durrel <span class="pc-tag">PC</span> is named Warden of Meaning; a cadet-branch Durrel child is brought to the Ridge.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a></span><span>That child, now Caelen Durrel <span class="pc-tag">PC</span>, is targeted and reclaimed from Thorn House.</span></div><div class="appear-row"><span><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></span><span>Taren formally names Jack his successor; succession becomes a negotiated household agreement rather than a private bloodline assumption.</span></div></div>
 <p class="summary" style="margin-top:10px;"><a href="#durrel-tree-b">See the full House Durrel family tree (Timeline B) ↓</a></p>
 </div>
-<div class="char-card" id="durrel-tree-b">
+<div class="char-card" data-campaigns="b7 b9 b12 b13 b14 b15" id="durrel-tree-b">
 <details class="tree-details">
 <summary><h3 style="display:inline;">House Durrel Family Tree — Timeline B</h3>
 <div class="aka" style="margin-top:6px;">Tarenus Durrel to the B15 generation · click to expand</div></summary>
@@ -2050,7 +2050,6 @@ than passing automatically to Jack or Caelen.</p>
     long.</p>
 </div>
 <h2 id="everyone-else-heading" class="char-hidden-by-filter" style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px; margin-top:44px;">Everyone else, by campaign</h2>
-<p id="everyone-else-note" class="char-hidden-by-filter" style="color:var(--vellum-dim); font-size:.9rem; margin-top:-4px;">Six Travellers members (Arden Vale, Rian Thale, Zeth Caden, Talren Vale, Solan, Marrek) aren't repeated here — see their card above.</p>
 <div class="char-group timeline-a">
 <h2>Timeline A</h2>
 <div class="char-row" data-campaigns="iii"><span class="name">Merien Thalos</span><span class="role">Collegium archaeologist who aids the sealing of the Vault of Tarenus after Edrin's Severance. Later co-founds the New Heartwardens, carrying Edrin's caution about power directly into the order's new charter.</span><span class="link"><a href="campaign-iii.html">III</a></span></div>
@@ -2095,10 +2094,50 @@ than passing automatically to Jack or Caelen.</p>
     var filterable = document.querySelectorAll('[data-campaigns]');
     var everyoneElseHeading = document.querySelector('.jump-index');
     var eeHeading = document.getElementById('everyone-else-heading');
-    var eeNote = document.getElementById('everyone-else-note');
+    var rfHeading = document.getElementById('recurring-figures-heading');
+    var charGroups = document.querySelectorAll('.char-group');
+
+    function isVisible(el) {
+      return el && !el.classList.contains('char-hidden-by-filter');
+    }
+
+    // Recompute which section headings should show, based on whether any
+    // content currently sits beneath them — never show a heading over nothing.
+    function recomputeSectionVisibility() {
+      // Recurring Figures: any full char-card visible between it and "Everyone else"?
+      var anyCardVisible = false;
+      var node = rfHeading ? rfHeading.nextElementSibling : null;
+      while (node && node.id !== 'everyone-else-heading') {
+        if (node.classList && node.classList.contains('char-card') && isVisible(node)) {
+          anyCardVisible = true;
+          break;
+        }
+        node = node.nextElementSibling;
+      }
+      if (rfHeading) rfHeading.classList.toggle('char-hidden-by-filter', !anyCardVisible);
+
+      // Everyone else heading: any row visible in either timeline group?
+      var anyRowVisible = false;
+      document.querySelectorAll('.char-row[data-campaigns]').forEach(function(row) {
+        if (isVisible(row)) anyRowVisible = true;
+      });
+      if (eeHeading) eeHeading.classList.toggle('char-hidden-by-filter', !anyRowVisible);
+
+      // Each Timeline A / Timeline B sub-heading inside "everyone else": only if that group has a visible row.
+      charGroups.forEach(function(group) {
+        var groupHasVisible = false;
+        group.querySelectorAll('.char-row[data-campaigns]').forEach(function(row) {
+          if (isVisible(row)) groupHasVisible = true;
+        });
+        var groupHeading = group.querySelector('h2');
+        if (groupHeading) groupHeading.style.display = groupHasVisible ? '' : 'none';
+      });
+    }
 
     // Default landing state: everyone hidden until a campaign is chosen or "View all" is clicked.
     filterable.forEach(function(el) { el.classList.add('char-hidden-by-filter'); });
+    if (rfHeading) rfHeading.classList.add('char-hidden-by-filter');
+    if (eeHeading) eeHeading.classList.add('char-hidden-by-filter');
 
     function applyFilter(campaignId, label) {
       filterable.forEach(function(el) {
@@ -2109,8 +2148,7 @@ than passing automatically to Jack or Caelen.</p>
           el.classList.remove('char-hidden-by-filter');
         }
       });
-      if (eeHeading) eeHeading.classList.remove('char-hidden-by-filter');
-      if (eeNote) eeNote.classList.remove('char-hidden-by-filter');
+      recomputeSectionVisibility();
       filterTiles.forEach(function(t) {
         t.classList.toggle('tile-active', t.getAttribute('data-campaign') === campaignId);
       });
@@ -2122,8 +2160,7 @@ than passing automatically to Jack or Caelen.</p>
 
     function viewAll() {
       filterable.forEach(function(el) { el.classList.remove('char-hidden-by-filter'); });
-      if (eeHeading) eeHeading.classList.remove('char-hidden-by-filter');
-      if (eeNote) eeNote.classList.remove('char-hidden-by-filter');
+      recomputeSectionVisibility();
       filterTiles.forEach(function(t) { t.classList.remove('tile-active'); });
       filterStatusText.textContent = 'Showing all characters —';
       clearBtn.style.display = 'none';
@@ -2133,8 +2170,7 @@ than passing automatically to Jack or Caelen.</p>
 
     function resetToLanding() {
       filterable.forEach(function(el) { el.classList.add('char-hidden-by-filter'); });
-      if (eeHeading) eeHeading.classList.add('char-hidden-by-filter');
-      if (eeNote) eeNote.classList.add('char-hidden-by-filter');
+      recomputeSectionVisibility();
       filterTiles.forEach(function(t) { t.classList.remove('tile-active'); });
       filterStatusText.textContent = 'Select a campaign above, or';
       clearBtn.style.display = 'none';
