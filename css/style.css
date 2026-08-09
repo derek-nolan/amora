@@ -264,6 +264,19 @@ article h3 { font-size: 1.15rem; margin-top: 26px; }
   margin-left: 6px;
   vertical-align: middle;
 }
+.antagonist-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vellum);
+  background: var(--violet);
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
 
 .canon-note {
   border: 1px dashed var(--hairline);
