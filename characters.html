@@ -74,6 +74,8 @@
   .filter-status { display: flex; align-items: center; gap: 14px; background: var(--ink-raised); border: 1px solid var(--hairline); border-radius: 3px; padding: 10px 16px; margin-bottom: 16px; font-size: .9rem; }
   #clear-filter-btn { font-family: inherit; font-size: .82rem; color: var(--bronze); background: none; border: 1px solid var(--bronze-dim); border-radius: 3px; padding: 4px 10px; cursor: pointer; }
   #clear-filter-btn:hover { background: var(--bronze-dim); color: var(--ink); }
+  #view-all-btn { font-family: inherit; font-size: .82rem; color: var(--steel); background: none; border: 1px solid var(--steel-dim); border-radius: 3px; padding: 4px 10px; cursor: pointer; }
+  #view-all-btn:hover { background: var(--steel-dim); color: var(--ink); }
   .char-hidden-by-filter { display: none !important; }
 </style>
 </head>
@@ -115,12 +117,13 @@
     Ledger</a> for name variants like Durrel/Durell and Kellan/Caen.</p>
 </section>
 <section class="hero" style="padding-top:0;padding-bottom:0;">
-<details class="browse-campaigns">
-  <summary><h2 style="display:inline;">Browse by Campaign <span class="browse-hint">— click a campaign to filter the list below to just its cast</span></h2></summary>
-  <p class="browse-note">These tiles filter this page only — they don't navigate away. Reused from the <a href="timeline-a.html">Timeline A</a> and <a href="timeline-b.html">Timeline B</a> pages so campaign names stay consistent; if you want the full campaign story, follow the link inside a character's card instead.</p>
-  <div id="filter-status" class="filter-status" style="display:none;">
-    <span id="filter-status-text"></span>
-    <button type="button" id="clear-filter-btn">Clear filter ✕</button>
+<details class="browse-campaigns" open>
+  <summary><h2 style="display:inline;">Browse by Campaign <span class="browse-hint">— click a campaign to see just its cast, or view everyone below</span></h2></summary>
+  <p class="browse-note">These tiles filter this page in place — they don't navigate away. Reused from the <a href="timeline-a.html">Timeline A</a> and <a href="timeline-b.html">Timeline B</a> pages so campaign names stay consistent; if you want the full campaign story, follow the link inside a character's card instead.</p>
+  <div id="filter-status" class="filter-status">
+    <span id="filter-status-text">Select a campaign above, or</span>
+    <button type="button" id="view-all-btn">View all characters</button>
+    <button type="button" id="clear-filter-btn" style="display:none;">Clear filter ✕</button>
   </div>
   <h3 class="browse-tl-label tl-a-label">Timeline A</h3>
   <div class="campaign-grid browse-grid">
@@ -2044,8 +2047,8 @@ than passing automatically to Jack or Caelen.</p>
     own generation, and had deliberately prevented its careless rediscovery for just as
     long.</p>
 </div>
-<h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px; margin-top:44px;">Everyone else, by campaign</h2>
-<p style="color:var(--vellum-dim); font-size:.9rem; margin-top:-4px;">Six Travellers members (Arden Vale, Rian Thale, Zeth Caden, Talren Vale, Solan, Marrek) aren't repeated here — see their card above.</p>
+<h2 id="everyone-else-heading" class="char-hidden-by-filter" style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px; margin-top:44px;">Everyone else, by campaign</h2>
+<p id="everyone-else-note" class="char-hidden-by-filter" style="color:var(--vellum-dim); font-size:.9rem; margin-top:-4px;">Six Travellers members (Arden Vale, Rian Thale, Zeth Caden, Talren Vale, Solan, Marrek) aren't repeated here — see their card above.</p>
 <div class="char-group timeline-a">
 <h2>Timeline A</h2>
 <div class="char-row" data-campaigns="iii"><span class="name">Merien Thalos</span><span class="role">Collegium archaeologist who aids the sealing of the Vault of Tarenus after Edrin's Severance. Later co-founds the New Heartwardens, carrying Edrin's caution about power directly into the order's new charter.</span><span class="link"><a href="campaign-iii.html">III</a></span></div>
@@ -2086,7 +2089,14 @@ than passing automatically to Jack or Caelen.</p>
     var filterStatus = document.getElementById('filter-status');
     var filterStatusText = document.getElementById('filter-status-text');
     var clearBtn = document.getElementById('clear-filter-btn');
+    var viewAllBtn = document.getElementById('view-all-btn');
     var filterable = document.querySelectorAll('[data-campaigns]');
+    var everyoneElseHeading = document.querySelector('.jump-index');
+    var eeHeading = document.getElementById('everyone-else-heading');
+    var eeNote = document.getElementById('everyone-else-note');
+
+    // Default landing state: everyone hidden until a campaign is chosen or "View all" is clicked.
+    filterable.forEach(function(el) { el.classList.add('char-hidden-by-filter'); });
 
     function applyFilter(campaignId, label) {
       filterable.forEach(function(el) {
@@ -2097,19 +2107,36 @@ than passing automatically to Jack or Caelen.</p>
           el.classList.remove('char-hidden-by-filter');
         }
       });
+      if (eeHeading) eeHeading.classList.remove('char-hidden-by-filter');
+      if (eeNote) eeNote.classList.remove('char-hidden-by-filter');
       filterTiles.forEach(function(t) {
         t.classList.toggle('tile-active', t.getAttribute('data-campaign') === campaignId);
       });
       filterStatusText.textContent = 'Showing characters from ' + label + ' only';
-      filterStatus.style.display = 'flex';
-      var list = document.querySelector('.jump-index');
-      if (list) list.scrollIntoView({behavior: 'smooth', block: 'start'});
+      clearBtn.style.display = 'inline-block';
+      viewAllBtn.style.display = 'inline-block';
+      if (everyoneElseHeading) everyoneElseHeading.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
 
-    function clearFilter() {
+    function viewAll() {
       filterable.forEach(function(el) { el.classList.remove('char-hidden-by-filter'); });
+      if (eeHeading) eeHeading.classList.remove('char-hidden-by-filter');
+      if (eeNote) eeNote.classList.remove('char-hidden-by-filter');
       filterTiles.forEach(function(t) { t.classList.remove('tile-active'); });
-      filterStatus.style.display = 'none';
+      filterStatusText.textContent = 'Showing all characters —';
+      clearBtn.style.display = 'none';
+      viewAllBtn.style.display = 'none';
+      if (everyoneElseHeading) everyoneElseHeading.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+
+    function resetToLanding() {
+      filterable.forEach(function(el) { el.classList.add('char-hidden-by-filter'); });
+      if (eeHeading) eeHeading.classList.add('char-hidden-by-filter');
+      if (eeNote) eeNote.classList.add('char-hidden-by-filter');
+      filterTiles.forEach(function(t) { t.classList.remove('tile-active'); });
+      filterStatusText.textContent = 'Select a campaign above, or';
+      clearBtn.style.display = 'none';
+      viewAllBtn.style.display = 'inline-block';
     }
 
     filterTiles.forEach(function(tile) {
@@ -2117,14 +2144,15 @@ than passing automatically to Jack or Caelen.</p>
         var cid = tile.getAttribute('data-campaign');
         var label = tile.querySelector('h3').textContent + ' (' + tile.querySelector('.num').textContent + ')';
         if (tile.classList.contains('tile-active')) {
-          clearFilter();
+          resetToLanding();
         } else {
           applyFilter(cid, label);
         }
       });
     });
 
-    if (clearBtn) clearBtn.addEventListener('click', clearFilter);
+    if (viewAllBtn) viewAllBtn.addEventListener('click', viewAll);
+    if (clearBtn) clearBtn.addEventListener('click', resetToLanding);
   })();
 </script>
 <script>
