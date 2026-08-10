@@ -431,7 +431,7 @@
 </details>
 <h2 id="recurring-figures-heading" class="char-hidden-by-filter" style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum-dim);border-bottom:1px solid var(--hairline);padding-bottom:8px;">Recurring Figures</h2>
 <div class="char-card" data-campaigns="i ii iii b7 b9 b12 b13 b14 b15 xix xx" id="tarenus-durrel">
-<div class="card-head"><h3>Tarenus Durrel</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a><a class="stamp-badge" href="campaign-iii.html">III</a><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a><a class="stamp-badge" href="campaign-xix.html">XIX</a><a class="stamp-badge" href="campaign-xx.html">XX</a></div></div>
+<div class="card-head"><h3>Tarenus Durrel</h3><div class="card-stamps"><a class="stamp-badge" href="campaign-i.html">I</a><a class="stamp-badge" href="campaign-ii.html">II</a><a class="stamp-badge" href="campaign-iii.html">III</a><a class="stamp-badge" href="campaign-xix.html">XIX</a><a class="stamp-badge" href="campaign-xx.html">XX</a><a class="stamp-badge tl-b" href="campaign-b7.html">B7</a><a class="stamp-badge tl-b" href="campaign-b9.html">B9</a><a class="stamp-badge tl-b" href="campaign-b12.html">B12</a><a class="stamp-badge tl-b" href="campaign-b13.html">B13</a><a class="stamp-badge tl-b" href="campaign-b14.html">B14</a><a class="stamp-badge tl-b" href="campaign-b15.html">B15</a></div></div>
 <div class="aka">Founding Heartbinder · Ancestor of House Durrel</div>
 <div class="quick-facts"><span><span class="qf-label">Status</span>Entombed beneath Durrel Ridge; nature of continued presence unconfirmed</span><span><span class="qf-label">Home</span>Durrel Ridge (Vault of Tarenus)</span><span><span class="qf-label">Key relationship</span>Ancestor to the entire Durrel line, both timelines</span></div>
 <p class="summary">An ancient founding Heartbinder of House Durrel and the earliest
@@ -2259,13 +2259,30 @@ than passing automatically to Jack or Caelen.</p>
     if (clearBtn) clearBtn.addEventListener('click', resetToLanding);
 
     // Jump-index links (and any other in-page anchor) point at cards that are
-    // hidden by default in the landing state — reveal everyone before scrolling.
+    // hidden by default in the landing state. Show just that one character
+    // rather than dropping the visitor into the full list of everyone.
+    function soloView(target) {
+      filterable.forEach(function(el) {
+        if (el === target) {
+          el.classList.remove('char-hidden-by-filter');
+        } else {
+          el.classList.add('char-hidden-by-filter');
+        }
+      });
+      recomputeSectionVisibility();
+      filterTiles.forEach(function(t) { t.classList.remove('tile-active'); });
+      var name = target.querySelector('h3') ? target.querySelector('h3').childNodes[0].textContent.trim() : 'this character';
+      filterStatusText.textContent = 'Showing ' + name + ' only';
+      clearBtn.style.display = 'inline-block';
+      viewAllBtn.style.display = 'inline-block';
+    }
+
     function revealForHash() {
       var hash = window.location.hash;
       if (!hash || hash.length < 2) return;
       var target = document.getElementById(hash.slice(1));
-      if (target && target.closest('.char-hidden-by-filter')) {
-        viewAll();
+      if (target && target.hasAttribute('data-campaigns')) {
+        soloView(target);
         setTimeout(function() {
           target.scrollIntoView({behavior: 'smooth', block: 'start'});
         }, 30);
