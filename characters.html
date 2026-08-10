@@ -2257,6 +2257,22 @@ than passing automatically to Jack or Caelen.</p>
 
     if (viewAllBtn) viewAllBtn.addEventListener('click', viewAll);
     if (clearBtn) clearBtn.addEventListener('click', resetToLanding);
+
+    // Jump-index links (and any other in-page anchor) point at cards that are
+    // hidden by default in the landing state — reveal everyone before scrolling.
+    function revealForHash() {
+      var hash = window.location.hash;
+      if (!hash || hash.length < 2) return;
+      var target = document.getElementById(hash.slice(1));
+      if (target && target.closest('.char-hidden-by-filter')) {
+        viewAll();
+        setTimeout(function() {
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 30);
+      }
+    }
+    window.addEventListener('hashchange', revealForHash);
+    revealForHash();
   })();
 </script>
 <script>
