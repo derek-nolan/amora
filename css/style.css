@@ -192,6 +192,37 @@ nav.tab-index a:hover, nav.tab-index a.current {
 .arc-header p { margin: 4px 0 0; font-size: 0.85rem; color: var(--vellum-dim); max-width: 640px; }
 .campaign-tile.tone-light { border-top: 3px solid var(--bronze-dim); }
 .campaign-tile.tone-veil { border-top: 3px solid var(--crimson); }
+.campaign-tile.era-contemporary,
+.campaign-tile.era-prequel {
+  position: relative;
+  padding-top: 32px;
+  overflow: hidden;
+}
+.campaign-tile.era-contemporary::before,
+.campaign-tile.era-prequel::before {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 5px 0;
+}
+.campaign-tile.era-contemporary::before {
+  content: "● PRESENT DAY";
+  background: var(--steel-dim);
+  color: var(--vellum);
+}
+.campaign-tile.era-prequel::before {
+  content: "○ PREQUEL";
+  background: var(--bronze-dim);
+  color: var(--vellum);
+}
+.campaign-tile.era-prequel {
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 7px, rgba(185,134,63,0.05) 7px, rgba(185,134,63,0.05) 8px);
+}
+.campaign-tile.era-contemporary { border-color: var(--steel-dim); }
+.campaign-tile.era-prequel { border-color: var(--bronze-dim); }
 .tone-legend {
   grid-column: 1 / -1;
   display: flex;
