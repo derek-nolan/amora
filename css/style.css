@@ -190,8 +190,37 @@ nav.tab-index a:hover, nav.tab-index a.current {
 }
 .arc-header h2 { margin: 2px 0 0; font-size: 1.15rem; }
 .arc-header p { margin: 4px 0 0; font-size: 0.85rem; color: var(--vellum-dim); max-width: 640px; }
-.campaign-tile.tone-light { border-top: 3px solid var(--bronze-dim); }
-.campaign-tile.tone-veil { border-top: 3px solid var(--crimson); }
+.campaign-tile.tone-light,
+.campaign-tile.tone-veil {
+  position: relative;
+  padding-top: 32px;
+  overflow: hidden;
+}
+.campaign-tile.tone-light::before,
+.campaign-tile.tone-veil::before {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 5px 0;
+}
+.campaign-tile.tone-light::before {
+  content: "☉ LIGHT-ALIGNED";
+  background: var(--bronze-dim);
+  color: var(--vellum);
+}
+.campaign-tile.tone-veil::before {
+  content: "☾ VEIL ORIGIN";
+  background: var(--crimson);
+  color: var(--vellum);
+}
+.campaign-tile.tone-veil {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(156,74,63,0.08) 6px, rgba(156,74,63,0.08) 7px);
+}
+.campaign-tile.tone-light { border-color: var(--bronze-dim); }
+.campaign-tile.tone-veil { border-color: var(--crimson); }
 .campaign-tile.era-contemporary,
 .campaign-tile.era-prequel {
   position: relative;
