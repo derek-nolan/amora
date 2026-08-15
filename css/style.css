@@ -464,6 +464,28 @@ footer {
   padding: 16px 18px;
   outline: none;
 }
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 18px;
+  border-bottom: 1px dotted var(--hairline);
+}
+.search-filter-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .66rem;
+  letter-spacing: .02em;
+  background: none;
+  border: 1px solid var(--hairline);
+  color: var(--vellum-dim);
+  padding: 4px 9px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.search-filter-chip:hover { border-color: var(--bronze); color: var(--vellum); }
+.search-filter-chip.active { border-color: var(--bronze); color: var(--bronze); background: rgba(185,134,63,0.1); }
+.search-filter-chip .sf-count { color: inherit; opacity: .65; }
 #site-search-results { max-height: 55vh; overflow-y: auto; }
 .search-result {
   display: block;
