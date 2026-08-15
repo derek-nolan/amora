@@ -252,6 +252,20 @@ nav.tab-index a:hover, nav.tab-index a.current {
 }
 .campaign-tile.era-contemporary { border-color: var(--steel-dim); }
 .campaign-tile.era-prequel { border-color: var(--bronze-dim); }
+.campaign-tile.historical-marker {
+  border-style: dashed;
+  cursor: default;
+}
+.campaign-tile.historical-marker:hover {
+  border-color: var(--hairline);
+  transform: none;
+}
+.campaign-tile.historical-marker .num {
+  color: var(--vellum-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+}
 .tone-legend {
   grid-column: 1 / -1;
   display: flex;
