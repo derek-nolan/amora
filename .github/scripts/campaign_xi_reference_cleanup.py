@@ -103,3 +103,4 @@ if entry not in text:
     save('search-index.js', text)
 
 print('Campaign XI reference cleanup applied successfully.')
+# Triggered after the temporary workflow was added.
