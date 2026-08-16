@@ -125,7 +125,7 @@
 
   <section class="threads-section">
     <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--vellum);border-bottom:1px solid var(--hairline);padding-bottom:8px;">The Two Threads</h2>
-    <p class="lede" style="margin-top:12px;">All 43 campaigns in one branching view: Ancient
+    <p class="lede" style="margin-top:12px;">All 44 campaigns in one branching view: Ancient
     Amora as the shared root, forking at 0 ARV into Timeline A's completed cycle and
     Timeline B's reforged world. Hover a node for its title and summary; click to open its
     full page. The detailed tables below cover the same ground in full text.</p>
@@ -229,6 +229,7 @@
     <tr class="tl-b"><td class="num"><a href="campaign-b15.html">B15</a></td><td>The Crownless War</td><td>Late c. 162 ARV</td><td>Taren Durrel extracts Delryn from Brevair, destroys Rhalen's Keystone, and kills Rhalen personally — closing his own B9–B15 arc and naming Jack Durrel his successor.</td></tr>
     <tr class="tl-b"><td class="num"><a href="campaign-b16.html">B16</a></td><td>Echoes Beneath Stone</td><td>c. 342 ARV</td><td>Nicholas Soren discovers his family descends from a forgotten, unfallen Western branch of the Icewardens and is recognised as Custodian — opening Timeline B's next historical phase, roughly 180 years after the Ridge Arc.</td></tr>
     <tr class="tl-b"><td class="num"><a href="campaign-b17.html">B17</a></td><td>The Second Measure</td><td>c. 342 ARV</td><td>Nick and Halden recover the first coherent history of how the Great Seals were actually set, dating Tarenus Durrel and the Shattering — closing Nick's major inherited questions as he and Jarek get engaged.</td></tr>
+    <tr class="tl-b"><td class="num"><a href="campaign-b19.html">B19</a></td><td>Storm Walker</td><td>mid-343 ARV</td><td>Benjamin Strake's Farbound expedition rediscovers ruined Alderwick, locates the Storm Great Seal, and eases a major accumulation of pressure — the Badlands' extreme storm regime substantially calms, though the Shattering's physical damage remains. B19 continues directly from B17's present day, not from B18's -938 ARV prequel.</td></tr>
   </table>
 </div>
 
@@ -308,7 +309,8 @@
     { n: "B14", title: "The Bastion Reclaimed", date: "Late c. 162 ARV", href: "campaign-b14.html", blurb: "Mike Rookvale reclaims Silver Bastion for good.", arv: 162 },
     { n: "B15", title: "The Crownless War", date: "Late c. 162 ARV", href: "campaign-b15.html", blurb: "Taren Durrel closes his own arc and names Jack Durrel his successor.", arv: 162 },
     { n: "B16", title: "Echoes Beneath Stone", date: "c. 342 ARV", href: "campaign-b16.html", blurb: "Nicholas Soren is recognised as Custodian of a forgotten Icewarden branch.", arv: 342 },
-    { n: "B17", title: "The Second Measure", date: "c. 342 ARV", href: "campaign-b17.html", blurb: "Nick and Halden recover the history of how the Great Seals were set.", arv: 342 }
+    { n: "B17", title: "The Second Measure", date: "c. 342 ARV", href: "campaign-b17.html", blurb: "Nick and Halden recover the history of how the Great Seals were set.", arv: 342 },
+    { n: "B19", title: "Storm Walker", date: "mid-343 ARV", href: "campaign-b19.html", blurb: "Ben locates the Storm Great Seal and eases its burden; the Badlands' storm regime substantially calms.", arv: 343 }
   ];
 
   var stage = document.getElementById("threads-stage");
@@ -317,7 +319,7 @@
   if (!stage || !tooltip) return;
 
   TIMELINE_A.forEach(function(d, i) { d._t = d.arv / 9800; });
-  TIMELINE_B.forEach(function(d, i) { d._t = d.arv / 342; });
+  TIMELINE_B.forEach(function(d, i) { d._t = d.arv / 343; });
 
   function xFor(list, i, mode, spanStart, spanEnd) {
     if (mode === "index") {
@@ -340,7 +342,7 @@
     var forkX = 300, forkY = 175;
     var topY = 96, botY = 254;
     var ancientStartX = 30, ancientEndX = forkX - 20;
-    var bThreadEndX = currentMode === "index" ? 1250 : (forkX + 140) + ((W - 50) - (forkX + 140)) * (342/9800);
+    var bThreadEndX = currentMode === "index" ? 1250 : (forkX + 140) + ((W - 50) - (forkX + 140)) * (343/9800);
 
     var svgParts = [];
     svgParts.push('<svg width="' + W + '" height="' + H + '" xmlns="http://www.w3.org/2000/svg">');
