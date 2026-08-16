@@ -180,8 +180,8 @@
   <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--bronze);">Timeline A</h2>
   <table>
     <tr><th>#</th><th>Title</th><th>Age</th><th>ARV Date</th><th>What happens</th></tr>
-    <tr class="tl-a"><td class="num"><a href="campaign-i.html">I</a></td><td>The Heartwardens</td><td>Age of Founding</td><td>0–27 ARV</td><td>Zethyr and Taren revive the lapsed Heartwardens and stabilise the Heart Seal — the founding bond that shapes everything after it.</td></tr>
-    <tr class="tl-a"><td class="num"><a href="campaign-ii.html">II</a></td><td>The Veil Ascendant</td><td>Age of Dominion</td><td>28–55 ARV</td><td>Taren's hunger for permanence turns the Heartwardens into the Veilwardens and the world into the Dominion; Zethyr ends it with the first Severance.</td></tr>
+    <tr class="tl-a"><td class="num"><a href="campaign-i.html">I</a></td><td>The Heartwardens</td><td>Age of Founding</td><td>0 ARV</td><td>Zethyr and Taren revive the lapsed Heartwardens and stabilise the Heart Seal — the founding bond that shapes everything after it.</td></tr>
+    <tr class="tl-a"><td class="num"><a href="campaign-ii.html">II</a></td><td>The Veil Ascendant</td><td>Age of Dominion</td><td>0–2 ARV</td><td>Taren's hunger for permanence turns the Heartwardens into the Veilwardens and the world into the Dominion; Zethyr ends it with the first Severance.</td></tr>
     <tr class="tl-a"><td class="num"><a href="campaign-iii.html">III</a></td><td>The Durrel Legacy</td><td>Age of Reclamation</td><td>c. 900 ARV</td><td>Edrin Durrel bonds with a Taren-echo, watches him begin rebuilding the Dominion, and severs the Echo Chain to stop it — naming Severance for the first time.</td></tr>
     <tr style="background:rgba(156,74,63,0.08);"><td class="num" style="color:var(--crimson);">—</td><td style="font-style:italic;color:var(--vellum-dim);">Historical interlude: the Tempest Divide</td><td style="font-style:italic;color:var(--vellum-dim);">Geographic cataclysm — sinks coasts, fractures settlements</td><td>c. 975 ARV</td><td style="font-style:italic;color:var(--vellum-dim);">A continent-altering storm event, unrelated to any campaign's own actions.</td></tr>
     <tr class="tl-a"><td class="num"><a href="campaign-iv.html">IV</a></td><td>The Emperor Reforged</td><td>Age of Renewal</td><td>c. 1900–2000 ARV</td><td>Coren Veyne tries to rule kindly as the "Emperor Reforged," with Feran Durrel as his human counterweight — a half-success later ages read as a warning.</td></tr>
@@ -208,7 +208,7 @@
     <tr class="tl-a"><td class="num"><a href="campaign-xxiv.html">XXIV</a></td><td>The Resonant Veil</td><td>4CE, Academy of Resonant Studies</td><td>9700–9720 ARV</td><td>Zeth and Talren become the era's first Living Dyad, mentored by Arden as the Academy's first Safe Anchor.</td></tr>
     <tr class="tl-a"><td class="num"><a href="campaign-xxv.html">XXV</a></td><td>The Broken Anchor</td><td>Fracture → Temporal Reboot</td><td>9750–9800 ARV</td><td>All six travellers form a six-point resonance formation to end the Caelen echo — the Fracture that ends Timeline A and begins Timeline B.</td></tr>
   </table>
-  <p style="font-size:.78rem;color:var(--vellum-dim);font-style:italic;margin:-8px 0 20px;">Campaigns I and II show their later-normalised 0–27 ARV / 28–55 ARV archival spans above, kept for long-range consistency with the rest of this table. The played chronology sits much tighter: Campaign I covers about seven months, and Campaign II begins the following month and unfolds over roughly the next two years. See the <a href="canon-ledger.html">Canon Ledger</a> for the full note.</p>
+  <p style="font-size:.78rem;color:var(--vellum-dim);font-style:italic;margin:-8px 0 20px;">Campaigns I and II show play-accurate dates above: Campaign I covers about seven months within 0 ARV, and Campaign II begins the following month and unfolds over roughly the next two years. Older summary documents had normalised these to a stretched 0–27 ARV / 28–55 ARV span; see the <a href="canon-ledger.html">Canon Ledger</a> for the correction.</p>
 
   <h2 style="text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:var(--steel);">Timeline B</h2>
   <table>
@@ -264,8 +264,8 @@
   ];
 
   var TIMELINE_A = [
-    { n: "I", title: "The Heartwardens", date: "0–27 ARV", href: "campaign-i.html", blurb: "Zethyr and Taren revive the lapsed Heartwardens and stabilise the Heart Seal.", arv: 0 },
-    { n: "II", title: "The Veil Ascendant", date: "28–55 ARV", href: "campaign-ii.html", blurb: "Taren's hunger for permanence turns the Heartwardens into the Veilwardens.", arv: 28 },
+    { n: "I", title: "The Heartwardens", date: "0 ARV", href: "campaign-i.html", blurb: "Zethyr and Taren revive the lapsed Heartwardens and stabilise the Heart Seal.", arv: 0 },
+    { n: "II", title: "The Veil Ascendant", date: "0–2 ARV", href: "campaign-ii.html", blurb: "Taren's hunger for permanence turns the Heartwardens into the Veilwardens.", arv: 0 },
     { n: "III", title: "The Durrel Legacy", date: "c. 900 ARV", href: "campaign-iii.html", blurb: "Edrin Durrel severs the Echo Chain, naming Severance for the first time.", arv: 900 },
     { n: "—", title: "Tempest Divide", date: "c. 975 ARV", interlude: true, blurb: "A continent-altering storm event, unrelated to any campaign's own actions.", arv: 975 },
     { n: "IV", title: "The Emperor Reforged", date: "c. 1900–2000 ARV", href: "campaign-iv.html", blurb: "Coren Veyne tries to rule kindly as the \"Emperor Reforged.\"", arv: 1900 },
