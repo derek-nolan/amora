@@ -6,6 +6,7 @@ on:
       - timeline-a-xii-xxv-reconstruction
     paths:
       - .github/scripts/timeline_a_xii_xxv_cleanup.py
+      - .github/workflows/timeline-a-xii-xxv-cleanup-temp.yml
 
 permissions:
   contents: write
