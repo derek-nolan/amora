@@ -1,0 +1,32 @@
+name: Temporary Timeline A XII-XXV reconstruction
+
+on:
+  push:
+    branches:
+      - timeline-a-xii-xxv-reconstruction
+    paths:
+      - .github/scripts/timeline_a_xii_xxv_cleanup.py
+
+permissions:
+  contents: write
+
+jobs:
+  apply-cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply targeted late Timeline A reconstruction
+        run: python .github/scripts/timeline_a_xii_xxv_cleanup.py
+      - name: Commit published changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add campaign-xii.html campaign-xiii.html campaign-xvii.html campaign-xviii.html campaign-xix.html campaign-xxiv.html campaign-xxv.html chronology.html atlas.html characters.html canon-ledger.html search-index.js
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Finalise late Timeline A continuity"
+            git push origin HEAD:timeline-a-xii-xxv-reconstruction
+          fi
