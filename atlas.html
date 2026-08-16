@@ -42,38 +42,6 @@
     line-height: 0;
   }
   .map-frame img { width: 100%; height: auto; display: block; }
-  .map-hotspots { position: absolute; inset: 0; pointer-events: none; }
-  .map-hotspot { position: absolute; transform: translate(-50%, -50%); text-decoration: none; pointer-events: auto; }
-  .map-hotspot-dot {
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--bronze);
-    border: 2px solid var(--ink);
-    box-shadow: 0 0 0 3px rgba(185,134,63,0.3);
-    transition: transform .15s, background .15s;
-  }
-  .map-hotspot:hover .map-hotspot-dot, .map-hotspot:focus .map-hotspot-dot { transform: scale(1.35); background: var(--vellum); }
-  .map-hotspot-label {
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 8px);
-    transform: translateX(-50%);
-    white-space: nowrap;
-    background: var(--ink-raised);
-    border: 1px solid var(--bronze);
-    color: var(--vellum);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: .68rem;
-    padding: 3px 8px;
-    border-radius: 3px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .15s;
-    z-index: 5;
-  }
-  .map-hotspot:hover .map-hotspot-label, .map-hotspot:focus .map-hotspot-label { opacity: 1; }
   .map-caption {
     text-align: center;
     font-family: 'Spectral', serif;
@@ -183,11 +151,9 @@
   <section class="map-viewer">
     <div class="map-frame">
       <img id="map-display" src="maps/vanmere-000arv.png" alt="Map of Vanmere">
-      <div class="map-hotspots" id="map-hotspots"></div>
     </div>
     <div class="map-caption">
       <span id="map-era-title">Year 0 ARV — The Beginning of a Reforged Age</span>
-      <br><span style="font-size:.72rem;font-style:normal;color:var(--vellum-dim);">Marked locations are clickable through to their Atlas entry — currently available on the 0 ARV, 342 ARV, and Ancient Amora maps.</span>
     </div>
     <div class="map-buttons">
       <span class="map-group-label tl-ancient-label">Ancient Amora — shared pre-Fracture history</span>
@@ -209,63 +175,14 @@
   </section>
 
   <script>
-    // Clickable hotspots for the maps where region positions have been verified.
-    // Eras not listed here simply show no hotspots rather than guessed ones.
-    var MAP_HOTSPOTS = {
-      'maps/vanmere-000arv.png': [
-        { label: 'Silver Bastion', href: 'atlas.html#silver-bastion', x: 41.1, y: 31.8 },
-        { label: 'Durrel Ridge', href: 'atlas.html#durrel-ridge', x: 59.9, y: 35.5 },
-        { label: 'Highever', href: 'atlas.html#highever', x: 49.0, y: 59.7 },
-        { label: 'Evermere', href: 'atlas.html#evermere', x: 18.1, y: 57.3 },
-        { label: 'The Badlands', href: 'atlas.html#the-badlands', x: 44.9, y: 73.2 },
-        { label: 'Brevair', href: 'atlas.html#brevair', x: 89.8, y: 57.8 },
-        { label: 'Greymount / Tarenus', href: 'atlas.html#greymount-tarenus', x: 60.8, y: 54.1 }
-      ],
-      'maps/vanmere-342arv.png': [
-        { label: 'Silver Bastion', href: 'atlas.html#silver-bastion', x: 41.3, y: 31.8 },
-        { label: 'Durrel Ridge', href: 'atlas.html#durrel-ridge', x: 59.9, y: 35.5 },
-        { label: 'Highever', href: 'atlas.html#highever', x: 49.0, y: 59.7 },
-        { label: 'Evermere', href: 'atlas.html#evermere', x: 18.1, y: 57.3 },
-        { label: 'The Badlands', href: 'atlas.html#the-badlands', x: 44.9, y: 73.2 },
-        { label: 'Brevair', href: 'atlas.html#brevair', x: 89.8, y: 57.8 },
-        { label: 'Greymount / Tarenus', href: 'atlas.html#greymount-tarenus', x: 60.8, y: 54.1 },
-        { label: 'Rimeholt', href: 'atlas.html#rimeholt', x: 29.8, y: 28.5 }
-      ],
-      'maps/vanmere-ancient938arv.png': [
-        { label: 'Highever', href: 'atlas.html#highever', x: 42.5, y: 36.4 },
-        { label: 'Durrel Ridge', href: 'atlas.html#durrel-ridge', x: 64.2, y: 34.1 },
-        { label: 'Alderwick', href: 'atlas.html#alderwick', x: 47.7, y: 48.3 },
-        { label: 'Greymount / Tarenus', href: 'atlas.html#greymount-tarenus', x: 66.6, y: 48.3 },
-        { label: 'Evermere', href: 'atlas.html#evermere', x: 13.0, y: 48.3 }
-      ]
-    };
-
-    function renderHotspots(src) {
-      var container = document.getElementById('map-hotspots');
-      container.innerHTML = '';
-      var spots = MAP_HOTSPOTS[src] || [];
-      spots.forEach(function(spot) {
-        var a = document.createElement('a');
-        a.className = 'map-hotspot';
-        a.href = spot.href;
-        a.style.left = spot.x + '%';
-        a.style.top = spot.y + '%';
-        a.title = spot.label;
-        a.innerHTML = '<span class="map-hotspot-dot"></span><span class="map-hotspot-label">' + spot.label + '</span>';
-        container.appendChild(a);
-      });
-    }
-
     document.querySelectorAll('.map-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         document.getElementById('map-display').src = btn.dataset.src;
         document.getElementById('map-era-title').textContent = btn.dataset.title;
         document.querySelectorAll('.map-btn').forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        renderHotspots(btn.dataset.src);
       });
     });
-    renderHotspots(document.getElementById('map-display').getAttribute('src'));
   </script>
 
   <!-- HIGHEVER -->
